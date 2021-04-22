@@ -2,7 +2,7 @@ name: Generate & Deploy Documentation
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   generate-and-deploy:
