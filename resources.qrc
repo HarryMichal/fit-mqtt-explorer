@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file alias="display-symbolic.svg">static/icons/display-symbolic.svg</file>
+        <file alias="navigate-symbolic.svg">static/icons/navigate-symbolic.svg</file>
+    </qresource>
+</RCC>
