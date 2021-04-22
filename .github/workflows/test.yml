@@ -1,0 +1,29 @@
+name: Test FIT MQTT Client
+
+on:
+    push:
+        branches: [ main ]
+    pull_request:
+        branches: [ main ]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+
+        - name: Cache Qt
+          id: cache-qt
+          uses: actions/cache@v2
+          with:
+              path: ${{ runner.workspace }}/Qt
+              key: ${{ runner.os }}-QtCache
+
+        - name: Install Qt
+          uses: jurplel/install-qt-action@v2
+          with:
+              version: '5.9.7'
+              cached: ${{ steps.cache-qt.outputs.cache-hit }}
+
+        - name: Build FIT MQTT Client
+          run: make
