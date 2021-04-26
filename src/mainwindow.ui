@@ -85,10 +85,13 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionConnect"/>
+   <addaction name="separator"/>
    <addaction name="actionDashboard"/>
    <addaction name="actionExplorer"/>
    <addaction name="separator"/>
   </widget>
+  <widget class="QStatusBar" name="statusBar"/>
   <action name="actionDashboard">
    <property name="checkable">
     <bool>true</bool>
@@ -123,6 +126,18 @@
    </property>
    <property name="visible">
     <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionConnect">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icons/globe-alt-symbolic.svg</normaloff>:/icons/globe-alt-symbolic.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Connect</string>
+   </property>
+   <property name="toolTip">
+    <string>Connect</string>
    </property>
   </action>
  </widget>

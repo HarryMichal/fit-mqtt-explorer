@@ -2,5 +2,6 @@
     <qresource prefix="/icons">
         <file alias="display-symbolic.svg">data/icons/display-symbolic.svg</file>
         <file alias="navigate-symbolic.svg">data/icons/navigate-symbolic.svg</file>
+        <file alias="globe-alt-symbolic.svg">data/icons/globe-alt-symbolic.svg</file>
     </qresource>
 </RCC>
