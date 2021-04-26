@@ -11,6 +11,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@v2
+          with:
+              submodules: true
 
         - name: Cache Qt
           id: cache-qt
@@ -25,5 +27,31 @@ jobs:
               version: '5.9.7'
               cached: ${{ steps.cache-qt.outputs.cache-hit }}
 
+        - name: Build Eclipse Paho MQTT C
+          run: |
+              cd libs/paho.mqtt.c
+              cmake -B build -DPAHO_ENABLE_TESTING=OFF -DPAHO_BUILD_STATIC=OFF -DPAHO_HIGH_PERFORMANCE=ON
+              make -C build -j
+
+        - name: Install Eclipse Paho MQTT C
+          run: |
+              cd libs/paho.mqtt.c/build
+              sudo make install
+              sudo ldconfig
+
+        - name: Build Eclipse Paho MQTT C++
+          run: |
+              cd libs/paho.mqtt.cpp
+              cmake -B build -DPAHO_BUILD_STATIC=ON -DPAHO_BUILD_DOCUMENTATION=FALSE -DPAHO_BUILD_SAMPLES=FALSE -DPAHO_MQTT_C_LIBRARIES=/usr/local/lib/libpaho-mqtt3a.so -DPAHO_MQTT_C_INCLUDE_DIRS=/usr/local/include
+              make -C build -j
+
+        - name: Install Eclipse Paho MQTT C++
+          run: |
+              cd libs/paho.mqtt.cpp/build
+              sudo make install
+              sudo ldconfig
+
         - name: Build FIT MQTT Client
-          run: make
+          run: |
+              cmake -B build -DCMAKE_INSTALL_PREFIX=${{ runner.workspace }}
+              make -C build
