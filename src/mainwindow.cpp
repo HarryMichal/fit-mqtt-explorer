@@ -7,8 +7,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
     mqtt_manager(new MQTTManager),
-    currentMode(ModeState::Dashboard),
-    modeSelector(new QActionGroup(this))
+    current_mode(ModeState::Dashboard),
+    mode_selector(new QActionGroup(this))
 {
     this->ui->setupUi(this);
 
@@ -22,16 +22,16 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete this->ui;
-    delete this->modeSelector;
+    delete this->mode_selector;
 
     this->worker_thread.quit();
     this->worker_thread.wait();
 }
 
-void MainWindow::SetDashboardPage()
+void MainWindow::setDashboardPage()
 {
-    if (this->currentMode != ModeState::Dashboard) {
-        this->currentMode = ModeState::Dashboard;
+    if (this->current_mode != ModeState::Dashboard) {
+        this->current_mode = ModeState::Dashboard;
         ui->mode_stack->setCurrentIndex(ModeState::Dashboard);
     }
 
@@ -39,10 +39,10 @@ void MainWindow::SetDashboardPage()
     ui->actionActualState->setVisible(true);
 }
 
-void MainWindow::SetExplorerPage()
+void MainWindow::setExplorerPage()
 {
-    if (this->currentMode != ModeState::Explorer) {
-        this->currentMode = ModeState::Explorer;
+    if (this->current_mode != ModeState::Explorer) {
+        this->current_mode = ModeState::Explorer;
         ui->mode_stack->setCurrentIndex(ModeState::Explorer);
     }
     ui->actionHistory->setVisible(false);
@@ -64,13 +64,13 @@ void MainWindow::setupStatusBar()
 void MainWindow::setupActions()
 {
     // Couple mode selecting buttons into a group so that they are exclusive -> mode switcher
-    this->modeSelector->addAction(ui->actionDashboard);
-    this->modeSelector->addAction(ui->actionExplorer);
-    this->modeSelector->setExclusive(true);
+    this->mode_selector->addAction(ui->actionDashboard);
+    this->mode_selector->addAction(ui->actionExplorer);
+    this->mode_selector->setExclusive(true);
 
     // Basic signals
-    connect(this->ui->actionDashboard, &QAction::triggered, this, &MainWindow::SetDashboardPage);
-    connect(this->ui->actionExplorer, &QAction::triggered, this, &MainWindow::SetExplorerPage);
+    connect(this->ui->actionDashboard, &QAction::triggered, this, &MainWindow::setDashboardPage);
+    connect(this->ui->actionExplorer, &QAction::triggered, this, &MainWindow::setExplorerPage);
 
     // MQTT related signals
     connect(this->ui->actionConnect, &QAction::triggered, mqtt_manager, &MQTTManager::connect);

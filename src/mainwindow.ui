@@ -47,7 +47,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QToolBar" name="toolBar">
+  <widget class="QToolBar" name="toolbar">
    <property name="font">
     <font>
      <family>Arial Nova Light</family>
@@ -72,7 +72,7 @@
    <addaction name="separator"/>
    <addaction name="actionExplorer"/>
   </widget>
-  <widget class="QToolBar" name="toolBar_2">
+  <widget class="QToolBar" name="toolbar_2">
    <property name="font">
     <font>
      <family>Arial Nova Light</family>

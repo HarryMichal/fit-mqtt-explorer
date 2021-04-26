@@ -31,10 +31,9 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    void SetDashboardPage();
-    void SetExplorerPage();
+    void setDashboardPage();
+    void setExplorerPage();
     void OpenConnectionWindow();
-
 
 private:
     Ui::MainWindow *ui;
@@ -42,8 +41,8 @@ private:
     MQTTManager *mqtt_manager; //<Manager of connection to a MQTT broker
     NewConnection *new_connection_window;
 
-    ModeState currentMode;
-    QActionGroup *modeSelector;
+    ModeState current_mode;
+    QActionGroup *mode_selector;
 
     QLabel connection_status; //<Permanent widget in StatusBar
 
