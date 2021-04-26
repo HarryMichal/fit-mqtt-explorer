@@ -27,6 +27,7 @@ set_property(TARGET pahomqtt3a PROPERTY IMPORTED_LOCATION ${paho-mqtt3a})
 set(PROJECT_SOURCES
         resources.qrc
         src/main.cpp
+        src/mqttmanager.h src/mqttmanager.cpp
         src/mainwindow.cpp src/mainwindow.h src/mainwindow.ui
         src/dashboardpage.cpp src/dashboardpage.h src/dashboardpage.ui
         src/explorerpage.cpp src/explorerpage.h src/explorerpage.ui
