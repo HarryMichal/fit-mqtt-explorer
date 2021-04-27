@@ -34,6 +34,9 @@ void MainWindow::SetDashboardPage()
         this->currentMode = ModeState::Dashboard;
         ui->mode_stack->setCurrentIndex(ModeState::Dashboard);
     }
+
+    ui->actionHistory->setVisible(true);
+    ui->actionActualState->setVisible(true);
 }
 
 void MainWindow::SetExplorerPage()
@@ -42,6 +45,14 @@ void MainWindow::SetExplorerPage()
         this->currentMode = ModeState::Explorer;
         ui->mode_stack->setCurrentIndex(ModeState::Explorer);
     }
+    ui->actionHistory->setVisible(false);
+    ui->actionActualState->setVisible(false);
+}
+
+void MainWindow::OpenConnectionWindow()
+{
+    this->new_connection_window = new NewConnection(this);
+    this->new_connection_window->show();
 }
 
 void MainWindow::setupStatusBar()
@@ -65,6 +76,7 @@ void MainWindow::setupActions()
     connect(this->ui->actionConnect, &QAction::triggered, mqtt_manager, &MQTTManager::connect);
     connect(this->mqtt_manager, &MQTTManager::connectedChanged, this, &MainWindow::updateStatusBar);
     connect(this->mqtt_manager, &MQTTManager::messageReceived, this, &MainWindow::messageReceived);
+    connect(this->ui->actionNewConnection, &QAction::triggered, this, &MainWindow::OpenConnectionWindow);
 }
 
 void MainWindow::updateStatusBar()
