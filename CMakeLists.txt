@@ -31,7 +31,7 @@ set(PROJECT_SOURCES
         src/mainwindow.cpp src/mainwindow.h src/mainwindow.ui
         src/dashboardpage.cpp src/dashboardpage.h src/dashboardpage.ui
         src/explorerpage.cpp src/explorerpage.h src/explorerpage.ui
-
+        src/newconnection.cpp src/newconnection.h src/newconnection.ui
 )
 
 add_executable(fit-mqtt-client
