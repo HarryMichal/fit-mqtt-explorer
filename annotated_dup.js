@@ -4,5 +4,6 @@ var annotated_dup =
     [ "ExplorerPage", "classExplorerPage.html", "classExplorerPage" ],
     [ "MainWindow", "classMainWindow.html", "classMainWindow" ],
     [ "MQTTCallback", "classMQTTCallback.html", "classMQTTCallback" ],
-    [ "MQTTManager", "classMQTTManager.html", "classMQTTManager" ]
+    [ "MQTTManager", "classMQTTManager.html", "classMQTTManager" ],
+    [ "NewConnection", "classNewConnection.html", "classNewConnection" ]
 ];

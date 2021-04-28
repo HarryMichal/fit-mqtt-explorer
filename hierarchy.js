@@ -6,6 +6,9 @@ var hierarchy =
     [ "mqtt::iaction_listener", null, [
       [ "MQTTCallback", "classMQTTCallback.html", null ]
     ] ],
+    [ "QDialog", null, [
+      [ "NewConnection", "classNewConnection.html", null ]
+    ] ],
     [ "QMainWindow", null, [
       [ "MainWindow", "classMainWindow.html", null ]
     ] ],
