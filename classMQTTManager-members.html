@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>fit-mqtt-client: File List</title>
+<title>fit-mqtt-client: Member List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,7 +63,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('files.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('classMQTTManager.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -83,18 +83,24 @@ $(document).ready(function(){initNavTree('files.html',''); initResizable(); });
 
 <div class="header">
   <div class="headertitle">
-<div class="title">File List</div>  </div>
+<div class="title">MQTTManager Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">Here is a list of all documented files with brief descriptions:</div><div class="directory">
+
+<p>This is the complete list of members for <a class="el" href="classMQTTManager.html">MQTTManager</a>, including all inherited members.</p>
 <table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="dashboardpage_8h_source.html"><span class="icondoc"></span></a><b>dashboardpage.h</b></td><td class="desc"></td></tr>
-<tr id="row_1_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="explorerpage_8h_source.html"><span class="icondoc"></span></a><b>explorerpage.h</b></td><td class="desc"></td></tr>
-<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="mainwindow_8h_source.html"><span class="icondoc"></span></a><b>mainwindow.h</b></td><td class="desc"></td></tr>
-<tr id="row_3_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="mqttmanager_8h_source.html"><span class="icondoc"></span></a><b>mqttmanager.h</b></td><td class="desc"></td></tr>
-</table>
-</div><!-- directory -->
-</div><!-- contents -->
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>cb</b> (defined in <a class="el" href="classMQTTManager.html">MQTTManager</a>)</td><td class="entry"><a class="el" href="classMQTTManager.html">MQTTManager</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>client</b> (defined in <a class="el" href="classMQTTManager.html">MQTTManager</a>)</td><td class="entry"><a class="el" href="classMQTTManager.html">MQTTManager</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classMQTTManager.html#a76a2bc2516afb2e3aa07b847f32f611e">connect</a>()</td><td class="entry"><a class="el" href="classMQTTManager.html">MQTTManager</a></td><td class="entry"><span class="mlabel">slot</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>connected</b> (defined in <a class="el" href="classMQTTManager.html">MQTTManager</a>)</td><td class="entry"><a class="el" href="classMQTTManager.html">MQTTManager</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classMQTTManager.html#ac7d888bf5167eb8d3dbe24d26eef09a5">connectedChanged</a>(bool connected)</td><td class="entry"><a class="el" href="classMQTTManager.html">MQTTManager</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classMQTTManager.html#ae7ee34a3992af63a12d245e26ed4647c">messageDelivered</a>(mqtt::delivery_token_ptr tok)</td><td class="entry"><a class="el" href="classMQTTManager.html">MQTTManager</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classMQTTManager.html#a6970a2c050dc0184913b57f529e03876">messageReceived</a>(const mqtt::const_message_ptr msg)</td><td class="entry"><a class="el" href="classMQTTManager.html">MQTTManager</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>MQTTManager</b>(QObject *parent=nullptr) (defined in <a class="el" href="classMQTTManager.html">MQTTManager</a>)</td><td class="entry"><a class="el" href="classMQTTManager.html">MQTTManager</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classMQTTManager.html#adb66f2936c00f959ece4a9d1b2f6161d">operationFailed</a>(const mqtt::token &amp;tok)</td><td class="entry"><a class="el" href="classMQTTManager.html">MQTTManager</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classMQTTManager.html#ad76e9f8958dbfb654975ef6170f11e75">operationSucceeded</a>(const mqtt::token &amp;tok)</td><td class="entry"><a class="el" href="classMQTTManager.html">MQTTManager</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>options</b> (defined in <a class="el" href="classMQTTManager.html">MQTTManager</a>)</td><td class="entry"><a class="el" href="classMQTTManager.html">MQTTManager</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+</table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['dashboardpage_0',['DashboardPage',['../classDashboardPage.html',1,'']]]
+  ['connect_0',['connect',['../classMQTTManager.html#a76a2bc2516afb2e3aa07b847f32f611e',1,'MQTTManager']]],
+  ['connectedchanged_1',['connectedChanged',['../classMQTTManager.html#ac7d888bf5167eb8d3dbe24d26eef09a5',1,'MQTTManager']]]
 ];

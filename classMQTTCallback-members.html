@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>fit-mqtt-client: File List</title>
+<title>fit-mqtt-client: Member List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,7 +63,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('files.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('classMQTTCallback.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -83,18 +83,21 @@ $(document).ready(function(){initNavTree('files.html',''); initResizable(); });
 
 <div class="header">
   <div class="headertitle">
-<div class="title">File List</div>  </div>
+<div class="title">MQTTCallback Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">Here is a list of all documented files with brief descriptions:</div><div class="directory">
+
+<p>This is the complete list of members for <a class="el" href="classMQTTCallback.html">MQTTCallback</a>, including all inherited members.</p>
 <table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="dashboardpage_8h_source.html"><span class="icondoc"></span></a><b>dashboardpage.h</b></td><td class="desc"></td></tr>
-<tr id="row_1_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="explorerpage_8h_source.html"><span class="icondoc"></span></a><b>explorerpage.h</b></td><td class="desc"></td></tr>
-<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="mainwindow_8h_source.html"><span class="icondoc"></span></a><b>mainwindow.h</b></td><td class="desc"></td></tr>
-<tr id="row_3_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="mqttmanager_8h_source.html"><span class="icondoc"></span></a><b>mqttmanager.h</b></td><td class="desc"></td></tr>
-</table>
-</div><!-- directory -->
-</div><!-- contents -->
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>connected</b>(const std::string &amp;cause) override (defined in <a class="el" href="classMQTTCallback.html">MQTTCallback</a>)</td><td class="entry"><a class="el" href="classMQTTCallback.html">MQTTCallback</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>connection_lost</b>(const std::string &amp;cause) override (defined in <a class="el" href="classMQTTCallback.html">MQTTCallback</a>)</td><td class="entry"><a class="el" href="classMQTTCallback.html">MQTTCallback</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>delivery_complete</b>(mqtt::delivery_token_ptr tok) override (defined in <a class="el" href="classMQTTCallback.html">MQTTCallback</a>)</td><td class="entry"><a class="el" href="classMQTTCallback.html">MQTTCallback</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>message_arrived</b>(mqtt::const_message_ptr msg) override (defined in <a class="el" href="classMQTTCallback.html">MQTTCallback</a>)</td><td class="entry"><a class="el" href="classMQTTCallback.html">MQTTCallback</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>mqtt_manager</b> (defined in <a class="el" href="classMQTTCallback.html">MQTTCallback</a>)</td><td class="entry"><a class="el" href="classMQTTCallback.html">MQTTCallback</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>MQTTCallback</b>(MQTTManager *mqtt_manager) (defined in <a class="el" href="classMQTTCallback.html">MQTTCallback</a>)</td><td class="entry"><a class="el" href="classMQTTCallback.html">MQTTCallback</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>on_failure</b>(const mqtt::token &amp;tok) override (defined in <a class="el" href="classMQTTCallback.html">MQTTCallback</a>)</td><td class="entry"><a class="el" href="classMQTTCallback.html">MQTTCallback</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>on_success</b>(const mqtt::token &amp;tok) override (defined in <a class="el" href="classMQTTCallback.html">MQTTCallback</a>)</td><td class="entry"><a class="el" href="classMQTTCallback.html">MQTTCallback</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+</table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

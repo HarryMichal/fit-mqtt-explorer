@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>fit-mqtt-client: ExplorerPage Class Reference</title>
+<title>fit-mqtt-client: MQTTCallback Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,7 +63,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('classExplorerPage.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('classMQTTCallback.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -85,40 +85,57 @@ $(document).ready(function(){initNavTree('classExplorerPage.html',''); initResiz
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="classExplorerPage-members.html">List of all members</a>  </div>
+<a href="classMQTTCallback-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">ExplorerPage Class Reference</div>  </div>
+<div class="title">MQTTCallback Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="dynheader">
-Inheritance diagram for ExplorerPage:</div>
+Inheritance diagram for MQTTCallback:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="classExplorerPage.png" alt=""/>
+  <img src="classMQTTCallback.png" alt=""/>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a55d4cd405d402ef0a4afeda9bb836957"><td class="memItemLeft" align="right" valign="top"><a id="a55d4cd405d402ef0a4afeda9bb836957"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ExplorerPage</b> (QWidget *parent=nullptr)</td></tr>
-<tr class="separator:a55d4cd405d402ef0a4afeda9bb836957"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb5184223c1d240794b54a16419c3f27"><td class="memItemLeft" align="right" valign="top"><a id="abb5184223c1d240794b54a16419c3f27"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>MQTTCallback</b> (<a class="el" href="classMQTTManager.html">MQTTManager</a> *mqtt_manager)</td></tr>
+<tr class="separator:abb5184223c1d240794b54a16419c3f27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa97141f27468b5c0d8509978a2f42415"><td class="memItemLeft" align="right" valign="top"><a id="aa97141f27468b5c0d8509978a2f42415"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>on_success</b> (const mqtt::token &amp;tok) override</td></tr>
+<tr class="separator:aa97141f27468b5c0d8509978a2f42415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add6fb77ade370e213f358e7d158d89dc"><td class="memItemLeft" align="right" valign="top"><a id="add6fb77ade370e213f358e7d158d89dc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>on_failure</b> (const mqtt::token &amp;tok) override</td></tr>
+<tr class="separator:add6fb77ade370e213f358e7d158d89dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a122f0722cb17c61039864824a2f30dd8"><td class="memItemLeft" align="right" valign="top"><a id="a122f0722cb17c61039864824a2f30dd8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>connected</b> (const std::string &amp;cause) override</td></tr>
+<tr class="separator:a122f0722cb17c61039864824a2f30dd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29e2308a03f8bb3224a4fbb8f8e27c34"><td class="memItemLeft" align="right" valign="top"><a id="a29e2308a03f8bb3224a4fbb8f8e27c34"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>connection_lost</b> (const std::string &amp;cause) override</td></tr>
+<tr class="separator:a29e2308a03f8bb3224a4fbb8f8e27c34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b9f1100b334e6b924653db8d236bcfa"><td class="memItemLeft" align="right" valign="top"><a id="a5b9f1100b334e6b924653db8d236bcfa"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>message_arrived</b> (mqtt::const_message_ptr msg) override</td></tr>
+<tr class="separator:a5b9f1100b334e6b924653db8d236bcfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae12f34e8eb07270b432be17751642a05"><td class="memItemLeft" align="right" valign="top"><a id="ae12f34e8eb07270b432be17751642a05"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>delivery_complete</b> (mqtt::delivery_token_ptr tok) override</td></tr>
+<tr class="separator:ae12f34e8eb07270b432be17751642a05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:acefc79483e373d8a4e40fed2394b0482"><td class="memItemLeft" align="right" valign="top"><a id="acefc79483e373d8a4e40fed2394b0482"></a>
-Ui::ExplorerPage *&#160;</td><td class="memItemRight" valign="bottom"><b>ui</b></td></tr>
-<tr class="separator:acefc79483e373d8a4e40fed2394b0482"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36dd304528db3b1ba01b4178effd3caf"><td class="memItemLeft" align="right" valign="top"><a id="a36dd304528db3b1ba01b4178effd3caf"></a>
+<a class="el" href="classMQTTManager.html">MQTTManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>mqtt_manager</b></td></tr>
+<tr class="separator:a36dd304528db3b1ba01b4178effd3caf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="explorerpage_8h_source.html">explorerpage.h</a></li>
-<li>explorerpage.cpp</li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>mqttmanager.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="classExplorerPage.html">ExplorerPage</a></li>
+    <li class="navelem"><a class="el" href="classMQTTCallback.html">MQTTCallback</a></li>
     <li class="footer">Generated on Wed Apr 28 2021 12:17:50 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
