@@ -19,57 +19,19 @@
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-     <widget class="QTreeWidget" name="treeWidget">
-      <column>
-       <property name="text">
-        <string notr="true">1</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>New Column</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>New Column</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>New Column</string>
-       </property>
-      </column>
-      <item>
-       <property name="text">
-        <string>New Item</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>New Item</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>New Item</string>
-        </property>
-       </item>
-      </item>
-      <item>
-       <property name="text">
-        <string>New Item</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>New Item</string>
-        </property>
-       </item>
-      </item>
-      <item>
-       <property name="text">
-        <string>New Item</string>
-       </property>
-      </item>
+     <widget class="QTreeView" name="topicsTree">
+      <property name="uniformRowHeights">
+       <bool>true</bool>
+      </property>
+      <property name="animated">
+       <bool>false</bool>
+      </property>
+      <attribute name="headerVisible">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="headerDefaultSectionSize">
+       <number>25</number>
+      </attribute>
      </widget>
      <widget class="QFrame" name="frame">
       <property name="frameShape">
