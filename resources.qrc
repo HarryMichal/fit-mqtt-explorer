@@ -3,9 +3,9 @@
         <file alias="display-symbolic.svg">data/icons/display-symbolic.svg</file>
         <file alias="navigate-symbolic.svg">data/icons/navigate-symbolic.svg</file>
         <file alias="globe-alt-symbolic.svg">data/icons/globe-alt-symbolic.svg</file>
-        
-        <file>data/icons/actual-state.svg</file>
-        <file>data/icons/history-graphs.svg</file>
-        <file>data/icons/new-connection.svg</file>
+        <file alias="actual-state.svg">data/icons/actual-state.svg</file>
+        <file alias="history-graphs.svg">data/icons/history-graphs.svg</file>
+        <file alias="new-connection.svg">data/icons/new-connection.svg</file>
+        <file alias="close.svg">data/icons/close.svg</file>
     </qresource>
 </RCC>
