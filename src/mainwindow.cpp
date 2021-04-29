@@ -7,6 +7,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
     mqtt_manager(new MQTTManager),
+    dashboard(new DashboardPage(this)),
+    explorer(new ExplorerPage(this)),
     current_mode(ModeState::Dashboard),
     mode_selector(new QActionGroup(this))
 {
@@ -14,6 +16,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     this->mqtt_manager->moveToThread(&worker_thread);
     this->worker_thread.start();
+
+    this->ui->mode_stack->insertWidget(ModeState::Dashboard, this->dashboard);
+    this->ui->mode_stack->insertWidget(ModeState::Explorer, this->explorer);
 
     MainWindow::setupStatusBar();
     MainWindow::setupActions();
