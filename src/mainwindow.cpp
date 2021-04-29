@@ -1,11 +1,12 @@
-#include "mqtt/message.h"
-#include "mqttmanager.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "mqtt/message.h"
+#include "mqttmanager.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
+    msg_store(new MessageStore),
     mqtt_manager(new MQTTManager),
     dashboard(new DashboardPage(this)),
     explorer(new ExplorerPage(this)),
@@ -73,15 +74,19 @@ void MainWindow::setupActions()
     this->mode_selector->addAction(ui->actionExplorer);
     this->mode_selector->setExclusive(true);
 
-    // Basic signals
+    // UI related signals
     connect(this->ui->actionDashboard, &QAction::triggered, this, &MainWindow::setDashboardPage);
     connect(this->ui->actionExplorer, &QAction::triggered, this, &MainWindow::setExplorerPage);
-
-    // MQTT related signals
     connect(this->ui->actionConnect, &QAction::triggered, mqtt_manager, &MQTTManager::connect);
     connect(this->ui->actionNewConnection, &QAction::triggered, this, &MainWindow::OpenConnectionWindow);
+
+    // MQTT related signals
     connect(this->mqtt_manager, &MQTTManager::onConnected, this, &MainWindow::updateStatusBar);
+    connect(this->mqtt_manager, &MQTTManager::onConnected, this, &MainWindow::clientConnected);
     connect(this->mqtt_manager, &MQTTManager::onDisconnected, this, &MainWindow::updateStatusBar);
+    connect(this->mqtt_manager, &MQTTManager::onMessageReceived, this->msg_store, &MessageStore::addMessage);
+
+    connect(this->msg_store, &MessageStore::newMessages, this->explorer, &ExplorerPage::receiveNewMessages);
 }
 
 void MainWindow::updateStatusBar()
@@ -91,4 +96,10 @@ void MainWindow::updateStatusBar()
     } else {
         this->connection_status.setText("disconnected");
     }
+}
+
+void MainWindow::clientConnected()
+{
+    auto server_name = this->mqtt_manager->getServerName();
+    this->explorer->initConnection(server_name);
 }

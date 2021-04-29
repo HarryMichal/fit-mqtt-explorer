@@ -8,6 +8,7 @@
 
 #include "dashboardpage.h"
 #include "explorerpage.h"
+#include "messagestore.h"
 #include "mqttmanager.h"
 #include "newconnection.h"
 
@@ -40,6 +41,7 @@ public:
 private:
     Ui::MainWindow *ui;
     QThread worker_thread; //<Thread for running MQTTManager
+    MessageStore *msg_store; //<Store of messages from a MQTT broker
     MQTTManager *mqtt_manager; //<Manager of connection to a MQTT broker
     DashboardPage *dashboard;
     ExplorerPage *explorer;
@@ -53,6 +55,9 @@ private:
     void setupStatusBar();
     void setupActions();
     void updateStatusBar();
+
+private slots:
+    void clientConnected();
 };
 
 #endif // MAINWINDOW_H

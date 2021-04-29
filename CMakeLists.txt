@@ -32,6 +32,7 @@ set(PROJECT_SOURCES
         resources.qrc
         src/main.cpp
         src/mqttmanager.h src/mqttmanager.cpp
+        src/messagestore.h src/messagestore.cpp
         src/mainwindow.cpp src/mainwindow.h src/mainwindow.ui
         src/dashboardpage.cpp src/dashboardpage.h src/dashboardpage.ui
         src/explorerpage.cpp src/explorerpage.h src/explorerpage.ui
