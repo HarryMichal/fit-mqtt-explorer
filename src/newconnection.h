@@ -14,9 +14,14 @@ class NewConnection : public QDialog
 public:
     explicit NewConnection(QWidget *parent = nullptr);
     ~NewConnection();
+    Ui::newconnection *ui;
+
+signals:
+    void createNewConnection();
 
 private:
-    Ui::newconnection *ui;
+
+    void setupSignals();
 };
 
 #endif // NEWCONNECTION_H
