@@ -6,6 +6,8 @@
 #include <QMainWindow>
 #include <QThread>
 
+#include "dashboardpage.h"
+#include "explorerpage.h"
 #include "mqttmanager.h"
 #include "newconnection.h"
 
@@ -39,6 +41,8 @@ private:
     Ui::MainWindow *ui;
     QThread worker_thread; //<Thread for running MQTTManager
     MQTTManager *mqtt_manager; //<Manager of connection to a MQTT broker
+    DashboardPage *dashboard;
+    ExplorerPage *explorer;
     NewConnection *new_connection_window;
 
     ModeState current_mode;

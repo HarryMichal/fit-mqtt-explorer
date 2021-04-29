@@ -39,10 +39,8 @@
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;New connection&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>-1</number>
       </property>
-      <widget class="DashboardPage" name="dashboard_page"/>
-      <widget class="ExplorerPage" name="explorer_page"/>
      </widget>
     </item>
    </layout>
@@ -225,20 +223,6 @@
    </property>
   </action>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>DashboardPage</class>
-   <extends>QWidget</extends>
-   <header>src/dashboardpage.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>ExplorerPage</class>
-   <extends>QWidget</extends>
-   <header>src/explorerpage.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="../resources.qrc"/>
  </resources>
