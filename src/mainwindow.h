@@ -50,6 +50,7 @@ private:
     void setupStatusBar();
     void setupActions();
     void updateStatusBar();
+    void createNewConnection();
 
 private slots:
     /**

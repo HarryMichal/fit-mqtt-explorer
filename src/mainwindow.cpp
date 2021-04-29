@@ -2,6 +2,7 @@
 #include "mqttmanager.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -15,8 +16,11 @@ MainWindow::MainWindow(QWidget *parent) :
     this->mqtt_manager->moveToThread(&worker_thread);
     this->worker_thread.start();
 
+    this->new_connection_window = new NewConnection(this);
+
     MainWindow::setupStatusBar();
     MainWindow::setupActions();
+
 }
 
 MainWindow::~MainWindow()
@@ -51,7 +55,7 @@ void MainWindow::SetExplorerPage()
 
 void MainWindow::OpenConnectionWindow()
 {
-    this->new_connection_window = new NewConnection(this);
+
     this->new_connection_window->show();
 }
 
@@ -59,6 +63,11 @@ void MainWindow::setupStatusBar()
 {
     this->connection_status.setText("disconnected");
     this->ui->statusBar->addPermanentWidget(&this->connection_status);
+}
+
+void MainWindow::createNewConnection()
+{
+    qDebug("Setup");
 }
 
 void MainWindow::setupActions()
@@ -71,12 +80,13 @@ void MainWindow::setupActions()
     // Basic signals
     connect(this->ui->actionDashboard, &QAction::triggered, this, &MainWindow::SetDashboardPage);
     connect(this->ui->actionExplorer, &QAction::triggered, this, &MainWindow::SetExplorerPage);
+    connect(this->ui->actionConnect, &QAction::triggered, this, &MainWindow::OpenConnectionWindow);
+    connect(this->new_connection_window, &NewConnection::createNewConnection, mqtt_manager, &MQTTManager::connect);
 
     // MQTT related signals
-    connect(this->ui->actionConnect, &QAction::triggered, mqtt_manager, &MQTTManager::connect);
+    //connect(this->ui->actionConnect, &QAction::triggered, mqtt_manager, &MQTTManager::connect);
     connect(this->mqtt_manager, &MQTTManager::connectedChanged, this, &MainWindow::updateStatusBar);
     connect(this->mqtt_manager, &MQTTManager::messageReceived, this, &MainWindow::messageReceived);
-    connect(this->ui->actionNewConnection, &QAction::triggered, this, &MainWindow::OpenConnectionWindow);
 }
 
 void MainWindow::updateStatusBar()

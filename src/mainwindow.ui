@@ -98,10 +98,8 @@
    </attribute>
    <addaction name="actionConnect"/>
    <addaction name="separator"/>
-   <addaction name="actionDashboard"/>
-   <addaction name="actionExplorer"/>
-   <addaction name="actionNewConnection"/>
-   <addaction name="separator"/>
+   <addaction name="actionActualState"/>
+   <addaction name="actionHistory"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionDashboard">
@@ -158,7 +156,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resources.qrc">
-     <normaloff>:/icons/data/icons/history-graphs.svg</normaloff>:/icons/data/icons/history-graphs.svg</iconset>
+     <normaloff>:/icons/history-graphs.svg</normaloff>:/icons/history-graphs.svg</iconset>
    </property>
    <property name="text">
     <string>History</string>
@@ -182,13 +180,13 @@
    </property>
    <property name="icon">
     <iconset resource="../resources.qrc">
-     <normaloff>:/icons/data/icons/actual-state.svg</normaloff>:/icons/data/icons/actual-state.svg</iconset>
+     <normaloff>:/icons/actual-state.svg</normaloff>:/icons/actual-state.svg</iconset>
    </property>
    <property name="text">
     <string>ActualState</string>
    </property>
    <property name="toolTip">
-    <string>Show aktual data</string>
+    <string>Show actual data</string>
    </property>
    <property name="font">
     <font>
@@ -198,30 +196,6 @@
    </property>
    <property name="iconVisibleInMenu">
     <bool>false</bool>
-   </property>
-  </action>
-  <action name="actionNewConnection">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset resource="../resources.qrc">
-     <normaloff>:/icons/data/icons/new-connection.svg</normaloff>:/icons/data/icons/new-connection.svg</iconset>
-   </property>
-   <property name="text">
-    <string>New connection</string>
-   </property>
-   <property name="toolTip">
-    <string>New connection</string>
-   </property>
-   <property name="font">
-    <font>
-     <family>Arial Nova Light</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="menuRole">
-    <enum>QAction::TextHeuristicRole</enum>
    </property>
   </action>
  </widget>
