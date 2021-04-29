@@ -11,9 +11,13 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+
 find_package(Qt5 COMPONENTS REQUIRED
     Widgets
 )
+
+find_package(Threads REQUIRED)
 
 find_library(paho-mqttpp3 NAMES libpaho-mqttpp3.a REQUIRED)
 find_library(paho-mqtt3a NAMES libpaho-mqtt3a.so REQUIRED)
@@ -25,20 +29,20 @@ add_library(pahomqtt3a SHARED IMPORTED)
 set_property(TARGET pahomqtt3a PROPERTY IMPORTED_LOCATION ${paho-mqtt3a})
 
 set(PROJECT_SOURCES
-        resources.qrc
-        src/main.cpp
-        src/mqttmanager.h src/mqttmanager.cpp
-        src/mainwindow.cpp src/mainwindow.h src/mainwindow.ui
-        src/dashboardpage.cpp src/dashboardpage.h src/dashboardpage.ui
-        src/explorerpage.cpp src/explorerpage.h src/explorerpage.ui
-        src/newconnection.cpp src/newconnection.h src/newconnection.ui
+    resources.qrc
+    src/main.cpp
+    src/mqttmanager.h src/mqttmanager.cpp
+    src/mainwindow.cpp src/mainwindow.h src/mainwindow.ui
+    src/dashboardpage.cpp src/dashboardpage.h src/dashboardpage.ui
+    src/explorerpage.cpp src/explorerpage.h src/explorerpage.ui
+    src/newconnection.cpp src/newconnection.h src/newconnection.ui
 )
 
 add_executable(fit-mqtt-client
     ${PROJECT_SOURCES}
 )
 
-target_link_libraries(fit-mqtt-client PRIVATE pahottpp pahomqtt3a Qt5::Widgets)
+target_link_libraries(fit-mqtt-client PRIVATE pahottpp pahomqtt3a Threads::Threads Qt5::Widgets)
 
 set_target_properties(fit-mqtt-client PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
