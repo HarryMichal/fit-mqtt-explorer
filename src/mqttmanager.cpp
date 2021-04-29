@@ -60,6 +60,15 @@ MQTTManager::MQTTManager(QObject *parent) :
     this->connected = false;
 }
 
+const QString MQTTManager::getServerName()
+{
+    if (this->client == nullptr) {
+        return QString();
+    }
+
+    return QString::fromStdString(this->client->get_server_uri());
+}
+
 /**
  * @brief MQTTManager::connect
  */
