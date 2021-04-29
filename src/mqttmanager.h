@@ -2,6 +2,7 @@
 #define MQTTMANAGER_H
 
 #include <QObject>
+#include <QString>
 
 #include "mqtt/async_client.h"
 
@@ -18,6 +19,8 @@ public:
     bool connected; //<whether the client is currently connected
 
     explicit MQTTManager(QObject *parent = nullptr);
+
+const QString getServerName();
 
 public slots:
     /**
