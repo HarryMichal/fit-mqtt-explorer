@@ -17,34 +17,34 @@ public:
 
     void on_success(const mqtt::token& tok) override
     {
-        emit this->mqtt_manager->operationSucceeded(tok);
+        emit this->mqtt_manager->onOperationSucceeded(tok);
     }
 
     void on_failure(const mqtt::token& tok) override
     {
-        emit this->mqtt_manager->operationFailed(tok);
+        emit this->mqtt_manager->onOperationFailed(tok);
     }
 
     void connected(const std::string& cause) override
     {
         this->mqtt_manager->connected = true;
-        emit this->mqtt_manager->connectedChanged(true);
+        emit this->mqtt_manager->onConnected();
     }
 
     void connection_lost(const std::string& cause) override
     {
         this->mqtt_manager->connected = false;
-        emit this->mqtt_manager->connectedChanged(false);
+        emit this->mqtt_manager->onDisconnected();
     }
 
     void message_arrived(mqtt::const_message_ptr msg) override
     {
-        emit this->mqtt_manager->messageReceived(msg);
+        emit this->mqtt_manager->onMessageReceived(msg);
     }
 
     void delivery_complete(mqtt::delivery_token_ptr tok) override
     {
-        emit this->mqtt_manager->messageDelivered(tok);
+        emit this->mqtt_manager->onMessageDelivered(tok);
     }
 
 private:
