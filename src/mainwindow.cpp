@@ -74,9 +74,10 @@ void MainWindow::setupActions()
 
     // MQTT related signals
     connect(this->ui->actionConnect, &QAction::triggered, mqtt_manager, &MQTTManager::connect);
-    connect(this->mqtt_manager, &MQTTManager::connectedChanged, this, &MainWindow::updateStatusBar);
-    connect(this->mqtt_manager, &MQTTManager::messageReceived, this, &MainWindow::messageReceived);
     connect(this->ui->actionNewConnection, &QAction::triggered, this, &MainWindow::OpenConnectionWindow);
+    connect(this->mqtt_manager, &MQTTManager::onConnected, this, &MainWindow::updateStatusBar);
+    connect(this->mqtt_manager, &MQTTManager::onDisconnected, this, &MainWindow::updateStatusBar);
+    connect(this->mqtt_manager, &MQTTManager::onMessageReceived, this, &MainWindow::messageReceived);
 }
 
 void MainWindow::updateStatusBar()

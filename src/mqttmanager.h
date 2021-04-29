@@ -29,33 +29,36 @@ public slots:
 
 signals:
     /**
-     * @brief connectedChanged is emitted when the connection status of the
-     * client changes
-     * @param connected whether client is connected or not
+     * @brief onConnected is emitted when the client connects to a server
      */
-    void connectedChanged(bool connected);
+    void onConnected();
     /**
-     * @brief messageReceived is emitted when a message arrives from the server
+     * @brief onDisconnected is emitted when the client disconnects from a
+     * server
+     */
+    void onDisconnected();
+    /**
+     * @brief onMessageReceived is emitted when a message arrives from the server
      * @param msg See mqtt::message
      */
-    void messageReceived(const mqtt::const_message_ptr msg);
+    void onMessageReceived(const mqtt::const_message_ptr msg);
     /**
-     * @brief messageDelivered is emitted when delivery for a message has been
+     * @brief onMessageDelivered is emitted when delivery for a message has been
      * completed, and all acknowledgments have been received
      * @param tok See mqtt::delivery_token
      */
-    void messageDelivered(mqtt::delivery_token_ptr tok);
+    void onMessageDelivered(mqtt::delivery_token_ptr tok);
     /**
-     * @brief operationFailed is emitted when an action fails
+     * @brief onOperationFailed is emitted when an action fails
      * @param tok See mqtt::token
      */
-    void operationFailed(const mqtt::token& tok);
+    void onOperationFailed(const mqtt::token& tok);
     /**
-     * @brief operationSucceeded is emitted when an action has completed
+     * @brief onOperationSucceeded is emitted when an action has completed
      * successfully
      * @param tok See mqtt::token
      */
-    void operationSucceeded(const mqtt::token& tok);
+    void onOperationSucceeded(const mqtt::token& tok);
 
 private:
     mqtt::async_client_ptr client;
