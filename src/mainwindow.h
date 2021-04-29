@@ -49,13 +49,6 @@ private:
     void setupStatusBar();
     void setupActions();
     void updateStatusBar();
-
-private slots:
-    /**
-     * @brief messageReceived is emitted when a message arrives from the server.
-     * @param msg See mqtt::message
-     */
-    void messageReceived(const mqtt::const_message_ptr msg);
 };
 
 #endif // MAINWINDOW_H

@@ -77,7 +77,6 @@ void MainWindow::setupActions()
     connect(this->ui->actionNewConnection, &QAction::triggered, this, &MainWindow::OpenConnectionWindow);
     connect(this->mqtt_manager, &MQTTManager::onConnected, this, &MainWindow::updateStatusBar);
     connect(this->mqtt_manager, &MQTTManager::onDisconnected, this, &MainWindow::updateStatusBar);
-    connect(this->mqtt_manager, &MQTTManager::onMessageReceived, this, &MainWindow::messageReceived);
 }
 
 void MainWindow::updateStatusBar()
@@ -87,9 +86,4 @@ void MainWindow::updateStatusBar()
     } else {
         this->connection_status.setText("disconnected");
     }
-}
-
-void MainWindow::messageReceived(const mqtt::const_message_ptr msg)
-{
-    qDebug("New message: %s", msg->get_payload_str().c_str());
 }
