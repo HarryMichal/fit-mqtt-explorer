@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['connect_19',['connect',['../classMQTTManager.html#a76a2bc2516afb2e3aa07b847f32f611e',1,'MQTTManager']]],
-  ['connectedchanged_20',['connectedChanged',['../classMQTTManager.html#ac7d888bf5167eb8d3dbe24d26eef09a5',1,'MQTTManager']]]
+  ['connect_21',['connect',['../classMQTTManager.html#a76a2bc2516afb2e3aa07b847f32f611e',1,'MQTTManager']]]
 ];
