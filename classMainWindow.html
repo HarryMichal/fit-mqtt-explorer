@@ -116,9 +116,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>OpenConnectionWindow<
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-slots"></a>
 Private Slots</h2></td></tr>
-<tr class="memitem:aed3c99b182b978da6fc31c48ab03749f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWindow.html#aed3c99b182b978da6fc31c48ab03749f">messageReceived</a> (const mqtt::const_message_ptr msg)</td></tr>
-<tr class="memdesc:aed3c99b182b978da6fc31c48ab03749f"><td class="mdescLeft">&#160;</td><td class="mdescRight">messageReceived is emitted when a message arrives from the server.  <a href="classMainWindow.html#aed3c99b182b978da6fc31c48ab03749f">More...</a><br /></td></tr>
-<tr class="separator:aed3c99b182b978da6fc31c48ab03749f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe0610e6eae8e6295f4a2fe2dfd4f1a7"><td class="memItemLeft" align="right" valign="top"><a id="afe0610e6eae8e6295f4a2fe2dfd4f1a7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>clientConnected</b> ()</td></tr>
+<tr class="separator:afe0610e6eae8e6295f4a2fe2dfd4f1a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -140,9 +140,18 @@ Ui::MainWindow *&#160;</td><td class="memItemRight" valign="bottom"><b>ui</b></t
 <tr class="memitem:ae59ecf4aa8480b11b09e51be2e9e2fb3"><td class="memItemLeft" align="right" valign="top"><a id="ae59ecf4aa8480b11b09e51be2e9e2fb3"></a>
 QThread&#160;</td><td class="memItemRight" valign="bottom"><b>worker_thread</b></td></tr>
 <tr class="separator:ae59ecf4aa8480b11b09e51be2e9e2fb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f109d479259903af0b4bbf534b2779f"><td class="memItemLeft" align="right" valign="top"><a id="a0f109d479259903af0b4bbf534b2779f"></a>
+<a class="el" href="classMessageStore.html">MessageStore</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>msg_store</b></td></tr>
+<tr class="separator:a0f109d479259903af0b4bbf534b2779f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4055910fd08f0046a65c028dfd71b425"><td class="memItemLeft" align="right" valign="top"><a id="a4055910fd08f0046a65c028dfd71b425"></a>
 <a class="el" href="classMQTTManager.html">MQTTManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>mqtt_manager</b></td></tr>
 <tr class="separator:a4055910fd08f0046a65c028dfd71b425"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1927fb99d2ad9ea070d99eac8299a6c8"><td class="memItemLeft" align="right" valign="top"><a id="a1927fb99d2ad9ea070d99eac8299a6c8"></a>
+<a class="el" href="classDashboardPage.html">DashboardPage</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>dashboard</b></td></tr>
+<tr class="separator:a1927fb99d2ad9ea070d99eac8299a6c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3cb2d7cfd49e9ce63f0c15645d4ff51"><td class="memItemLeft" align="right" valign="top"><a id="aa3cb2d7cfd49e9ce63f0c15645d4ff51"></a>
+<a class="el" href="classExplorerPage.html">ExplorerPage</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>explorer</b></td></tr>
+<tr class="separator:aa3cb2d7cfd49e9ce63f0c15645d4ff51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a630fe8898b61acd9edce2e27183d65ef"><td class="memItemLeft" align="right" valign="top"><a id="a630fe8898b61acd9edce2e27183d65ef"></a>
 <a class="el" href="classNewConnection.html">NewConnection</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>new_connection_window</b></td></tr>
 <tr class="separator:a630fe8898b61acd9edce2e27183d65ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -156,41 +165,6 @@ QActionGroup *&#160;</td><td class="memItemRight" valign="bottom"><b>mode_select
 QLabel&#160;</td><td class="memItemRight" valign="bottom"><b>connection_status</b></td></tr>
 <tr class="separator:a263b9e32122b60848560a6076e7ae493"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="aed3c99b182b978da6fc31c48ab03749f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed3c99b182b978da6fc31c48ab03749f">&#9670;&nbsp;</a></span>messageReceived</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void MainWindow::messageReceived </td>
-          <td>(</td>
-          <td class="paramtype">const mqtt::const_message_ptr&#160;</td>
-          <td class="paramname"><em>msg</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>messageReceived is emitted when a message arrives from the server. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">msg</td><td>See mqtt::message </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="mainwindow_8h_source.html">mainwindow.h</a></li>
 <li>mainwindow.cpp</li>
@@ -201,7 +175,7 @@ QLabel&#160;</td><td class="memItemRight" valign="bottom"><b>connection_status</
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classMainWindow.html">MainWindow</a></li>
-    <li class="footer">Generated on Fri Apr 30 2021 08:50:24 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Apr 30 2021 10:54:15 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

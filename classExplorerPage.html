@@ -83,7 +83,9 @@ $(document).ready(function(){initNavTree('classExplorerPage.html',''); initResiz
 
 <div class="header">
   <div class="summary">
+<a href="#pub-slots">Public Slots</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classExplorerPage-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -97,17 +99,35 @@ Inheritance diagram for ExplorerPage:</div>
   <img src="classExplorerPage.png" alt=""/>
  </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
+Public Slots</h2></td></tr>
+<tr class="memitem:a7d84ed4d176bb11a9e6ff17263dff406"><td class="memItemLeft" align="right" valign="top"><a id="a7d84ed4d176bb11a9e6ff17263dff406"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>initConnection</b> (const QString server_name)</td></tr>
+<tr class="separator:a7d84ed4d176bb11a9e6ff17263dff406"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab23714c4b9b8ee498cb85034dab8f28"><td class="memItemLeft" align="right" valign="top"><a id="aab23714c4b9b8ee498cb85034dab8f28"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>receiveNewMessages</b> (const QHash&lt; QString, QList&lt; QString &gt;&gt; new_msgs)</td></tr>
+<tr class="separator:aab23714c4b9b8ee498cb85034dab8f28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a55d4cd405d402ef0a4afeda9bb836957"><td class="memItemLeft" align="right" valign="top"><a id="a55d4cd405d402ef0a4afeda9bb836957"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>ExplorerPage</b> (QWidget *parent=nullptr)</td></tr>
 <tr class="separator:a55d4cd405d402ef0a4afeda9bb836957"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a145171d5d1cd8bd6b05e919df7bca412"><td class="memItemLeft" align="right" valign="top"><a id="a145171d5d1cd8bd6b05e919df7bca412"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>addTopic</b> (const QString topic, const bool root)</td></tr>
+<tr class="separator:a145171d5d1cd8bd6b05e919df7bca412"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:acefc79483e373d8a4e40fed2394b0482"><td class="memItemLeft" align="right" valign="top"><a id="acefc79483e373d8a4e40fed2394b0482"></a>
 Ui::ExplorerPage *&#160;</td><td class="memItemRight" valign="bottom"><b>ui</b></td></tr>
 <tr class="separator:acefc79483e373d8a4e40fed2394b0482"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c38320b829b4154f6d3b21950288853"><td class="memItemLeft" align="right" valign="top"><a id="a7c38320b829b4154f6d3b21950288853"></a>
+QStandardItemModel&#160;</td><td class="memItemRight" valign="bottom"><b>topics_tree_model</b></td></tr>
+<tr class="separator:a7c38320b829b4154f6d3b21950288853"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="explorerpage_8h_source.html">explorerpage.h</a></li>
@@ -119,7 +139,7 @@ Ui::ExplorerPage *&#160;</td><td class="memItemRight" valign="bottom"><b>ui</b><
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classExplorerPage.html">ExplorerPage</a></li>
-    <li class="footer">Generated on Fri Apr 30 2021 08:50:24 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Apr 30 2021 10:54:15 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

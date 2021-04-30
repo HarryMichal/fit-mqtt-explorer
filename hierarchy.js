@@ -13,7 +13,8 @@ var hierarchy =
       [ "MainWindow", "classMainWindow.html", null ]
     ] ],
     [ "QObject", null, [
-      [ "MQTTManager", "classMQTTManager.html", null ]
+      [ "MQTTManager", "classMQTTManager.html", null ],
+      [ "MessageStore", "classMessageStore.html", null ]
     ] ],
     [ "QWidget", null, [
       [ "DashboardPage", "classDashboardPage.html", null ],

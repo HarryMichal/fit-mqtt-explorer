@@ -94,55 +94,63 @@ $(document).ready(function(){initNavTree('mainwindow_8h_source.html',''); initRe
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QThread&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;mqttmanager.h&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;newconnection.h&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;QT_BEGIN_NAMESPACE</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span>Ui {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">class </span><a class="code" href="classMainWindow.html">MainWindow</a>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;QT_END_NAMESPACE</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">enum</span> ModeState {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    Dashboard,</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    Explorer</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classMainWindow.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMainWindow.html">MainWindow</a> : <span class="keyword">public</span> QMainWindow</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classMainWindow.html">MainWindow</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    ~<a class="code" href="classMainWindow.html">MainWindow</a>();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> setDashboardPage();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> setExplorerPage();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> OpenConnectionWindow();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    Ui::MainWindow *ui;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    QThread worker_thread; <span class="comment">//&lt;Thread for running MQTTManager</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classMQTTManager.html">MQTTManager</a> *mqtt_manager; <span class="comment">//&lt;Manager of connection to a MQTT broker</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="classNewConnection.html">NewConnection</a> *new_connection_window;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    ModeState current_mode;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    QActionGroup *mode_selector;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    QLabel connection_status; <span class="comment">//&lt;Permanent widget in StatusBar</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> setupStatusBar();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> setupActions();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> updateStatusBar();</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;dashboardpage.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;explorerpage.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;messagestore.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;mqttmanager.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;newconnection.h&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;QT_BEGIN_NAMESPACE</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span>Ui {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">class </span><a class="code" href="classMainWindow.html">MainWindow</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;QT_END_NAMESPACE</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">enum</span> ModeState {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    Dashboard,</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    Explorer</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classMainWindow.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMainWindow.html">MainWindow</a> : <span class="keyword">public</span> QMainWindow</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classMainWindow.html">MainWindow</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    ~<a class="code" href="classMainWindow.html">MainWindow</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> setDashboardPage();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> setExplorerPage();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> OpenConnectionWindow();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    Ui::MainWindow *ui;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    QThread worker_thread; <span class="comment">//&lt;Thread for running MQTTManager</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="classMessageStore.html">MessageStore</a> *msg_store; <span class="comment">//&lt;Store of messages from a MQTT broker</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="classMQTTManager.html">MQTTManager</a> *mqtt_manager; <span class="comment">//&lt;Manager of connection to a MQTT broker</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="classDashboardPage.html">DashboardPage</a> *dashboard;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="classExplorerPage.html">ExplorerPage</a> *explorer;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="classNewConnection.html">NewConnection</a> *new_connection_window;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    ModeState current_mode;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    QActionGroup *mode_selector;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">private</span> slots:</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMainWindow.html#aed3c99b182b978da6fc31c48ab03749f">messageReceived</a>(<span class="keyword">const</span> mqtt::const_message_ptr msg);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// MAINWINDOW_H</span></div>
-<div class="ttc" id="aclassMQTTManager_html"><div class="ttname"><a href="classMQTTManager.html">MQTTManager</a></div><div class="ttdoc">The MQTTManager class wraps around mqtt:async_client in a Qt compatible manner.</div><div class="ttdef"><b>Definition:</b> mqttmanager.h:15</div></div>
-<div class="ttc" id="aclassMainWindow_html"><div class="ttname"><a href="classMainWindow.html">MainWindow</a></div><div class="ttdef"><b>Definition:</b> mainwindow.h:27</div></div>
-<div class="ttc" id="aclassMainWindow_html_aed3c99b182b978da6fc31c48ab03749f"><div class="ttname"><a href="classMainWindow.html#aed3c99b182b978da6fc31c48ab03749f">MainWindow::messageReceived</a></div><div class="ttdeci">void messageReceived(const mqtt::const_message_ptr msg)</div><div class="ttdoc">messageReceived is emitted when a message arrives from the server.</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:92</div></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    QLabel connection_status; <span class="comment">//&lt;Permanent widget in StatusBar</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> setupStatusBar();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> setupActions();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> updateStatusBar();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> clientConnected();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// MAINWINDOW_H</span></div>
+<div class="ttc" id="aclassDashboardPage_html"><div class="ttname"><a href="classDashboardPage.html">DashboardPage</a></div><div class="ttdef"><b>Definition:</b> dashboardpage.h:11</div></div>
+<div class="ttc" id="aclassExplorerPage_html"><div class="ttname"><a href="classExplorerPage.html">ExplorerPage</a></div><div class="ttdef"><b>Definition:</b> explorerpage.h:14</div></div>
+<div class="ttc" id="aclassMQTTManager_html"><div class="ttname"><a href="classMQTTManager.html">MQTTManager</a></div><div class="ttdoc">The MQTTManager class wraps around mqtt:async_client in a Qt compatible manner.</div><div class="ttdef"><b>Definition:</b> mqttmanager.h:16</div></div>
+<div class="ttc" id="aclassMainWindow_html"><div class="ttname"><a href="classMainWindow.html">MainWindow</a></div><div class="ttdef"><b>Definition:</b> mainwindow.h:30</div></div>
+<div class="ttc" id="aclassMessageStore_html"><div class="ttname"><a href="classMessageStore.html">MessageStore</a></div><div class="ttdef"><b>Definition:</b> messagestore.h:12</div></div>
 <div class="ttc" id="aclassNewConnection_html"><div class="ttname"><a href="classNewConnection.html">NewConnection</a></div><div class="ttdef"><b>Definition:</b> newconnection.h:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -150,7 +158,7 @@ $(document).ready(function(){initNavTree('mainwindow_8h_source.html',''); initRe
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>mainwindow.h</b></li>
-    <li class="footer">Generated on Fri Apr 30 2021 08:50:24 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Apr 30 2021 10:54:15 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
