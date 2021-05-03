@@ -16,6 +16,7 @@ class MQTTManager : public QObject
     Q_OBJECT
 public:
     bool connected; //<whether the client is currently connected
+    //ServerName *serverName;
 
     explicit MQTTManager(QObject *parent = nullptr);
 
@@ -25,7 +26,7 @@ public slots:
      * @details Currently supports no customization and connects only to
      * test.mosquitto.org:1883
      */
-    void connect();
+    void connect(QString);
 
 signals:
     /**
@@ -61,6 +62,7 @@ private:
     mqtt::async_client_ptr client;
     mqtt::connect_options_ptr options;
     mqtt::callback_ptr cb;
+
 };
 
 #endif // MQTTMANAGER_H
