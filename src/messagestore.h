@@ -19,7 +19,7 @@ public:
 
     const QHash<QString, QList<QString>> getAllMessages();
     const QHash<QString, QList<QString>> getNewMessages();
-    const QList<QString> getTopicMessages(const mqtt::string topic);
+    const QList<QString> getTopicMessages(const QString topic);
 
 signals:
     void newMessages(const QHash<QString, QList<QString>>);
