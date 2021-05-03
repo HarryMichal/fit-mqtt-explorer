@@ -13,7 +13,7 @@ MessageStore::MessageStore(QObject *parent) :
 
 void MessageStore::setMessageCap(int cap)
 {
-
+    this->message_capacity = cap;
 }
 
 int MessageStore::getMessageCap()
