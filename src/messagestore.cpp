@@ -26,14 +26,13 @@ const QHash<QString, QList<QString>> MessageStore::getAllMessages()
     return this->messages;
 }
 
-const QList<QString> MessageStore::getTopicMessages(const std::string topic)
+const QList<QString> MessageStore::getTopicMessages(const QString topic)
 {
-    auto qtopic = QString::fromStdString(topic);
-    if (!this->messages.contains(qtopic)) {
+    if (!this->messages.contains(topic)) {
         return QList<QString>();
     }
 
-    return this->messages[qtopic];
+    return this->messages[topic];
 }
 
 void MessageStore::addMessage(const mqtt::const_message_ptr msg)
