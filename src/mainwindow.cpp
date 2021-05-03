@@ -15,6 +15,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     this->ui->setupUi(this);
 
+    this->explorer->setMessageCap(msg_store->getMessageCap());
+
     this->mqtt_manager->moveToThread(&worker_thread);
     this->worker_thread.start();
 
@@ -80,6 +82,9 @@ void MainWindow::setupActions()
     connect(this->ui->actionConnect, &QAction::triggered, mqtt_manager, &MQTTManager::connect);
     connect(this->ui->actionNewConnection, &QAction::triggered, this, &MainWindow::OpenConnectionWindow);
 
+    connect(this->explorer, &ExplorerPage::onChangeSelectedMessage, this, &MainWindow::explorerChangeSelectedMessage);
+    connect(this->explorer, &ExplorerPage::onChangeSelectedTopic, this, &MainWindow::explorerChangeSelectedTopic);
+
     // MQTT related signals
     connect(this->mqtt_manager, &MQTTManager::onConnected, this, &MainWindow::updateStatusBar);
     connect(this->mqtt_manager, &MQTTManager::onConnected, this, &MainWindow::clientConnected);
@@ -101,5 +106,22 @@ void MainWindow::updateStatusBar()
 void MainWindow::clientConnected()
 {
     auto server_name = this->mqtt_manager->getServerName();
+
     this->explorer->initConnection(server_name);
+}
+
+void MainWindow::explorerChangeSelectedMessage(const int currentRow)
+{
+    auto topic_messages = this->msg_store->getTopicMessages(this->explorer->current_topic);
+
+    if (currentRow >= 0 && currentRow < topic_messages.count()) {
+        this->explorer->setMessage(topic_messages[currentRow]);
+    }
+}
+
+void MainWindow::explorerChangeSelectedTopic(QString topic)
+{
+    auto topic_msgs = this->msg_store->getTopicMessages(topic);
+
+    this->explorer->setTopic(topic_msgs);
 }

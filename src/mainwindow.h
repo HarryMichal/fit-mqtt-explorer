@@ -58,6 +58,8 @@ private:
 
 private slots:
     void clientConnected();
+    void explorerChangeSelectedMessage(const int currentRow);
+    void explorerChangeSelectedTopic(QString topic);
 };
 
 #endif // MAINWINDOW_H
