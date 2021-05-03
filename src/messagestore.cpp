@@ -43,13 +43,9 @@ void MessageStore::addMessage(const mqtt::const_message_ptr msg)
     auto qtopic = QString::fromStdString(msg->get_topic());
     QList<QString> msg_list = this->new_messages[qtopic];
 
-    if (msg_list.length() >= this->message_capacity) {
-        msg_list.pop_front();
-    }
-
     msg_list.append(QString::fromStdString(msg->get_payload_str()));
 
-    this->new_messages[qtopic] = msg_list;
+    this->new_messages.insert(qtopic, msg_list);
 }
 
 void MessageStore::handleTick()
