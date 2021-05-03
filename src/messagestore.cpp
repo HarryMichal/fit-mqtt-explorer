@@ -54,6 +54,21 @@ void MessageStore::handleTick()
         return;
     }
 
-    emit this->newMessages(this->new_messages);
+    auto new_messages = this->new_messages;
+
     this->new_messages.clear();
+    for (auto i = new_messages.begin(); i != new_messages.end(); i++) {
+        auto section = this->messages.take(i.key());
+
+        section.append(i.value());
+
+        this->messages.insert(i.key(), section);
+    }
+
+    for (auto i = this->messages.begin(); i != this->messages.end(); i++) {
+        this->messages.insert(i.key(),
+            i.value().mid(i.value().count() - this->message_capacity, -1));
+    }
+
+    emit this->newMessages(new_messages);
 }
