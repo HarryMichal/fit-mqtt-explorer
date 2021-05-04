@@ -16,17 +16,17 @@ class MQTTManager : public QObject
     Q_OBJECT
 public:
     bool connected; //<whether the client is currently connected
-    //ServerName *serverName;
 
     explicit MQTTManager(QObject *parent = nullptr);
 
 public slots:
     /**
      * @brief connect connects to an MQTT server
-     * @details Currently supports no customization and connects only to
-     * test.mosquitto.org:1883
+     * @details Currently supports connection to unsaved adresses
+     * from newConnection window
+     * @param fullConnectionAdress string with full server adress with port
      */
-    void connect(QString);
+    void connect(QString fullConnectionAdress);
 
 signals:
     /**
