@@ -3,6 +3,8 @@ var classMainWindow =
     [ "MainWindow", "classMainWindow.html#a996c5a2b6f77944776856f08ec30858d", null ],
     [ "~MainWindow", "classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7", null ],
     [ "clientConnected", "classMainWindow.html#afe0610e6eae8e6295f4a2fe2dfd4f1a7", null ],
+    [ "explorerChangeSelectedMessage", "classMainWindow.html#ac4ac7413867c0ba527b5c7390cedfda1", null ],
+    [ "explorerChangeSelectedTopic", "classMainWindow.html#a02d121dbc8a624732897b8b24462eb91", null ],
     [ "OpenConnectionWindow", "classMainWindow.html#a879e1ee5ea4db9b87229ad1a70950887", null ],
     [ "setDashboardPage", "classMainWindow.html#ac1ae76a850167f7fc09da8fb0cd4d85b", null ],
     [ "setExplorerPage", "classMainWindow.html#a6ecd2b2a0d761baea5e60ce13c8c40ba", null ],

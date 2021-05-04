@@ -5,7 +5,7 @@ var classMessageStore =
     [ "getAllMessages", "classMessageStore.html#aee922d48355cd2d4ead648a3596d1c2a", null ],
     [ "getMessageCap", "classMessageStore.html#a17edd9ba83482df7fdd027fb6a141c3f", null ],
     [ "getNewMessages", "classMessageStore.html#a817107b0e6f16adec0ad72ffd64c461a", null ],
-    [ "getTopicMessages", "classMessageStore.html#a8b2e0575c21a46919291f40ac44b5332", null ],
+    [ "getTopicMessages", "classMessageStore.html#a602dc18edfa6723d0428aeedacb2cb29", null ],
     [ "handleTick", "classMessageStore.html#a2699f5f79c9f9fd46f4e9c4d48cdc158", null ],
     [ "newMessages", "classMessageStore.html#a4d4c5dc4847c7d987de36e3cb238f1cd", null ],
     [ "setMessageCap", "classMessageStore.html#a80b8d46f4cba0fde7f6a5ed981480d8d", null ],

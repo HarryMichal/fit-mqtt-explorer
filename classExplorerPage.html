@@ -84,7 +84,9 @@ $(document).ready(function(){initNavTree('classExplorerPage.html',''); initResiz
 <div class="header">
   <div class="summary">
 <a href="#pub-slots">Public Slots</a> &#124;
+<a href="#signals">Signals</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classExplorerPage-members.html">List of all members</a>  </div>
@@ -101,18 +103,48 @@ Inheritance diagram for ExplorerPage:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
 Public Slots</h2></td></tr>
+<tr class="memitem:a867684d651ab61c486d63b3b3890e616"><td class="memItemLeft" align="right" valign="top"><a id="a867684d651ab61c486d63b3b3890e616"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>changeSelectedMessage</b> (QListWidgetItem *current, QListWidgetItem *previous)</td></tr>
+<tr class="separator:a867684d651ab61c486d63b3b3890e616"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91ad1db58f418cef6b4d8b89e6d2ca42"><td class="memItemLeft" align="right" valign="top"><a id="a91ad1db58f418cef6b4d8b89e6d2ca42"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>changeSelectedTopic</b> (const QModelIndex &amp;current)</td></tr>
+<tr class="separator:a91ad1db58f418cef6b4d8b89e6d2ca42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d84ed4d176bb11a9e6ff17263dff406"><td class="memItemLeft" align="right" valign="top"><a id="a7d84ed4d176bb11a9e6ff17263dff406"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>initConnection</b> (const QString server_name)</td></tr>
 <tr class="separator:a7d84ed4d176bb11a9e6ff17263dff406"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab23714c4b9b8ee498cb85034dab8f28"><td class="memItemLeft" align="right" valign="top"><a id="aab23714c4b9b8ee498cb85034dab8f28"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>receiveNewMessages</b> (const QHash&lt; QString, QList&lt; QString &gt;&gt; new_msgs)</td></tr>
 <tr class="separator:aab23714c4b9b8ee498cb85034dab8f28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7aa2099c6de3783f806db4e1239b7452"><td class="memItemLeft" align="right" valign="top"><a id="a7aa2099c6de3783f806db4e1239b7452"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setMessage</b> (QString msg)</td></tr>
+<tr class="separator:a7aa2099c6de3783f806db4e1239b7452"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e752e7c4cffb9896c3d926daee568bc"><td class="memItemLeft" align="right" valign="top"><a id="a2e752e7c4cffb9896c3d926daee568bc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setTopic</b> (QList&lt; QString &gt;)</td></tr>
+<tr class="separator:a2e752e7c4cffb9896c3d926daee568bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
+Signals</h2></td></tr>
+<tr class="memitem:a8ef8fda8ff381750f4bda4b124d4c499"><td class="memItemLeft" align="right" valign="top"><a id="a8ef8fda8ff381750f4bda4b124d4c499"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>onChangeSelectedMessage</b> (const int currentRow)</td></tr>
+<tr class="separator:a8ef8fda8ff381750f4bda4b124d4c499"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a187e19bd14f43ad987d5baa2d2211acc"><td class="memItemLeft" align="right" valign="top"><a id="a187e19bd14f43ad987d5baa2d2211acc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>onChangeSelectedTopic</b> (QString topic)</td></tr>
+<tr class="separator:a187e19bd14f43ad987d5baa2d2211acc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a55d4cd405d402ef0a4afeda9bb836957"><td class="memItemLeft" align="right" valign="top"><a id="a55d4cd405d402ef0a4afeda9bb836957"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ExplorerPage</b> (QWidget *parent=nullptr)</td></tr>
-<tr class="separator:a55d4cd405d402ef0a4afeda9bb836957"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bb7c60f5614111fafd68080f7d95c36"><td class="memItemLeft" align="right" valign="top"><a id="a6bb7c60f5614111fafd68080f7d95c36"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ExplorerPage</b> (QWidget *parent=nullptr, int cap=50)</td></tr>
+<tr class="separator:a6bb7c60f5614111fafd68080f7d95c36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4294314b21d7830cdd154807843a6e04"><td class="memItemLeft" align="right" valign="top"><a id="a4294314b21d7830cdd154807843a6e04"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setMessageCap</b> (int cap)</td></tr>
+<tr class="separator:a4294314b21d7830cdd154807843a6e04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a94b6a6028227e4691ec5ffb5502bffdf"><td class="memItemLeft" align="right" valign="top"><a id="a94b6a6028227e4691ec5ffb5502bffdf"></a>
+QString&#160;</td><td class="memItemRight" valign="bottom"><b>current_topic</b></td></tr>
+<tr class="separator:a94b6a6028227e4691ec5ffb5502bffdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -128,10 +160,13 @@ Ui::ExplorerPage *&#160;</td><td class="memItemRight" valign="bottom"><b>ui</b><
 <tr class="memitem:a7c38320b829b4154f6d3b21950288853"><td class="memItemLeft" align="right" valign="top"><a id="a7c38320b829b4154f6d3b21950288853"></a>
 QStandardItemModel&#160;</td><td class="memItemRight" valign="bottom"><b>topics_tree_model</b></td></tr>
 <tr class="separator:a7c38320b829b4154f6d3b21950288853"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a803ce5eaa94086985bade3c0f46753bb"><td class="memItemLeft" align="right" valign="top"><a id="a803ce5eaa94086985bade3c0f46753bb"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>message_capacity</b></td></tr>
+<tr class="separator:a803ce5eaa94086985bade3c0f46753bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="explorerpage_8h_source.html#l00013">13</a> of file <a class="el" href="explorerpage_8h_source.html">explorerpage.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="explorerpage_8h_source.html#l00031">31</a> of file <a class="el" href="explorerpage_8h_source.html">explorerpage.h</a>.</p>
 </div><hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="explorerpage_8h_source.html">explorerpage.h</a></li>
 <li><a class="el" href="explorerpage_8cpp_source.html">explorerpage.cpp</a></li>
@@ -142,7 +177,7 @@ QStandardItemModel&#160;</td><td class="memItemRight" valign="bottom"><b>topics_
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classExplorerPage.html">ExplorerPage</a></li>
-    <li class="footer">Generated on Tue May 4 2021 16:40:18 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue May 4 2021 16:43:54 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
