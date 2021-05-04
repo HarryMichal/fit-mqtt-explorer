@@ -1,5 +1,4 @@
 #include <iostream>
-#include <QDebug>
 
 #include "mqtt/message.h"
 #include "mqttmanager.h"

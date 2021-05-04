@@ -2,7 +2,6 @@
 #include "mqttmanager.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -27,6 +26,7 @@ MainWindow::~MainWindow()
 {
     delete this->ui;
     delete this->modeSelector;
+
 
     this->worker_thread.quit();
     this->worker_thread.wait();
@@ -55,19 +55,14 @@ void MainWindow::SetExplorerPage()
 
 void MainWindow::OpenConnectionWindow()
 {
-
     this->new_connection_window->show();
 }
+
 
 void MainWindow::setupStatusBar()
 {
     this->connection_status.setText("disconnected");
     this->ui->statusBar->addPermanentWidget(&this->connection_status);
-}
-
-void MainWindow::createNewConnection()
-{
-    qDebug("Setup");
 }
 
 void MainWindow::setupActions()
@@ -77,16 +72,18 @@ void MainWindow::setupActions()
     this->modeSelector->addAction(ui->actionExplorer);
     this->modeSelector->setExclusive(true);
 
+
+
     // Basic signals
     connect(this->ui->actionDashboard, &QAction::triggered, this, &MainWindow::SetDashboardPage);
     connect(this->ui->actionExplorer, &QAction::triggered, this, &MainWindow::SetExplorerPage);
     connect(this->ui->actionConnect, &QAction::triggered, this, &MainWindow::OpenConnectionWindow);
-    connect(this->new_connection_window, &NewConnection::createNewConnection, mqtt_manager, &MQTTManager::connect);
 
     // MQTT related signals
-    //connect(this->ui->actionConnect, &QAction::triggered, mqtt_manager, &MQTTManager::connect);
+    connect(this->new_connection_window, &NewConnection::createNewConnection, mqtt_manager, &MQTTManager::connect);
     connect(this->mqtt_manager, &MQTTManager::connectedChanged, this, &MainWindow::updateStatusBar);
     connect(this->mqtt_manager, &MQTTManager::messageReceived, this, &MainWindow::messageReceived);
+
 }
 
 void MainWindow::updateStatusBar()
