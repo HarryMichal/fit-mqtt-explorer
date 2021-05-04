@@ -273,7 +273,7 @@
    <zorder>label_6</zorder>
    <zorder>portNumber</zorder>
   </widget>
-  <widget class="QListView" name="listView">
+  <widget class="QListView" name="connectionsList">
    <property name="geometry">
     <rect>
      <x>10</x>
