@@ -6,9 +6,18 @@ NewConnection::NewConnection(QWidget *parent) :
     ui(new Ui::newconnection)
 {
     ui->setupUi(this);
+
+    NewConnection::setupSignals();
 }
 
 NewConnection::~NewConnection()
 {
     delete ui;
+}
+
+
+void NewConnection::setupSignals()
+{
+    connect(this->ui->connectButt, &QPushButton::released, this, &NewConnection::createNewConnection);
+    connect(this->ui->connectButt, &QPushButton::released, this, &QDialog::accept);
 }
