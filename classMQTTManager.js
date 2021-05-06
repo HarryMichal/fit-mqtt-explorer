@@ -1,7 +1,7 @@
 var classMQTTManager =
 [
     [ "MQTTManager", "classMQTTManager.html#a2c4893d71cc42499b3744e291a47f971", null ],
-    [ "connect", "classMQTTManager.html#a76a2bc2516afb2e3aa07b847f32f611e", null ],
+    [ "connect", "classMQTTManager.html#acb9a7656dfa94a3dbfbc557e2347675c", null ],
     [ "getServerName", "classMQTTManager.html#a18649823b759dcf5683a3b54f9616175", null ],
     [ "onConnected", "classMQTTManager.html#adee79ff7dc55d3c019658bab9f93d014", null ],
     [ "onDisconnected", "classMQTTManager.html#a414766f7f3d92286f011c7f9daf41567", null ],

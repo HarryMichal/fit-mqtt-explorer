@@ -7,5 +7,6 @@ var annotated_dup =
     [ "MessageTreeView", "classMessageTreeView.html", "classMessageTreeView" ],
     [ "MQTTCallback", "classMQTTCallback.html", "classMQTTCallback" ],
     [ "MQTTManager", "classMQTTManager.html", "classMQTTManager" ],
-    [ "NewConnection", "classNewConnection.html", "classNewConnection" ]
+    [ "NewConnection", "classNewConnection.html", "classNewConnection" ],
+    [ "ServerName", "structServerName.html", "structServerName" ]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['connect_24',['connect',['../classMQTTManager.html#a76a2bc2516afb2e3aa07b847f32f611e',1,'MQTTManager']]]
+  ['connect_29',['connect',['../classMQTTManager.html#acb9a7656dfa94a3dbfbc557e2347675c',1,'MQTTManager']]],
+  ['createnewconnection_30',['createNewConnection',['../classNewConnection.html#a95232fa6e00fd4d9b528f97cde26a714',1,'NewConnection']]]
 ];

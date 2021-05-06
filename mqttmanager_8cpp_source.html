@@ -157,7 +157,7 @@ $(document).ready(function(){initNavTree('mqttmanager_8cpp_source.html',''); ini
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">return</span> QString::fromStdString(this-&gt;client-&gt;get_server_uri());</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classMQTTManager.html#a76a2bc2516afb2e3aa07b847f32f611e">   75</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classMQTTManager.html#a76a2bc2516afb2e3aa07b847f32f611e">MQTTManager::connect</a>()</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classMQTTManager.html#acb9a7656dfa94a3dbfbc557e2347675c">   75</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classMQTTManager.html#acb9a7656dfa94a3dbfbc557e2347675c">MQTTManager::connect</a>(QString fullConnectionAdress)</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">if</span> (this-&gt;client != <span class="keyword">nullptr</span>) {</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">if</span> (this-&gt;client-&gt;is_connected()) {</div>
@@ -165,7 +165,7 @@ $(document).ready(function(){initNavTree('mqttmanager_8cpp_source.html',''); ini
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        }</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    this-&gt;client = std::make_shared&lt;mqtt::async_client&gt;(<span class="stringliteral">&quot;test.mosquitto.org:1883&quot;</span>, CLIENT_ID);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    this-&gt;client = std::make_shared&lt;mqtt::async_client&gt;(fullConnectionAdress.toStdString(), CLIENT_ID);</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    this-&gt;options = std::make_shared&lt;mqtt::connect_options&gt;();</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    this-&gt;options-&gt;set_clean_session(<span class="keyword">false</span>);</div>
@@ -187,8 +187,8 @@ $(document).ready(function(){initNavTree('mqttmanager_8cpp_source.html',''); ini
 <div class="ttc" id="aclassMQTTManager_html_a32279065340a892ee77fb4bb513d52df"><div class="ttname"><a href="classMQTTManager.html#a32279065340a892ee77fb4bb513d52df">MQTTManager::onOperationFailed</a></div><div class="ttdeci">void onOperationFailed(const mqtt::token &amp;tok)</div><div class="ttdoc">onOperationFailed is emitted when an action fails</div></div>
 <div class="ttc" id="aclassMQTTManager_html_a414766f7f3d92286f011c7f9daf41567"><div class="ttname"><a href="classMQTTManager.html#a414766f7f3d92286f011c7f9daf41567">MQTTManager::onDisconnected</a></div><div class="ttdeci">void onDisconnected()</div><div class="ttdoc">onDisconnected is emitted when the client disconnects from a server</div></div>
 <div class="ttc" id="aclassMQTTManager_html_a535c759fb38ac923437759864a31f967"><div class="ttname"><a href="classMQTTManager.html#a535c759fb38ac923437759864a31f967">MQTTManager::onOperationSucceeded</a></div><div class="ttdeci">void onOperationSucceeded(const mqtt::token &amp;tok)</div><div class="ttdoc">onOperationSucceeded is emitted when an action has completed successfully</div></div>
-<div class="ttc" id="aclassMQTTManager_html_a76a2bc2516afb2e3aa07b847f32f611e"><div class="ttname"><a href="classMQTTManager.html#a76a2bc2516afb2e3aa07b847f32f611e">MQTTManager::connect</a></div><div class="ttdeci">void connect()</div><div class="ttdoc">connect connects to an MQTT server</div><div class="ttdef"><b>Definition:</b> <a href="mqttmanager_8cpp_source.html#l00075">mqttmanager.cpp:75</a></div></div>
 <div class="ttc" id="aclassMQTTManager_html_aa29dbd5e2181331c5bdbb4bc08c5e5af"><div class="ttname"><a href="classMQTTManager.html#aa29dbd5e2181331c5bdbb4bc08c5e5af">MQTTManager::onMessageReceived</a></div><div class="ttdeci">void onMessageReceived(const mqtt::const_message_ptr msg)</div><div class="ttdoc">onMessageReceived is emitted when a message arrives from the server</div></div>
+<div class="ttc" id="aclassMQTTManager_html_acb9a7656dfa94a3dbfbc557e2347675c"><div class="ttname"><a href="classMQTTManager.html#acb9a7656dfa94a3dbfbc557e2347675c">MQTTManager::connect</a></div><div class="ttdeci">void connect(QString fullConnectionAdress)</div><div class="ttdoc">connect connects to an MQTT server</div><div class="ttdef"><b>Definition:</b> <a href="mqttmanager_8cpp_source.html#l00075">mqttmanager.cpp:75</a></div></div>
 <div class="ttc" id="aclassMQTTManager_html_adee79ff7dc55d3c019658bab9f93d014"><div class="ttname"><a href="classMQTTManager.html#adee79ff7dc55d3c019658bab9f93d014">MQTTManager::onConnected</a></div><div class="ttdeci">void onConnected()</div><div class="ttdoc">onConnected is emitted when the client connects to a server</div></div>
 <div class="ttc" id="aclassMQTTManager_html_af956b6d163ebec75af38c2e80c5099f7"><div class="ttname"><a href="classMQTTManager.html#af956b6d163ebec75af38c2e80c5099f7">MQTTManager::onMessageDelivered</a></div><div class="ttdeci">void onMessageDelivered(mqtt::delivery_token_ptr tok)</div><div class="ttdoc">onMessageDelivered is emitted when delivery for a message has been completed, and all acknowledgments...</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -197,7 +197,7 @@ $(document).ready(function(){initNavTree('mqttmanager_8cpp_source.html',''); ini
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>mqttmanager.cpp</b></li>
-    <li class="footer">Generated on Tue May 4 2021 16:43:54 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu May 6 2021 10:31:25 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -22,5 +22,6 @@ var hierarchy =
     [ "QWidget", null, [
       [ "DashboardPage", "classDashboardPage.html", null ],
       [ "ExplorerPage", "classExplorerPage.html", null ]
-    ] ]
+    ] ],
+    [ "ServerName", "structServerName.html", null ]
 ];
