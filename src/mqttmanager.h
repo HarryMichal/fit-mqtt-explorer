@@ -28,7 +28,7 @@ public slots:
      * @details Currently supports no customization and connects only to
      * test.mosquitto.org:1883
      */
-    void connect();
+    void connect(QString fullConnectionAdress);
 
 signals:
     /**
