@@ -72,7 +72,7 @@ const QString MQTTManager::getServerName()
 /**
  * @brief MQTTManager::connect
  */
-void MQTTManager::connect()
+void MQTTManager::connect(QString fullConnectionAdress)
 {
     if (this->client != nullptr) {
         if (this->client->is_connected()) {
@@ -80,7 +80,7 @@ void MQTTManager::connect()
         }
     }
 
-    this->client = std::make_shared<mqtt::async_client>("test.mosquitto.org:1883", CLIENT_ID);
+    this->client = std::make_shared<mqtt::async_client>(fullConnectionAdress.toStdString(), CLIENT_ID);
 
     this->options = std::make_shared<mqtt::connect_options>();
     this->options->set_clean_session(false);
