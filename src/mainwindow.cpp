@@ -20,6 +20,8 @@ MainWindow::MainWindow(QWidget *parent) :
     this->mqtt_manager->moveToThread(&worker_thread);
     this->worker_thread.start();
 
+    this->new_connection_window = new NewConnection(this);
+
     this->ui->mode_stack->insertWidget(ModeState::Dashboard, this->dashboard);
     this->ui->mode_stack->insertWidget(ModeState::Explorer, this->explorer);
 
@@ -59,8 +61,12 @@ void MainWindow::setExplorerPage()
 
 void MainWindow::OpenConnectionWindow()
 {
-    this->new_connection_window = new NewConnection(this);
     this->new_connection_window->show();
+}
+
+void MainWindow::createNewConnection()
+{
+    qDebug("Setup");
 }
 
 void MainWindow::setupStatusBar()
@@ -79,8 +85,9 @@ void MainWindow::setupActions()
     // UI related signals
     connect(this->ui->actionDashboard, &QAction::triggered, this, &MainWindow::setDashboardPage);
     connect(this->ui->actionExplorer, &QAction::triggered, this, &MainWindow::setExplorerPage);
-    connect(this->ui->actionConnect, &QAction::triggered, mqtt_manager, &MQTTManager::connect);
-    connect(this->ui->actionNewConnection, &QAction::triggered, this, &MainWindow::OpenConnectionWindow);
+    connect(this->ui->actionConnect, &QAction::triggered, this, &MainWindow::OpenConnectionWindow);
+
+    connect(this->new_connection_window, &NewConnection::createNewConnection, mqtt_manager, &MQTTManager::connect);
 
     connect(this->explorer, &ExplorerPage::onChangeSelectedMessage, this, &MainWindow::explorerChangeSelectedMessage);
     connect(this->explorer, &ExplorerPage::onChangeSelectedTopic, this, &MainWindow::explorerChangeSelectedTopic);
