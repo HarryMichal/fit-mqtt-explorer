@@ -1,3 +1,5 @@
+#include <QFile>
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "mqtt/message.h"
@@ -134,4 +136,32 @@ void MainWindow::explorerChangeSelectedTopic(QString topic)
     auto topic_msgs = this->msg_store->getTopicMessages(topic);
 
     this->explorer->setTopic(topic_msgs);
+}
+
+void MainWindow::sendFile(mqtt::string topic, QString file_name)
+{
+    // Read the file and use its content as a payload
+    auto file = QFile(file_name);
+
+    if (!file.exists()) {
+        return;
+    }
+
+    file.open(QFile::ReadOnly);
+    
+    if (!file.isOpen()) {
+        return;
+    }
+
+    auto payload = file.readAll().data(); 
+    auto msg = mqtt::make_message(topic, payload, 0, true);
+
+    this->mqtt_manager->send(msg);
+}
+
+void MainWindow::sendText(mqtt::string topic, mqtt::string payload)
+{
+    auto msg = mqtt::make_message(topic, payload, 0, true);
+
+    this->mqtt_manager->send(msg);
 }
