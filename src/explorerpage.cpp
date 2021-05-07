@@ -1,4 +1,5 @@
 #include <QHash>
+#include <QPixmap>
 #include <QString>
 
 #include "explorerpage.h"
@@ -37,12 +38,19 @@ void ExplorerPage::changeSelectedMessage(QListWidgetItem *current, QListWidgetIt
     auto curr_row = this->ui->messageHistoryList->row(current);
     auto prev_row = this->ui->messageHistoryList->row(previous);
 
+    // No need to refresh the view when no other item is selected.
     if (curr_row == prev_row) {
         return;
     }
 
-    if (curr_row == 1 && prev_row == 0 && this->ui->messageHistoryList->count() >= this->message_capacity) {
-        return;
+    // Hack alert: In order to prevent losing the preview of a message that
+    // might have been deleted from the history list (very likely when the
+    // frequency of messages is very high) put in place this hack. It skips the
+    // setting of a new message preview on overflow.
+    if (this->ui->messageHistoryList->count() >= this->message_capacity) {
+        if (curr_row == this->message_capacity-1 && prev_row == this->message_capacity) {
+            return;
+        }
     }
 
     emit this->onChangeSelectedMessage(curr_row);
@@ -89,12 +97,8 @@ void ExplorerPage::receiveNewMessages(const QHash<QString, QList<QString>> new_m
     if (!new_msgs.contains(this->current_topic)) {
         return;
     }
-
-    this->ui->messageHistoryList->addItems(new_msgs[this->current_topic]);
-    // Respect the set message capacity
-    for (int i = this->ui->messageHistoryList->count(); i > this->message_capacity; i--) {
-        delete this->ui->messageHistoryList->takeItem(0);
-    }
+    
+    this->addMessages(new_msgs[this->current_topic]);
 }
 
 void ExplorerPage::setMessage(const QString msg)
@@ -105,7 +109,36 @@ void ExplorerPage::setMessage(const QString msg)
 void ExplorerPage::setTopic(const QList<QString> topic_msgs)
 {
     this->ui->messageHistoryList->clear();
-    this->ui->messageHistoryList->addItems(topic_msgs);
+    this->addMessages(topic_msgs);
+}
+
+void ExplorerPage::addMessages(QList<QString> msgs)
+{
+    for (auto it = msgs.begin(); it != msgs.end(); it++) {
+        QByteArray data(it->toStdString().c_str(), it->length());
+        QPixmap pixmap;
+        QString msg;
+
+        if (pixmap.loadFromData(data, "JPG") || pixmap.loadFromData(data, "PNG")) {
+            // The payload is a pixmap (picture)
+            msg = "<binary-message::picture>";
+        } else {
+            // Truncate messages longer than a certain number of characters
+            // If truncated, add three dots to signalize it.
+            msg = *it;
+
+            if (msg.length() > 26) {
+                msg.truncate(26);
+                msg += "...";
+            }
+        }
+
+        this->ui->messageHistoryList->insertItem(0, msg);
+        // Respect the set message capacity
+        for (int i = this->ui->messageHistoryList->count(); i > this->message_capacity; i--) {
+            delete this->ui->messageHistoryList->takeItem(i-1);
+        }
+    }
 }
 
 void ExplorerPage::addTopic(const QString topic, const bool root)
