@@ -30,6 +30,14 @@ public slots:
      * @param fullConnectionAdress string with full server adress with port
      */
     void connect(QString fullConnectionAdress);
+    /**
+     * @brief send() sends a message to an MQTT server
+     * @details The assembly of a message is to be done by other components.
+     * Not this method.
+     *
+     * @param msg an already prepared message to be sent
+     */
+    void send(mqtt::const_message_ptr msg);
 
 signals:
     /**

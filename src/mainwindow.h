@@ -61,6 +61,22 @@ private slots:
     void clientConnected();
     void explorerChangeSelectedMessage(const int currentRow);
     void explorerChangeSelectedTopic(QString topic);
+    /**
+     * @brief sendFile() checks the existence of a file, reads it, assembles
+     * a mesage and passes it to the MQTT manager
+     *
+     * @param topic topic where the message should be sent
+     * @param file_name name of the file to be sent
+     */
+    void sendFile(mqtt::string topic, QString file_name);
+    /**
+     * @brief sendText() assembles a simple message and passes it to the MQTT
+     * manager
+     *
+     * @param topic topic where the message should be sent
+     * @param msg message to be sent
+     */
+    void sendText(mqtt::string topic, mqtt::string msg);
 };
 
 #endif // MAINWINDOW_H

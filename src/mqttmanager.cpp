@@ -97,3 +97,12 @@ void MQTTManager::connect(QString fullConnectionAdress)
         qFatal("failed to connect to broker: %s", err.get_message().c_str());
     }
 }
+
+void MQTTManager::send(mqtt::const_message_ptr msg)
+{
+    if (this->client == nullptr) {
+        return;
+    }
+
+    this->client->publish(msg);
+}
