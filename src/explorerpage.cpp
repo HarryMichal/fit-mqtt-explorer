@@ -1,5 +1,8 @@
+#include <QFileDialog>
 #include <QHash>
 #include <QPixmap>
+#include <QPushButton>
+#include <QStandardPaths>
 #include <QString>
 
 #include "explorerpage.h"
@@ -19,7 +22,9 @@ ExplorerPage::ExplorerPage(QWidget *parent, int cap) :
 
     ui->topicsTree->setModel(&this->topics_tree_model);
 
+    connect(ui->fileChooseButton, &QPushButton::clicked, this, &ExplorerPage::selectFile);
     connect(ui->messageHistoryList, &QListWidget::currentItemChanged, this, &ExplorerPage::changeSelectedMessage);
+    connect(ui->sendButton, &QPushButton::clicked, this, &ExplorerPage::sendMessage);
     connect(ui->topicsTree, &MessageTreeView::onCurrentChanged, this, &ExplorerPage::changeSelectedTopic);
 }
 
@@ -99,6 +104,37 @@ void ExplorerPage::receiveNewMessages(const QHash<QString, QList<QString>> new_m
     }
     
     this->addMessages(new_msgs[this->current_topic]);
+}
+
+void ExplorerPage::selectFile()
+{
+    auto file_name = QFileDialog::getOpenFileName(this, "Choose file", QStandardPaths::writableLocation(QStandardPaths::HomeLocation));
+    this->ui->fileNameLineEdit->setText(file_name);
+}
+
+void ExplorerPage::sendMessage()
+{
+    auto topic = this->ui->topicNameLabel->text().toStdString();
+
+    // Send the message to a subtopic
+    // TODO: Subscribe to the subtopic
+    if (this->ui->splitTopicBox->isChecked()) {
+        topic += "/" + this->ui->splitTopicText->text().toStdString();
+    }
+
+    // Send plain text message
+    if (this->ui->radioButtonPlainText->isChecked()) {
+        auto msg = this->ui->messageTextEdit->toPlainText().toStdString();
+
+        emit this->onSendText(topic, msg);
+    }
+
+    // Send binary message (file)
+    if (this->ui->radioButtonFile->isChecked()) {
+        auto file_name = this->ui->fileNameLineEdit->text();
+
+        emit this->onSendFile(topic, file_name);
+    }
 }
 
 void ExplorerPage::setMessage(const QString msg)
