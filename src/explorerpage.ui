@@ -156,52 +156,74 @@
               </widget>
              </item>
              <item>
-              <widget class="QRadioButton" name="radioButtonPlainText">
-               <property name="text">
-                <string>Plain text</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <layout class="QVBoxLayout" name="verticalLayout_5">
                <item>
-                <widget class="QRadioButton" name="radioButton_file">
+                <widget class="QRadioButton" name="radioButtonPlainText">
                  <property name="text">
-                  <string>File</string>
+                  <string>Plain text</string>
                  </property>
                  <property name="checked">
-                  <bool>false</bool>
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLineEdit" name="fileNameLineEdit">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                </widget>
+                <layout class="QHBoxLayout" name="horizontalLayout_2">
+                 <item>
+                  <widget class="QRadioButton" name="radioButtonFile">
+                   <property name="text">
+                    <string>File</string>
+                   </property>
+                   <property name="checked">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="fileNameLineEdit">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="fileChooseButton">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                   <property name="text">
+                    <string>Browse...</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
                </item>
                <item>
-                <widget class="QPushButton" name="fileChooseButton">
+                <widget class="QTextEdit" name="messageTextEdit">
                  <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="text">
-                  <string>Browse...</string>
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
               </layout>
              </item>
              <item>
-              <widget class="QTextEdit" name="messageTextEdit">
-               <property name="enabled">
-                <bool>true</bool>
-               </property>
-              </widget>
+              <layout class="QHBoxLayout" name="horizontalLayout_3">
+               <item>
+                <widget class="QCheckBox" name="splitTopicBox">
+                 <property name="text">
+                  <string>Split topic</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="splitTopicText">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </item>
              <item>
               <widget class="QPushButton" name="sendButton">
@@ -238,8 +260,8 @@
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>457</width>
-                 <height>202</height>
+                 <width>454</width>
+                 <height>190</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -306,14 +328,14 @@
    </hints>
   </connection>
   <connection>
-   <sender>radioButton_file</sender>
+   <sender>radioButtonFile</sender>
    <signal>toggled(bool)</signal>
    <receiver>fileNameLineEdit</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>420</x>
-     <y>194</y>
+     <x>474</x>
+     <y>204</y>
     </hint>
     <hint type="destinationlabel">
      <x>526</x>
@@ -322,7 +344,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>radioButton_file</sender>
+   <sender>radioButtonFile</sender>
    <signal>toggled(bool)</signal>
    <receiver>fileChooseButton</receiver>
    <slot>setEnabled(bool)</slot>
@@ -334,6 +356,22 @@
     <hint type="destinationlabel">
      <x>823</x>
      <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>splitTopicBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>splitTopicText</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>472</x>
+     <y>362</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>594</x>
+     <y>360</y>
     </hint>
    </hints>
   </connection>

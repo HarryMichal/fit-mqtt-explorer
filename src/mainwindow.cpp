@@ -93,6 +93,8 @@ void MainWindow::setupActions()
 
     connect(this->explorer, &ExplorerPage::onChangeSelectedMessage, this, &MainWindow::explorerChangeSelectedMessage);
     connect(this->explorer, &ExplorerPage::onChangeSelectedTopic, this, &MainWindow::explorerChangeSelectedTopic);
+    connect(this->explorer, &ExplorerPage::onSendFile, this, &MainWindow::sendFile);
+    connect(this->explorer, &ExplorerPage::onSendText, this, &MainWindow::sendText);
 
     // MQTT related signals
     connect(this->mqtt_manager, &MQTTManager::onConnected, this, &MainWindow::updateStatusBar);
