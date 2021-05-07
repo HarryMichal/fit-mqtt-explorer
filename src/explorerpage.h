@@ -58,6 +58,15 @@ private:
 
     int message_capacity;
 
+    /**
+     * @brief addMessages() adds strings to the message history list
+     * @details If a message is longer than 26 characters, it is truncated and
+     * three dots at the end are added to signify the truncation. Every message
+     * is parsed into a pixmap to try to see if there is an image (JPG/PNG).
+     * This does not function properly, yet. The message capacity is respected
+     * by deleting the oldest messages in the list.
+     */
+    void addMessages(QList<QString> msgs);
     void addTopic(const QString topic, const bool root);
 };
 

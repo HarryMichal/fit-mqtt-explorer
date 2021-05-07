@@ -121,8 +121,11 @@ void MainWindow::explorerChangeSelectedMessage(const int currentRow)
 {
     auto topic_messages = this->msg_store->getTopicMessages(this->explorer->current_topic);
 
-    if (currentRow >= 0 && currentRow < topic_messages.count()) {
-        this->explorer->setMessage(topic_messages[currentRow]);
+    // Explorer lists messages in reverse order than they are represented internally.
+    // Translate the index to the internal version.
+    int index = topic_messages.count()-currentRow-1;
+    if (index >= 0 && index < topic_messages.count()) {
+        this->explorer->setMessage(topic_messages[index]);
     }
 }
 
