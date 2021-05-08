@@ -1,9 +1,11 @@
 #include <QFile>
+#include <QDialog>
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "mqtt/message.h"
 #include "mqttmanager.h"
+#include "messagehistorydialog.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -88,6 +90,7 @@ void MainWindow::setupActions()
     connect(this->ui->actionDashboard, &QAction::triggered, this, &MainWindow::setDashboardPage);
     connect(this->ui->actionExplorer, &QAction::triggered, this, &MainWindow::setExplorerPage);
     connect(this->ui->actionConnect, &QAction::triggered, this, &MainWindow::OpenConnectionWindow);
+    connect(this->ui->actionMessageHistoryLimit, &QAction::triggered, this, &MainWindow::setHistoryLimit);
 
     connect(this->new_connection_window, &NewConnection::createNewConnection, mqtt_manager, &MQTTManager::connect);
 
@@ -166,4 +169,24 @@ void MainWindow::sendText(mqtt::string topic, mqtt::string payload)
     auto msg = mqtt::make_message(topic, payload, 0, true);
 
     this->mqtt_manager->send(msg);
+}
+
+void MainWindow::setHistoryLimit()
+{
+    auto dialog = new MessageHistoryDialog(this);
+    dialog->setValue(this->msg_store->getMessageCap());
+
+    auto ret = dialog->exec();
+
+    // Don't do anything when the dialog has been canceled
+    if (ret == QDialog::DialogCode::Rejected) {
+        return;
+    }
+
+    auto new_history_limit = dialog->getValue();
+
+    this->msg_store->setMessageCap(new_history_limit);
+    this->explorer->setMessageCap(new_history_limit);
+
+    delete dialog;
 }
