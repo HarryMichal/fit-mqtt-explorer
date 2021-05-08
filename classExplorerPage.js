@@ -2,6 +2,7 @@ var classExplorerPage =
 [
     [ "ExplorerPage", "classExplorerPage.html#a6bb7c60f5614111fafd68080f7d95c36", null ],
     [ "~ExplorerPage", "classExplorerPage.html#a39b711b73cd57308726b2d917e4e64aa", null ],
+    [ "addMessages", "classExplorerPage.html#abf6529851f58ae9a25480a6c84ab03e2", null ],
     [ "addTopic", "classExplorerPage.html#a145171d5d1cd8bd6b05e919df7bca412", null ],
     [ "changeSelectedMessage", "classExplorerPage.html#a867684d651ab61c486d63b3b3890e616", null ],
     [ "changeSelectedTopic", "classExplorerPage.html#a91ad1db58f418cef6b4d8b89e6d2ca42", null ],

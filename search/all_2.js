@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['explorerpage_3',['ExplorerPage',['../classExplorerPage.html',1,'']]]
+  ['dashboardpage_3',['DashboardPage',['../classDashboardPage.html',1,'']]]
 ];

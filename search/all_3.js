@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fit_2dmqtt_2dexplorer_4',['fit-mqtt-explorer',['../index.html',1,'']]]
+  ['explorerpage_4',['ExplorerPage',['../classExplorerPage.html',1,'']]]
 ];

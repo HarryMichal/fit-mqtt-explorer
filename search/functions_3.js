@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['setupactions_38',['setupActions',['../classNewConnection.html#a2f20665a1c1ede899b318b47f846a7c2',1,'NewConnection']]]
+  ['processform_39',['processForm',['../classNewConnection.html#ac1710f1d14ae9077f698279b536c93ee',1,'NewConnection']]]
 ];

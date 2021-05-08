@@ -148,6 +148,9 @@ QString&#160;</td><td class="memItemRight" valign="bottom"><b>current_topic</b><
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
+<tr class="memitem:abf6529851f58ae9a25480a6c84ab03e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExplorerPage.html#abf6529851f58ae9a25480a6c84ab03e2">addMessages</a> (QList&lt; QString &gt; msgs)</td></tr>
+<tr class="memdesc:abf6529851f58ae9a25480a6c84ab03e2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classExplorerPage.html#abf6529851f58ae9a25480a6c84ab03e2" title="addMessages() adds strings to the message history list">addMessages()</a> adds strings to the message history list  <a href="classExplorerPage.html#abf6529851f58ae9a25480a6c84ab03e2">More...</a><br /></td></tr>
+<tr class="separator:abf6529851f58ae9a25480a6c84ab03e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a145171d5d1cd8bd6b05e919df7bca412"><td class="memItemLeft" align="right" valign="top"><a id="a145171d5d1cd8bd6b05e919df7bca412"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>addTopic</b> (const QString topic, const bool root)</td></tr>
 <tr class="separator:a145171d5d1cd8bd6b05e919df7bca412"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -167,7 +170,39 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>message_capacity</b></
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="explorerpage_8h_source.html#l00031">31</a> of file <a class="el" href="explorerpage_8h_source.html">explorerpage.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="abf6529851f58ae9a25480a6c84ab03e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf6529851f58ae9a25480a6c84ab03e2">&#9670;&nbsp;</a></span>addMessages()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ExplorerPage::addMessages </td>
+          <td>(</td>
+          <td class="paramtype">QList&lt; QString &gt;&#160;</td>
+          <td class="paramname"><em>msgs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classExplorerPage.html#abf6529851f58ae9a25480a6c84ab03e2" title="addMessages() adds strings to the message history list">addMessages()</a> adds strings to the message history list </p>
+<p>If a message is longer than 26 characters, it is truncated and three dots at the end are added to signify the truncation. Every message is parsed into a pixmap to try to see if there is an image (JPG/PNG). This does not function properly, yet. The message capacity is respected by deleting the oldest messages in the list. </p>
+
+<p class="definition">Definition at line <a class="el" href="explorerpage_8cpp_source.html#l00115">115</a> of file <a class="el" href="explorerpage_8cpp_source.html">explorerpage.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="explorerpage_8h_source.html">explorerpage.h</a></li>
 <li><a class="el" href="explorerpage_8cpp_source.html">explorerpage.cpp</a></li>
 </ul>
@@ -177,7 +212,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>message_capacity</b></
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classExplorerPage.html">ExplorerPage</a></li>
-    <li class="footer">Generated on Thu May 6 2021 10:31:25 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat May 8 2021 21:06:22 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

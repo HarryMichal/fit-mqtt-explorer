@@ -1,9 +1,4 @@
 var searchData=
 [
-  ['onconnected_11',['onConnected',['../classMQTTManager.html#adee79ff7dc55d3c019658bab9f93d014',1,'MQTTManager']]],
-  ['ondisconnected_12',['onDisconnected',['../classMQTTManager.html#a414766f7f3d92286f011c7f9daf41567',1,'MQTTManager']]],
-  ['onmessagedelivered_13',['onMessageDelivered',['../classMQTTManager.html#af956b6d163ebec75af38c2e80c5099f7',1,'MQTTManager']]],
-  ['onmessagereceived_14',['onMessageReceived',['../classMQTTManager.html#aa29dbd5e2181331c5bdbb4bc08c5e5af',1,'MQTTManager']]],
-  ['onoperationfailed_15',['onOperationFailed',['../classMQTTManager.html#a32279065340a892ee77fb4bb513d52df',1,'MQTTManager']]],
-  ['onoperationsucceeded_16',['onOperationSucceeded',['../classMQTTManager.html#a535c759fb38ac923437759864a31f967',1,'MQTTManager']]]
+  ['newconnection_11',['NewConnection',['../classNewConnection.html',1,'']]]
 ];

@@ -209,17 +209,20 @@ $(document).ready(function(){initNavTree('mainwindow_8cpp_source.html',''); init
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;{</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keyword">auto</span> topic_messages = this-&gt;msg_store-&gt;getTopicMessages(this-&gt;explorer-&gt;current_topic);</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">if</span> (currentRow &gt;= 0 &amp;&amp; currentRow &lt; topic_messages.count()) {</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        this-&gt;explorer-&gt;setMessage(topic_messages[currentRow]);</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    }</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="keywordtype">void</span> MainWindow::explorerChangeSelectedTopic(QString topic)</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;{</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keyword">auto</span> topic_msgs = this-&gt;msg_store-&gt;getTopicMessages(topic);</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    this-&gt;explorer-&gt;setTopic(topic_msgs);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;}</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="comment">// Explorer lists messages in reverse order than they are represented internally.</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="comment">// Translate the index to the internal version.</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">int</span> index = topic_messages.count()-currentRow-1;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordflow">if</span> (index &gt;= 0 &amp;&amp; index &lt; topic_messages.count()) {</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        this-&gt;explorer-&gt;setMessage(topic_messages[index]);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    }</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;}</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="keywordtype">void</span> MainWindow::explorerChangeSelectedTopic(QString topic)</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;{</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keyword">auto</span> topic_msgs = this-&gt;msg_store-&gt;getTopicMessages(topic);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    this-&gt;explorer-&gt;setTopic(topic_msgs);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;}</div>
 <div class="ttc" id="aclassDashboardPage_html"><div class="ttname"><a href="classDashboardPage.html">DashboardPage</a></div><div class="ttdef"><b>Definition:</b> <a href="dashboardpage_8h_source.html#l00010">dashboardpage.h:11</a></div></div>
 <div class="ttc" id="aclassExplorerPage_html"><div class="ttname"><a href="classExplorerPage.html">ExplorerPage</a></div><div class="ttdef"><b>Definition:</b> <a href="explorerpage_8h_source.html#l00031">explorerpage.h:32</a></div></div>
 <div class="ttc" id="aclassMQTTManager_html"><div class="ttname"><a href="classMQTTManager.html">MQTTManager</a></div><div class="ttdoc">The MQTTManager class wraps around mqtt:async_client in a Qt compatible manner.</div><div class="ttdef"><b>Definition:</b> <a href="mqttmanager_8h_source.html#l00015">mqttmanager.h:16</a></div></div>
@@ -237,7 +240,7 @@ $(document).ready(function(){initNavTree('mainwindow_8cpp_source.html',''); init
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>mainwindow.cpp</b></li>
-    <li class="footer">Generated on Thu May 6 2021 10:31:25 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat May 8 2021 21:06:22 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
