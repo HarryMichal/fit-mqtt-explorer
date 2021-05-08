@@ -77,6 +77,11 @@ private slots:
      * @param msg message to be sent
      */
     void sendText(mqtt::string topic, mqtt::string msg);
+    /*
+     * @brief setHistoryLimit() creates a dialog window for setting a new
+     * message history limit and sets it to child components.
+     */
+    void setHistoryLimit();
 };
 
 #endif // MAINWINDOW_H
