@@ -99,7 +99,11 @@ $(document).ready(function(){initNavTree('classExplorerPage.html',''); initResiz
   <tr bgcolor="#f0f0f0"><td class="entry"><b>message_capacity</b> (defined in <a class="el" href="classExplorerPage.html">ExplorerPage</a>)</td><td class="entry"><a class="el" href="classExplorerPage.html">ExplorerPage</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>onChangeSelectedMessage</b>(const int currentRow) (defined in <a class="el" href="classExplorerPage.html">ExplorerPage</a>)</td><td class="entry"><a class="el" href="classExplorerPage.html">ExplorerPage</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>onChangeSelectedTopic</b>(QString topic) (defined in <a class="el" href="classExplorerPage.html">ExplorerPage</a>)</td><td class="entry"><a class="el" href="classExplorerPage.html">ExplorerPage</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classExplorerPage.html#af747de3a44854d353ab8c4eb1ac2bff4">onSendFile</a>(mqtt::string topic, QString file_name)</td><td class="entry"><a class="el" href="classExplorerPage.html">ExplorerPage</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classExplorerPage.html#a78ea560c14b0b50b1b6532cf79504399">onSendText</a>(mqtt::string topic, mqtt::string msg)</td><td class="entry"><a class="el" href="classExplorerPage.html">ExplorerPage</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>receiveNewMessages</b>(const QHash&lt; QString, QList&lt; QString &gt;&gt; new_msgs) (defined in <a class="el" href="classExplorerPage.html">ExplorerPage</a>)</td><td class="entry"><a class="el" href="classExplorerPage.html">ExplorerPage</a></td><td class="entry"><span class="mlabel">slot</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classExplorerPage.html#a8743784f4aa59ea2533e354837972441">selectFile</a>()</td><td class="entry"><a class="el" href="classExplorerPage.html">ExplorerPage</a></td><td class="entry"><span class="mlabel">slot</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classExplorerPage.html#ad0c3cd66131921e3d85531dd6a590ceb">sendMessage</a>()</td><td class="entry"><a class="el" href="classExplorerPage.html">ExplorerPage</a></td><td class="entry"><span class="mlabel">slot</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>setMessage</b>(QString msg) (defined in <a class="el" href="classExplorerPage.html">ExplorerPage</a>)</td><td class="entry"><a class="el" href="classExplorerPage.html">ExplorerPage</a></td><td class="entry"><span class="mlabel">slot</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setMessageCap</b>(int cap) (defined in <a class="el" href="classExplorerPage.html">ExplorerPage</a>)</td><td class="entry"><a class="el" href="classExplorerPage.html">ExplorerPage</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>setTopic</b>(QList&lt; QString &gt;) (defined in <a class="el" href="classExplorerPage.html">ExplorerPage</a>)</td><td class="entry"><a class="el" href="classExplorerPage.html">ExplorerPage</a></td><td class="entry"><span class="mlabel">slot</span></td></tr>
@@ -111,7 +115,7 @@ $(document).ready(function(){initNavTree('classExplorerPage.html',''); initResiz
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat May 8 2021 21:06:22 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun May 9 2021 09:40:13 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

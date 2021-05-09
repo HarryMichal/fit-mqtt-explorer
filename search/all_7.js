@@ -5,5 +5,7 @@ var searchData=
   ['onmessagedelivered_14',['onMessageDelivered',['../classMQTTManager.html#af956b6d163ebec75af38c2e80c5099f7',1,'MQTTManager']]],
   ['onmessagereceived_15',['onMessageReceived',['../classMQTTManager.html#aa29dbd5e2181331c5bdbb4bc08c5e5af',1,'MQTTManager']]],
   ['onoperationfailed_16',['onOperationFailed',['../classMQTTManager.html#a32279065340a892ee77fb4bb513d52df',1,'MQTTManager']]],
-  ['onoperationsucceeded_17',['onOperationSucceeded',['../classMQTTManager.html#a535c759fb38ac923437759864a31f967',1,'MQTTManager']]]
+  ['onoperationsucceeded_17',['onOperationSucceeded',['../classMQTTManager.html#a535c759fb38ac923437759864a31f967',1,'MQTTManager']]],
+  ['onsendfile_18',['onSendFile',['../classExplorerPage.html#af747de3a44854d353ab8c4eb1ac2bff4',1,'ExplorerPage']]],
+  ['onsendtext_19',['onSendText',['../classExplorerPage.html#a78ea560c14b0b50b1b6532cf79504399',1,'ExplorerPage']]]
 ];

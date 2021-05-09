@@ -131,28 +131,36 @@ $(document).ready(function(){initNavTree('explorerpage_8h_source.html',''); init
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;signals:</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> onChangeSelectedMessage(<span class="keyword">const</span> <span class="keywordtype">int</span> currentRow);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> onChangeSelectedTopic(QString topic);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">public</span> slots:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> changeSelectedMessage(QListWidgetItem *current, QListWidgetItem *previous);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> changeSelectedTopic(<span class="keyword">const</span> QModelIndex &amp;current);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> initConnection(<span class="keyword">const</span> QString server_name);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> receiveNewMessages(<span class="keyword">const</span> QHash&lt;QString, QList&lt;QString&gt;&gt; new_msgs);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> setMessage(QString msg);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> setTopic(QList&lt;QString&gt;);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    Ui::ExplorerPage *ui;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    QStandardItemModel topics_tree_model;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">int</span> message_capacity;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classExplorerPage.html#af747de3a44854d353ab8c4eb1ac2bff4">   52</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classExplorerPage.html#af747de3a44854d353ab8c4eb1ac2bff4">onSendFile</a>(mqtt::string topic, QString file_name);</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classExplorerPage.html#a78ea560c14b0b50b1b6532cf79504399">   59</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classExplorerPage.html#a78ea560c14b0b50b1b6532cf79504399">onSendText</a>(mqtt::string topic, mqtt::string msg);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classExplorerPage.html#abf6529851f58ae9a25480a6c84ab03e2">addMessages</a>(QList&lt;QString&gt; msgs);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> addTopic(<span class="keyword">const</span> QString topic, <span class="keyword">const</span> <span class="keywordtype">bool</span> root);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// EXPLORERPAGE_H</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> changeSelectedMessage(QListWidgetItem *current, QListWidgetItem *previous);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> changeSelectedTopic(<span class="keyword">const</span> QModelIndex &amp;current);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> initConnection(<span class="keyword">const</span> QString server_name);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> receiveNewMessages(<span class="keyword">const</span> QHash&lt;QString, QList&lt;QString&gt;&gt; new_msgs);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classExplorerPage.html#a8743784f4aa59ea2533e354837972441">selectFile</a>();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classExplorerPage.html#ad0c3cd66131921e3d85531dd6a590ceb">sendMessage</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> setMessage(QString msg);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> setTopic(QList&lt;QString&gt;);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    Ui::ExplorerPage *ui;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    QStandardItemModel topics_tree_model;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">int</span> message_capacity;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classExplorerPage.html#abf6529851f58ae9a25480a6c84ab03e2">addMessages</a>(QList&lt;QString&gt; msgs);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> addTopic(<span class="keyword">const</span> QString topic, <span class="keyword">const</span> <span class="keywordtype">bool</span> root);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;};</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// EXPLORERPAGE_H</span></div>
 <div class="ttc" id="aclassExplorerPage_html"><div class="ttname"><a href="classExplorerPage.html">ExplorerPage</a></div><div class="ttdef"><b>Definition:</b> <a href="explorerpage_8h_source.html#l00031">explorerpage.h:32</a></div></div>
-<div class="ttc" id="aclassExplorerPage_html_abf6529851f58ae9a25480a6c84ab03e2"><div class="ttname"><a href="classExplorerPage.html#abf6529851f58ae9a25480a6c84ab03e2">ExplorerPage::addMessages</a></div><div class="ttdeci">void addMessages(QList&lt; QString &gt; msgs)</div><div class="ttdoc">addMessages() adds strings to the message history list</div><div class="ttdef"><b>Definition:</b> <a href="explorerpage_8cpp_source.html#l00115">explorerpage.cpp:115</a></div></div>
+<div class="ttc" id="aclassExplorerPage_html_a78ea560c14b0b50b1b6532cf79504399"><div class="ttname"><a href="classExplorerPage.html#a78ea560c14b0b50b1b6532cf79504399">ExplorerPage::onSendText</a></div><div class="ttdeci">void onSendText(mqtt::string topic, mqtt::string msg)</div><div class="ttdoc">onSendText is emitted when a plain message is to be sent</div></div>
+<div class="ttc" id="aclassExplorerPage_html_a8743784f4aa59ea2533e354837972441"><div class="ttname"><a href="classExplorerPage.html#a8743784f4aa59ea2533e354837972441">ExplorerPage::selectFile</a></div><div class="ttdeci">void selectFile()</div><div class="ttdoc">selectFile() spawns a QFileDialog, gets the selected file name and sets it to relevant QLineEdit</div><div class="ttdef"><b>Definition:</b> <a href="explorerpage_8cpp_source.html#l00109">explorerpage.cpp:109</a></div></div>
+<div class="ttc" id="aclassExplorerPage_html_abf6529851f58ae9a25480a6c84ab03e2"><div class="ttname"><a href="classExplorerPage.html#abf6529851f58ae9a25480a6c84ab03e2">ExplorerPage::addMessages</a></div><div class="ttdeci">void addMessages(QList&lt; QString &gt; msgs)</div><div class="ttdoc">addMessages() adds strings to the message history list</div><div class="ttdef"><b>Definition:</b> <a href="explorerpage_8cpp_source.html#l00151">explorerpage.cpp:151</a></div></div>
+<div class="ttc" id="aclassExplorerPage_html_ad0c3cd66131921e3d85531dd6a590ceb"><div class="ttname"><a href="classExplorerPage.html#ad0c3cd66131921e3d85531dd6a590ceb">ExplorerPage::sendMessage</a></div><div class="ttdeci">void sendMessage()</div><div class="ttdoc">sendMessage() serves as an entry-point for sending messages from ExplorerPage</div><div class="ttdef"><b>Definition:</b> <a href="explorerpage_8cpp_source.html#l00115">explorerpage.cpp:115</a></div></div>
+<div class="ttc" id="aclassExplorerPage_html_af747de3a44854d353ab8c4eb1ac2bff4"><div class="ttname"><a href="classExplorerPage.html#af747de3a44854d353ab8c4eb1ac2bff4">ExplorerPage::onSendFile</a></div><div class="ttdeci">void onSendFile(mqtt::string topic, QString file_name)</div><div class="ttdoc">onSendFile is emitted when a file is to be sent</div></div>
 <div class="ttc" id="aclassMessageTreeView_html"><div class="ttname"><a href="classMessageTreeView.html">MessageTreeView</a></div><div class="ttdef"><b>Definition:</b> <a href="explorerpage_8h_source.html#l00017">explorerpage.h:18</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -160,7 +168,7 @@ $(document).ready(function(){initNavTree('explorerpage_8h_source.html',''); init
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>explorerpage.h</b></li>
-    <li class="footer">Generated on Sat May 8 2021 21:06:22 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun May 9 2021 09:40:13 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

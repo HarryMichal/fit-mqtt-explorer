@@ -110,6 +110,9 @@ Public Slots</h2></td></tr>
 <tr class="memitem:acb9a7656dfa94a3dbfbc557e2347675c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMQTTManager.html#acb9a7656dfa94a3dbfbc557e2347675c">connect</a> (QString fullConnectionAdress)</td></tr>
 <tr class="memdesc:acb9a7656dfa94a3dbfbc557e2347675c"><td class="mdescLeft">&#160;</td><td class="mdescRight">connect connects to an MQTT server  <a href="classMQTTManager.html#acb9a7656dfa94a3dbfbc557e2347675c">More...</a><br /></td></tr>
 <tr class="separator:acb9a7656dfa94a3dbfbc557e2347675c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31199a182ecf97e20893ceded5731bc8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMQTTManager.html#a31199a182ecf97e20893ceded5731bc8">send</a> (mqtt::const_message_ptr msg)</td></tr>
+<tr class="memdesc:a31199a182ecf97e20893ceded5731bc8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classMQTTManager.html#a31199a182ecf97e20893ceded5731bc8" title="send() sends a message to an MQTT server">send()</a> sends a message to an MQTT server  <a href="classMQTTManager.html#a31199a182ecf97e20893ceded5731bc8">More...</a><br /></td></tr>
+<tr class="separator:a31199a182ecf97e20893ceded5731bc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
 Signals</h2></td></tr>
@@ -391,6 +394,43 @@ mqtt::callback_ptr&#160;</td><td class="memItemRight" valign="bottom"><b>cb</b><
 
 </div>
 </div>
+<a id="a31199a182ecf97e20893ceded5731bc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31199a182ecf97e20893ceded5731bc8">&#9670;&nbsp;</a></span>send</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MQTTManager::send </td>
+          <td>(</td>
+          <td class="paramtype">mqtt::const_message_ptr&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classMQTTManager.html#a31199a182ecf97e20893ceded5731bc8" title="send() sends a message to an MQTT server">send()</a> sends a message to an MQTT server </p>
+<p>The assembly of a message is to be done by other components. Not this method.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>an already prepared message to be sent </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mqttmanager_8cpp_source.html#l00101">101</a> of file <a class="el" href="mqttmanager_8cpp_source.html">mqttmanager.cpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="mqttmanager_8h_source.html">mqttmanager.h</a></li>
 <li><a class="el" href="mqttmanager_8cpp_source.html">mqttmanager.cpp</a></li>
@@ -401,7 +441,7 @@ mqtt::callback_ptr&#160;</td><td class="memItemRight" valign="bottom"><b>cb</b><
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classMQTTManager.html">MQTTManager</a></li>
-    <li class="footer">Generated on Sat May 8 2021 21:06:22 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun May 9 2021 09:40:13 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

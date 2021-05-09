@@ -108,23 +108,25 @@ $(document).ready(function(){initNavTree('mqttmanager_8h_source.html',''); initR
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span> slots:</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMQTTManager.html#acb9a7656dfa94a3dbfbc557e2347675c">connect</a>(QString fullConnectionAdress);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;signals:</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classMQTTManager.html#adee79ff7dc55d3c019658bab9f93d014">   38</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMQTTManager.html#adee79ff7dc55d3c019658bab9f93d014">onConnected</a>();</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classMQTTManager.html#a414766f7f3d92286f011c7f9daf41567">   43</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMQTTManager.html#a414766f7f3d92286f011c7f9daf41567">onDisconnected</a>();</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classMQTTManager.html#aa29dbd5e2181331c5bdbb4bc08c5e5af">   48</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMQTTManager.html#aa29dbd5e2181331c5bdbb4bc08c5e5af">onMessageReceived</a>(<span class="keyword">const</span> mqtt::const_message_ptr msg);</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classMQTTManager.html#af956b6d163ebec75af38c2e80c5099f7">   54</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMQTTManager.html#af956b6d163ebec75af38c2e80c5099f7">onMessageDelivered</a>(mqtt::delivery_token_ptr tok);</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classMQTTManager.html#a32279065340a892ee77fb4bb513d52df">   59</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMQTTManager.html#a32279065340a892ee77fb4bb513d52df">onOperationFailed</a>(<span class="keyword">const</span> mqtt::token&amp; tok);</div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classMQTTManager.html#a535c759fb38ac923437759864a31f967">   65</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMQTTManager.html#a535c759fb38ac923437759864a31f967">onOperationSucceeded</a>(<span class="keyword">const</span> mqtt::token&amp; tok);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    mqtt::async_client_ptr client;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    mqtt::connect_options_ptr options;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    mqtt::callback_ptr cb;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// MQTTMANAGER_H</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMQTTManager.html#a31199a182ecf97e20893ceded5731bc8">send</a>(mqtt::const_message_ptr msg);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;signals:</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classMQTTManager.html#adee79ff7dc55d3c019658bab9f93d014">   46</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMQTTManager.html#adee79ff7dc55d3c019658bab9f93d014">onConnected</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classMQTTManager.html#a414766f7f3d92286f011c7f9daf41567">   51</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMQTTManager.html#a414766f7f3d92286f011c7f9daf41567">onDisconnected</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classMQTTManager.html#aa29dbd5e2181331c5bdbb4bc08c5e5af">   56</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMQTTManager.html#aa29dbd5e2181331c5bdbb4bc08c5e5af">onMessageReceived</a>(<span class="keyword">const</span> mqtt::const_message_ptr msg);</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classMQTTManager.html#af956b6d163ebec75af38c2e80c5099f7">   62</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMQTTManager.html#af956b6d163ebec75af38c2e80c5099f7">onMessageDelivered</a>(mqtt::delivery_token_ptr tok);</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classMQTTManager.html#a32279065340a892ee77fb4bb513d52df">   67</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMQTTManager.html#a32279065340a892ee77fb4bb513d52df">onOperationFailed</a>(<span class="keyword">const</span> mqtt::token&amp; tok);</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classMQTTManager.html#a535c759fb38ac923437759864a31f967">   73</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMQTTManager.html#a535c759fb38ac923437759864a31f967">onOperationSucceeded</a>(<span class="keyword">const</span> mqtt::token&amp; tok);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    mqtt::async_client_ptr client;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    mqtt::connect_options_ptr options;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    mqtt::callback_ptr cb;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// MQTTMANAGER_H</span></div>
 <div class="ttc" id="aclassMQTTManager_html"><div class="ttname"><a href="classMQTTManager.html">MQTTManager</a></div><div class="ttdoc">The MQTTManager class wraps around mqtt:async_client in a Qt compatible manner.</div><div class="ttdef"><b>Definition:</b> <a href="mqttmanager_8h_source.html#l00015">mqttmanager.h:16</a></div></div>
+<div class="ttc" id="aclassMQTTManager_html_a31199a182ecf97e20893ceded5731bc8"><div class="ttname"><a href="classMQTTManager.html#a31199a182ecf97e20893ceded5731bc8">MQTTManager::send</a></div><div class="ttdeci">void send(mqtt::const_message_ptr msg)</div><div class="ttdoc">send() sends a message to an MQTT server</div><div class="ttdef"><b>Definition:</b> <a href="mqttmanager_8cpp_source.html#l00101">mqttmanager.cpp:101</a></div></div>
 <div class="ttc" id="aclassMQTTManager_html_a32279065340a892ee77fb4bb513d52df"><div class="ttname"><a href="classMQTTManager.html#a32279065340a892ee77fb4bb513d52df">MQTTManager::onOperationFailed</a></div><div class="ttdeci">void onOperationFailed(const mqtt::token &amp;tok)</div><div class="ttdoc">onOperationFailed is emitted when an action fails</div></div>
 <div class="ttc" id="aclassMQTTManager_html_a414766f7f3d92286f011c7f9daf41567"><div class="ttname"><a href="classMQTTManager.html#a414766f7f3d92286f011c7f9daf41567">MQTTManager::onDisconnected</a></div><div class="ttdeci">void onDisconnected()</div><div class="ttdoc">onDisconnected is emitted when the client disconnects from a server</div></div>
 <div class="ttc" id="aclassMQTTManager_html_a535c759fb38ac923437759864a31f967"><div class="ttname"><a href="classMQTTManager.html#a535c759fb38ac923437759864a31f967">MQTTManager::onOperationSucceeded</a></div><div class="ttdeci">void onOperationSucceeded(const mqtt::token &amp;tok)</div><div class="ttdoc">onOperationSucceeded is emitted when an action has completed successfully</div></div>
@@ -138,7 +140,7 @@ $(document).ready(function(){initNavTree('mqttmanager_8h_source.html',''); initR
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>mqttmanager.h</b></li>
-    <li class="footer">Generated on Sat May 8 2021 21:06:22 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun May 9 2021 09:40:13 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

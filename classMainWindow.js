@@ -7,6 +7,8 @@ var classMainWindow =
     [ "explorerChangeSelectedMessage", "classMainWindow.html#ac4ac7413867c0ba527b5c7390cedfda1", null ],
     [ "explorerChangeSelectedTopic", "classMainWindow.html#a02d121dbc8a624732897b8b24462eb91", null ],
     [ "OpenConnectionWindow", "classMainWindow.html#a879e1ee5ea4db9b87229ad1a70950887", null ],
+    [ "sendFile", "classMainWindow.html#abba7064159c82d95e353f70cab1e1f64", null ],
+    [ "sendText", "classMainWindow.html#aee0a11f7cfe7b701e90175c2039e0300", null ],
     [ "setDashboardPage", "classMainWindow.html#ac1ae76a850167f7fc09da8fb0cd4d85b", null ],
     [ "setExplorerPage", "classMainWindow.html#a6ecd2b2a0d761baea5e60ce13c8c40ba", null ],
     [ "setupActions", "classMainWindow.html#a2334d55084925506d781b8c2c5fed463", null ],

@@ -9,6 +9,7 @@ var classMQTTManager =
     [ "onMessageReceived", "classMQTTManager.html#aa29dbd5e2181331c5bdbb4bc08c5e5af", null ],
     [ "onOperationFailed", "classMQTTManager.html#a32279065340a892ee77fb4bb513d52df", null ],
     [ "onOperationSucceeded", "classMQTTManager.html#a535c759fb38ac923437759864a31f967", null ],
+    [ "send", "classMQTTManager.html#a31199a182ecf97e20893ceded5731bc8", null ],
     [ "cb", "classMQTTManager.html#a74baa86fadbf30bd82e5943d51ac707e", null ],
     [ "client", "classMQTTManager.html#ae75c7537a94a22c77b00405d561df0a2", null ],
     [ "connected", "classMQTTManager.html#a78211b79bd5ff03134341cf4f96572a8", null ],
