@@ -87,6 +87,7 @@
    <addaction name="separator"/>
    <addaction name="actionMessageHistoryLimit"/>
    <addaction name="separator"/>
+   <addaction name="actionCreateSnapshot"/>
    <addaction name="actionActualState"/>
    <addaction name="actionHistory"/>
   </widget>
@@ -194,6 +195,15 @@
    </property>
    <property name="text">
     <string>Message history limit</string>
+   </property>
+  </action>
+  <action name="actionCreateSnapshot">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icons/document-save-symbolic.svg</normaloff>:/icons/document-save-symbolic.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Create snapshot</string>
    </property>
   </action>
  </widget>

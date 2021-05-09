@@ -1,6 +1,8 @@
-#include <QFile>
 #include <QDialog>
+#include <QFile>
+#include <QFileDialog>
 #include <QSettings>
+#include <QStandardPaths>
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -64,6 +66,7 @@ void MainWindow::setDashboardPage()
 
     ui->actionHistory->setVisible(true);
     ui->actionActualState->setVisible(true);
+    ui->actionCreateSnapshot->setVisible(false);
 }
 
 void MainWindow::setExplorerPage()
@@ -74,6 +77,7 @@ void MainWindow::setExplorerPage()
     }
     ui->actionHistory->setVisible(false);
     ui->actionActualState->setVisible(false);
+    ui->actionCreateSnapshot->setVisible(true);
 }
 
 void MainWindow::OpenConnectionWindow()
@@ -104,6 +108,7 @@ void MainWindow::setupActions()
     connect(this->ui->actionExplorer, &QAction::triggered, this, &MainWindow::setExplorerPage);
     connect(this->ui->actionConnect, &QAction::triggered, this, &MainWindow::OpenConnectionWindow);
     connect(this->ui->actionMessageHistoryLimit, &QAction::triggered, this, &MainWindow::setHistoryLimit);
+    connect(this->ui->actionCreateSnapshot, &QAction::triggered, this, &MainWindow::createSnapshot);
 
     connect(this->new_connection_window, &NewConnection::createNewConnection, mqtt_manager, &MQTTManager::connect);
 
@@ -135,6 +140,18 @@ void MainWindow::clientConnected()
     auto server_name = this->mqtt_manager->getServerName();
 
     this->explorer->initConnection(server_name);
+}
+
+void MainWindow::createSnapshot()
+{
+    QString dirname = QFileDialog::getExistingDirectory(this, "Choose directory", QStandardPaths::writableLocation(QStandardPaths::HomeLocation));
+
+    // Dialog has been canceled
+    if (dirname == "") {
+        return;
+    }
+
+    this->msg_store->createSnapshot(dirname);
 }
 
 void MainWindow::explorerChangeSelectedMessage(const int currentRow)
