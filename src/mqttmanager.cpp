@@ -83,7 +83,8 @@ void MQTTManager::connect(QString fullConnectionAdress)
     this->client = std::make_shared<mqtt::async_client>(fullConnectionAdress.toStdString(), CLIENT_ID);
 
     this->options = std::make_shared<mqtt::connect_options>();
-    this->options->set_clean_session(false);
+    this->options->set_clean_session(true);
+    this->options->set_automatic_reconnect(true);
 
     auto cb = std::make_shared<MQTTCallback>(this);
     this->cb = cb;
@@ -92,9 +93,14 @@ void MQTTManager::connect(QString fullConnectionAdress)
     this->client->start_consuming();
 
     try {
-        this->client->connect(*this->options, nullptr, *cb);
-    }  catch (const mqtt::exception& err) {
-        qFatal("failed to connect to broker: %s", err.get_message().c_str());
+        auto tok = this->client->connect(*this->options, nullptr, *cb);
+        tok->get_connect_response();
+    } catch (mqtt::exception err) {
+        return;
+    }
+
+    if (this->client->is_connected()) {
+        this->client->subscribe("#", 0);
     }
 }
 
