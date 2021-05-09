@@ -31,6 +31,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     MainWindow::setupStatusBar();
     MainWindow::setupActions();
+
+    // Make sure the right page and actions in toolbar are shown
+    this->setDashboardPage();
 }
 
 MainWindow::~MainWindow()
