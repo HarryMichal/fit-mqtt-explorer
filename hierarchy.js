@@ -7,6 +7,7 @@ var hierarchy =
       [ "MQTTCallback", "classMQTTCallback.html", null ]
     ] ],
     [ "QDialog", null, [
+      [ "MessageHistoryDialog", "classMessageHistoryDialog.html", null ],
       [ "NewConnection", "classNewConnection.html", null ]
     ] ],
     [ "QMainWindow", null, [

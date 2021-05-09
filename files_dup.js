@@ -7,6 +7,8 @@ var files_dup =
     [ "main.cpp", "main_8cpp_source.html", null ],
     [ "mainwindow.cpp", "mainwindow_8cpp_source.html", null ],
     [ "mainwindow.h", "mainwindow_8h_source.html", null ],
+    [ "messagehistorydialog.cpp", "messagehistorydialog_8cpp_source.html", null ],
+    [ "messagehistorydialog.h", "messagehistorydialog_8h_source.html", null ],
     [ "messagestore.cpp", "messagestore_8cpp_source.html", null ],
     [ "messagestore.h", "messagestore_8h_source.html", null ],
     [ "mqttmanager.cpp", "mqttmanager_8cpp_source.html", null ],

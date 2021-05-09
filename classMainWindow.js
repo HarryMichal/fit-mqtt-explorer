@@ -11,6 +11,7 @@ var classMainWindow =
     [ "sendText", "classMainWindow.html#aee0a11f7cfe7b701e90175c2039e0300", null ],
     [ "setDashboardPage", "classMainWindow.html#ac1ae76a850167f7fc09da8fb0cd4d85b", null ],
     [ "setExplorerPage", "classMainWindow.html#a6ecd2b2a0d761baea5e60ce13c8c40ba", null ],
+    [ "setHistoryLimit", "classMainWindow.html#a4208bc0d68f63009f91bb3c31504a512", null ],
     [ "setupActions", "classMainWindow.html#a2334d55084925506d781b8c2c5fed463", null ],
     [ "setupStatusBar", "classMainWindow.html#a0d883ee938ff46ffba3e2592eda5835e", null ],
     [ "updateStatusBar", "classMainWindow.html#ad62e8427ddc79384e22bccaa2eb1fa1b", null ],
