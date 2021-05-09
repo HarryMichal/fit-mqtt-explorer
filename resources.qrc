@@ -7,5 +7,6 @@
         <file alias="history-graphs.svg">data/icons/history-graphs.svg</file>
         <file alias="new-connection.svg">data/icons/new-connection.svg</file>
         <file alias="mail-unread-symbolic.svg">data/icons/mail-unread-symbolic.svg</file>
+        <file alias="document-save-symbolic.svg">data/icons/document-save-symbolic.svg</file>
     </qresource>
 </RCC>

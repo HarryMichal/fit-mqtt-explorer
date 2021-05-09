@@ -1,3 +1,6 @@
+#include <QDebug>
+#include <QDir>
+
 #include "messagestore.h"
 
 Message::Message(mqtt::const_message_ptr msg, MessageType type, QObject *parent) :
@@ -23,6 +26,45 @@ MessageStore::MessageStore(QObject *parent) :
 {
     connect(this->ticker, &QTimer::timeout, this, &MessageStore::handleTick);
     this->ticker->start(400);
+}
+
+void MessageStore::createSnapshot(QString dirname)
+{
+    // No work has to be done when there are no messages
+    if (this->messages.empty()) {
+        return;
+    }
+
+    for (auto it = this->messages.begin(); it != this->messages.end(); it++) {
+        QDir dir;
+        
+        if (it.key()[0] == "/") {
+            dir = QDir(dirname + "/<undefined-topic-name>" + it.key()); 
+        } else {
+            dir = QDir(dirname + "/" + it.key());
+        }
+
+        // Make sure the respective directory exists
+        if (!dir.exists()) {
+            // Skip this topic if the necessarry directories could not be made
+            if (!dir.mkpath(dir.path())) {
+                continue;
+            }
+        }
+
+        QFile payload_file = QFile(dir.path() + "/payload.txt");
+
+        // Open the payload file for writing. Skip in case of an error.
+        if (!payload_file.open(QIODevice::WriteOnly)) {
+            return;
+        }
+
+        // Get the latest value from a topic
+        Message *msg = it.value()[it.value().count()-1];
+        std::string payload = msg->getMessage();
+
+        payload_file.write(payload.data(), payload.length());
+    }
 }
 
 void MessageStore::setMessageCap(int cap)

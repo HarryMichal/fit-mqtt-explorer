@@ -45,6 +45,16 @@ class MessageStore : public QObject
 public:
     explicit MessageStore(QObject *parent = nullptr);
 
+    /**
+     * @brief createSnapshot() saves the latest message of all topics into
+     * a specified location
+     * @details Inside of the user-specified directory will be messages for all
+     * topics. They will not be put into a parent directory called after e.g.,
+     * the server. The file structure will mimic the tree structure of the
+     * topics. If a name in the chain of topic names is unknown, it is replaced
+     * by "<undefined-topipc-name>".
+     */
+    void createSnapshot(QString dirname);
     void setMessageCap(int cap);
     int getMessageCap();
 

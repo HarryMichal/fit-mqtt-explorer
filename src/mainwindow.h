@@ -59,6 +59,11 @@ private:
 
 private slots:
     void clientConnected();
+    /*
+     * @brief createSnapshot() opens a file dialog asking the user for a folder
+     * where a snapshot of the state of explorer should be saved
+     */
+    void createSnapshot();
     void explorerChangeSelectedMessage(const int currentRow);
     void explorerChangeSelectedTopic(QString topic);
     /**
