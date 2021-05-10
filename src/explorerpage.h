@@ -8,6 +8,7 @@
 #include <QString>
 #include <QTreeView>
 
+#include "messagestore.h"
 #include "mqtt/message.h"
 
 namespace Ui {
@@ -62,7 +63,7 @@ public slots:
     void changeSelectedMessage(QListWidgetItem *current, QListWidgetItem *previous);
     void changeSelectedTopic(const QModelIndex &current);
     void initConnection(const QString server_name);
-    void receiveNewMessages(const QHash<QString, QList<QString>> new_msgs);
+    void receiveNewMessages(const QHash<QString, QList<Message*>> new_msgs);
     /**
      * @brief selectFile() spawns a QFileDialog, gets the selected file name
      * and sets it to relevant QLineEdit
@@ -76,8 +77,8 @@ public slots:
      * messages to a different subtopic.
      */
     void sendMessage();
-    void setMessage(QString msg);
-    void setTopic(QList<QString>);
+    void setMessage(Message *msg);
+    void setTopic(QList<Message*>);
 
 private:
     Ui::ExplorerPage *ui;
@@ -90,10 +91,10 @@ private:
      * @details If a message is longer than 26 characters, it is truncated and
      * three dots at the end are added to signify the truncation. Every message
      * is parsed into a pixmap to try to see if there is an image (JPG/PNG).
-     * This does not function properly, yet. The message capacity is respected
-     * by deleting the oldest messages in the list.
+     * The message capacity is respected by deleting the oldest messages in the
+     * list.
      */
-    void addMessages(QList<QString> msgs);
+    void addMessages(QList<Message*> msgs);
     void addTopic(const QString topic, const bool root);
 };
 

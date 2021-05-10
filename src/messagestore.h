@@ -8,6 +8,37 @@
 
 #include "mqtt/message.h"
 
+/**
+ * @brief Type of a message
+ */
+enum MessageType {
+    RECEIVED,
+    SENT_UNMATCHED,
+    SENT_MATCHED
+};
+
+/**
+ * @brief Represents a message (either sent of received)
+ */
+class Message : public QObject
+{
+    Q_OBJECT
+
+public:
+    explicit Message(mqtt::const_message_ptr msg, MessageType type, QObject *parent = nullptr);
+
+    MessageType msg_type; //<Whether message was received or sent and if it has been filtered
+    std::chrono::time_point<std::chrono::steady_clock> arrival_date; //<Time of arrival of the message
+
+    /**
+     * @brief Returns the message payload
+     */
+    std::string getMessage();
+
+private:
+    mqtt::const_message_ptr msg;
+};
+
 class MessageStore : public QObject
 {
     Q_OBJECT
@@ -17,21 +48,30 @@ public:
     void setMessageCap(int cap);
     int getMessageCap();
 
-    const QHash<QString, QList<QString>> getAllMessages();
-    const QHash<QString, QList<QString>> getNewMessages();
-    const QList<QString> getTopicMessages(const QString topic);
+    const QHash<QString, QList<Message*>> getAllMessages();
+    const QHash<QString, QList<Message*>> getNewMessages();
+    const QList<Message*> getTopicMessages(const QString topic);
 
 signals:
-    void newMessages(const QHash<QString, QList<QString>>);
+    void newMessages(const QHash<QString, QList<Message*>>);
 
 public slots:
-    void addMessage(const mqtt::const_message_ptr msg);
+    /**
+     * @brief Adds a new message to the store
+     * @details A message can be either sent or received. Due to the way the
+     * MQTT protocol is made, it sends back to the sender their sent message.
+     * To overcome the fact this method attempts to filter out such message.
+     *
+     * @param msg message
+     * @param type type of the message
+     */
+    void addMessage(const mqtt::const_message_ptr msg, MessageType type = MessageType::RECEIVED);
 
 private:
     QTimer *ticker;
     int message_capacity;
-    QHash<QString, QList<QString>> messages;
-    QHash<QString, QList<QString>> new_messages;
+    QHash<QString, QList<Message*>> messages;
+    QHash<QString, QList<Message*>> new_messages;
 
 private slots:
     void handleTick();

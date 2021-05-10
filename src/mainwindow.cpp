@@ -7,6 +7,7 @@
 #include "mqtt/message.h"
 #include "mqttmanager.h"
 #include "messagehistorydialog.h"
+#include "messagestore.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -115,7 +116,7 @@ void MainWindow::setupActions()
     connect(this->mqtt_manager, &MQTTManager::onConnected, this, &MainWindow::updateStatusBar);
     connect(this->mqtt_manager, &MQTTManager::onConnected, this, &MainWindow::clientConnected);
     connect(this->mqtt_manager, &MQTTManager::onDisconnected, this, &MainWindow::updateStatusBar);
-    connect(this->mqtt_manager, &MQTTManager::onMessageReceived, this->msg_store, &MessageStore::addMessage);
+    connect(this->mqtt_manager, &MQTTManager::onMessageReceived, this->msg_store, [=](auto msg){ this->msg_store->addMessage(msg); });
 
     connect(this->msg_store, &MessageStore::newMessages, this->explorer, &ExplorerPage::receiveNewMessages);
 }
@@ -171,15 +172,17 @@ void MainWindow::sendFile(mqtt::string topic, QString file_name)
     }
 
     auto payload = file.readAll().data(); 
-    auto msg = mqtt::make_message(topic, payload, 0, true);
+    mqtt::const_message_ptr msg = mqtt::make_message(topic, payload, 0, true);
 
+    this->msg_store->addMessage(msg, MessageType::SENT_UNMATCHED);
     this->mqtt_manager->send(msg);
 }
 
 void MainWindow::sendText(mqtt::string topic, mqtt::string payload)
 {
-    auto msg = mqtt::make_message(topic, payload, 0, true);
+    mqtt::const_message_ptr msg = mqtt::make_message(topic, payload, 0, true);
 
+    this->msg_store->addMessage(msg, MessageType::SENT_UNMATCHED);
     this->mqtt_manager->send(msg);
 }
 
