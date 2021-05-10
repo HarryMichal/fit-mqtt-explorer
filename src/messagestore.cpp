@@ -1,11 +1,25 @@
 #include "messagestore.h"
 
+Message::Message(mqtt::const_message_ptr msg, MessageType type, QObject *parent) :
+    QObject(parent),
+    msg(msg),
+    msg_type(type),
+    arrival_date(std::chrono::steady_clock::now())
+{
+
+}
+
+std::string Message::getMessage()
+{
+    return this->msg->get_payload_str();
+}
+
 MessageStore::MessageStore(QObject *parent) :
     QObject(parent),
     ticker(new QTimer(this)),
     message_capacity(50),
-    messages(QHash<QString, QList<QString>>()),
-    new_messages(QHash<QString, QList<QString>>())
+    messages(QHash<QString, QList<Message*>>()),
+    new_messages(QHash<QString, QList<Message*>>())
 {
     connect(this->ticker, &QTimer::timeout, this, &MessageStore::handleTick);
     this->ticker->start(400);
@@ -21,29 +35,73 @@ int MessageStore::getMessageCap()
     return this->message_capacity;
 }
 
-const QHash<QString, QList<QString>> MessageStore::getAllMessages()
+const QHash<QString, QList<Message*>> MessageStore::getAllMessages()
 {
     return this->messages;
 }
 
-const QList<QString> MessageStore::getTopicMessages(const QString topic)
+const QList<Message*> MessageStore::getTopicMessages(const QString topic)
 {
     if (!this->messages.contains(topic)) {
-        return QList<QString>();
+        return QList<Message*>();
     }
 
     return this->messages[topic];
 }
 
-void MessageStore::addMessage(const mqtt::const_message_ptr msg)
+void MessageStore::addMessage(const mqtt::const_message_ptr msg, MessageType type)
 {
     // This works for both scenarios: topic is known and topic is unknown.
     // Using the []operator to get an item causes the creation of a default
     // item than can be used to add the new message payload.
     auto qtopic = QString::fromStdString(msg->get_topic());
-    QList<QString> msg_list = this->new_messages[qtopic];
+    QList<Message*> msg_list = this->new_messages[qtopic];
 
-    msg_list.append(QString::fromStdString(msg->get_payload_str()));
+    Message* new_msg = new Message(msg, type);
+
+    // Check if a received message matches a sent message by comparing the
+    // payload and arrival date. A matching received message can be discarded.
+    if (new_msg->msg_type == MessageType::RECEIVED) {
+        QMutableListIterator<Message*> it(msg_list);
+        it.toBack();
+        while (it.hasPrevious()) {
+            Message* msg = it.previous();
+            std::chrono::duration<double> time_diff;
+
+            time_diff = new_msg->arrival_date - msg->arrival_date;
+
+            // The time difference between messages is too big. We can skip the
+            // rest of the messages and add the new message.
+            if (time_diff.count() > 1) {
+                break;
+            }
+
+            // An already matched sent message was found. No unmatched messages
+            // should be any further. We can skip the rest of the messages and
+            // add the new message.
+            if (msg->msg_type == MessageType::SENT_MATCHED) {
+                break;
+            }
+
+            // No need to compare two received messages.
+            if (msg->msg_type == MessageType::RECEIVED) {
+                continue;
+            }
+
+            // Messages don't match -> definitely a different message
+            if (msg->getMessage() != new_msg->getMessage()) {
+                continue;
+            }
+
+            // We found a matching sent message within a specified time frame.
+            // The received message is most likely an echo from the broker.
+            msg->msg_type = MessageType::SENT_MATCHED;
+            delete new_msg;
+            return;
+        }
+    }
+
+    msg_list.append(new_msg);
 
     this->new_messages.insert(qtopic, msg_list);
 }

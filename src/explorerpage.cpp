@@ -90,9 +90,9 @@ void ExplorerPage::initConnection(const QString server_name)
     this->addTopic(server_name, true);
 }
 
-void ExplorerPage::receiveNewMessages(const QHash<QString, QList<QString>> new_msgs)
+void ExplorerPage::receiveNewMessages(const QHash<QString, QList<Message*>> new_msgs)
 {
-    QHash<QString, QList<QString>>::const_iterator i = new_msgs.constBegin();
+    QHash<QString, QList<Message*>>::const_iterator i = new_msgs.constBegin();
     for (; i != new_msgs.constEnd(); i++) {
         auto topic = i.key();
         this->addTopic(topic, false);
@@ -137,23 +137,23 @@ void ExplorerPage::sendMessage()
     }
 }
 
-void ExplorerPage::setMessage(const QString msg)
+void ExplorerPage::setMessage(Message *msg)
 {
-    this->ui->messagePreview->setText(msg);
+    this->ui->messagePreview->setText(QString::fromStdString(msg->getMessage()));
 }
 
-void ExplorerPage::setTopic(const QList<QString> topic_msgs)
+void ExplorerPage::setTopic(QList<Message*> topic_msgs)
 {
     this->ui->messageHistoryList->clear();
     this->addMessages(topic_msgs);
 }
 
-void ExplorerPage::addMessages(QList<QString> msgs)
+void ExplorerPage::addMessages(QList<Message*> msgs)
 {
     for (auto it = msgs.begin(); it != msgs.end(); it++) {
-        QByteArray data(it->toStdString().c_str(), it->length());
+        std::string msg = (*it)->getMessage();
+        QByteArray data(msg.c_str(), msg.length());
         QPixmap pixmap;
-        QString msg;
 
         if (pixmap.loadFromData(data, "JPG") || pixmap.loadFromData(data, "PNG")) {
             // The payload is a pixmap (picture)
@@ -161,15 +161,14 @@ void ExplorerPage::addMessages(QList<QString> msgs)
         } else {
             // Truncate messages longer than a certain number of characters
             // If truncated, add three dots to signalize it.
-            msg = *it;
 
             if (msg.length() > 26) {
-                msg.truncate(26);
+                msg.resize(26);
                 msg += "...";
             }
         }
 
-        this->ui->messageHistoryList->insertItem(0, msg);
+        this->ui->messageHistoryList->insertItem(0, QString::fromStdString(msg));
         // Respect the set message capacity
         for (int i = this->ui->messageHistoryList->count(); i > this->message_capacity; i--) {
             delete this->ui->messageHistoryList->takeItem(i-1);
