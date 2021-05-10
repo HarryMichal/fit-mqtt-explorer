@@ -1,3 +1,5 @@
+#include <QBrush>
+#include <QColor>
 #include <QFileDialog>
 #include <QHash>
 #include <QPixmap>
@@ -153,6 +155,7 @@ void ExplorerPage::addMessages(QList<Message*> msgs)
     for (auto it = msgs.begin(); it != msgs.end(); it++) {
         std::string msg = (*it)->getMessage();
         QByteArray data(msg.c_str(), msg.length());
+        QListWidgetItem *new_item = new QListWidgetItem;
         QPixmap pixmap;
 
         if (pixmap.loadFromData(data, "JPG") || pixmap.loadFromData(data, "PNG")) {
@@ -168,7 +171,17 @@ void ExplorerPage::addMessages(QList<Message*> msgs)
             }
         }
 
-        this->ui->messageHistoryList->insertItem(0, QString::fromStdString(msg));
+        new_item->setText(QString::fromStdString(msg));
+        // Based on message type set background color. I took some colors that
+        // looked nice in Krita.
+        if ((*it)->msg_type == MessageType::RECEIVED) {
+            new_item->setBackground(QBrush(QColor(184, 244, 245)));
+        } else {
+            new_item->setBackground(QBrush(QColor(255, 125, 125)));
+        }
+
+        this->ui->messageHistoryList->insertItem(0, new_item);
+
         // Respect the set message capacity
         for (int i = this->ui->messageHistoryList->count(); i > this->message_capacity; i--) {
             delete this->ui->messageHistoryList->takeItem(i-1);
