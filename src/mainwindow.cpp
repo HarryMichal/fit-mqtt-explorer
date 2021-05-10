@@ -1,5 +1,6 @@
 #include <QFile>
 #include <QDialog>
+#include <QSettings>
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -19,7 +20,15 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     this->ui->setupUi(this);
 
-    this->explorer->setMessageCap(msg_store->getMessageCap());
+    QSettings settings("FIT", "MQTT Client");
+
+    // Read and set stored values; if a value is not stored, use the default
+    int msg_cap = settings.value("messageCapacity", -1).toInt();
+    if (msg_cap == -1) {
+        msg_cap = 20;
+    }
+    this->msg_store->setMessageCap(msg_cap);
+    this->explorer->setMessageCap(msg_cap);
 
     this->mqtt_manager->moveToThread(&worker_thread);
     this->worker_thread.start();
@@ -176,6 +185,7 @@ void MainWindow::sendText(mqtt::string topic, mqtt::string payload)
 
 void MainWindow::setHistoryLimit()
 {
+    QSettings settings("FIT", "MQTT Client");
     auto dialog = new MessageHistoryDialog(this);
     dialog->setValue(this->msg_store->getMessageCap());
 
@@ -187,6 +197,8 @@ void MainWindow::setHistoryLimit()
     }
 
     auto new_history_limit = dialog->getValue();
+
+    settings.setValue("messageCapacity", new_history_limit);
 
     this->msg_store->setMessageCap(new_history_limit);
     this->explorer->setMessageCap(new_history_limit);
