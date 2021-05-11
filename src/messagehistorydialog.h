@@ -1,3 +1,8 @@
+/**
+ * @file messagehistorydialog.h
+ * @author Ondřej Míchal <xmicha80>
+ */
+
 #ifndef MESSAGEHISTORYDIALOG_H
 #define MESSAGEHISTORYDIALOG_H
 

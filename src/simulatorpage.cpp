@@ -1,3 +1,8 @@
+/**
+ * @file simulatorpage.cpp
+ * @author Ondřej Míchal <xmicha80>
+ */
+
 #include <QFile>
 #include <QJsonArray>
 #include <QJsonObject>

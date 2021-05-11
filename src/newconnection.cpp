@@ -1,3 +1,8 @@
+/**
+ * @file newconnection.cpp
+ * @author Žaneta Grossová <xgross11>
+ */
+
 #include <QString>
 
 #include "newconnection.h"

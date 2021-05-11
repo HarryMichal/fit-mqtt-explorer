@@ -1,3 +1,8 @@
+/**
+ * @file messagestore.cpp
+ * @author Ondřej Míchal <xmicha80>
+ */
+
 #include <QDebug>
 #include <QDir>
 

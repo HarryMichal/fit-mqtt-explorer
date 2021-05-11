@@ -1,3 +1,8 @@
+/**
+ * @file simulatorpage.h
+ * @author Ondřej Míchal <xmicha80>
+ */
+
 #ifndef SIMULATORPAGE_H
 #define SIMULATORPAGE_H
 

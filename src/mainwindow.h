@@ -1,3 +1,9 @@
+/**
+ * @file mainwindow.h
+ * @author Ondřej Míchal <xmicha80>
+ * @author Žaneta Grossová <xgross11>
+ */
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 

@@ -1,3 +1,8 @@
+/**
+ * @file messagestore.h
+ * @author Ondřej Míchal <xmicha80>
+ */
+
 #ifndef MESSAGESTORE_H
 #define MESSAGESTORE_H
 

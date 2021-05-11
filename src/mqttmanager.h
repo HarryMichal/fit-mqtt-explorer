@@ -1,3 +1,8 @@
+/**
+ * @file mqttmanager.h
+ * @author Ondřej Míchal <xmicha80>
+ */
+
 #ifndef MQTTMANAGER_H
 #define MQTTMANAGER_H
 
