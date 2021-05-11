@@ -14,5 +14,7 @@ var files_dup =
     [ "mqttmanager.cpp", "mqttmanager_8cpp_source.html", null ],
     [ "mqttmanager.h", "mqttmanager_8h_source.html", null ],
     [ "newconnection.cpp", "newconnection_8cpp_source.html", null ],
-    [ "newconnection.h", "newconnection_8h_source.html", null ]
+    [ "newconnection.h", "newconnection_8h_source.html", null ],
+    [ "simulatorpage.cpp", "simulatorpage_8cpp_source.html", null ],
+    [ "simulatorpage.h", "simulatorpage_8h_source.html", null ]
 ];

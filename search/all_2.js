@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dashboardpage_5',['DashboardPage',['../classDashboardPage.html',1,'']]]
+  ['dashboardpage_6',['DashboardPage',['../classDashboardPage.html',1,'']]]
 ];

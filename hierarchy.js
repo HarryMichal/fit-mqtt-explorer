@@ -16,14 +16,16 @@ var hierarchy =
     [ "QObject", null, [
       [ "MQTTManager", "classMQTTManager.html", null ],
       [ "Message", "classMessage.html", null ],
-      [ "MessageStore", "classMessageStore.html", null ]
+      [ "MessageStore", "classMessageStore.html", null ],
+      [ "MockDevice", "classMockDevice.html", null ]
     ] ],
     [ "QTreeView", null, [
       [ "MessageTreeView", "classMessageTreeView.html", null ]
     ] ],
     [ "QWidget", null, [
       [ "DashboardPage", "classDashboardPage.html", null ],
-      [ "ExplorerPage", "classExplorerPage.html", null ]
+      [ "ExplorerPage", "classExplorerPage.html", null ],
+      [ "SimulatorPage", "classSimulatorPage.html", null ]
     ] ],
     [ "ServerName", "structServerName.html", null ]
 ];

@@ -86,14 +86,35 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="title">fit-mqtt-explorer </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a></p>
+<div class="textblock"><p><a class="anchor" id="md_README"></a> </p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Simulation of traffic</h1>
+<p>The application has a mode for simulating traffic. The mode can be switched to by clicking an appropriate icon (with tooltip "Simulator") in the application's toolbar.</p>
+<p>Before a simulation can be started, it has to be configured first. A configuration file is a JSON file with specific data defined in it. All data has to be correct. If it is not, the simulator will simply not load it.</p>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Simulation config file structure</h2>
+<p>The root element is an object with two keys:</p>
+<ul>
+<li><code>topic</code> &lt;<code>string</code>&gt; - the root topic where all messages will be sent</li>
+<li><code>devices</code> &lt;<code>array</code>&gt; - list of simulated devices</li>
+</ul>
+<p>The <code>devices</code> array can hold various number of simulated devices.</p>
+<p>Each device is an object with four keys:</p>
+<ul>
+<li><code>topic</code> &lt;<code>string</code>&gt; - subtopic where this devices sends messages</li>
+<li><code>type</code> &lt;<code>string</code>&gt; - type of the device</li>
+<li><code>period</code> &lt;<code>int</code>&gt; - timeout between sending messages [ms]</li>
+<li><code>payloads</code> &lt;<code>array</code>&gt; - list of messages to be sent</li>
+</ul>
+<p>The <code>payloads</code> array can hold various number of payloads. Only paylods of type &lt;<code>string</code>&gt; have been tested but other types should also be supported.</p>
+<p>Example configuration files can be found in <a href="https://github.com/HarryMichal/fit-mqtt-explorer/tree/main/data/simulations"><code>data/simulations</code></a>. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue May 11 2021 10:18:26 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue May 11 2021 10:26:40 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

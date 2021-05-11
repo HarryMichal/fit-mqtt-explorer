@@ -25,7 +25,11 @@
 var NAVTREE =
 [
   [ "fit-mqtt-client", "index.html", [
-    [ "fit-mqtt-explorer", "index.html", null ],
+    [ "fit-mqtt-explorer", "index.html", [
+      [ "Simulation of traffic", "index.html#autotoc_md1", [
+        [ "Simulation config file structure", "index.html#autotoc_md2", null ]
+      ] ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

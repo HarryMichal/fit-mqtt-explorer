@@ -13,8 +13,11 @@ var classMainWindow =
     [ "setDashboardPage", "classMainWindow.html#ac1ae76a850167f7fc09da8fb0cd4d85b", null ],
     [ "setExplorerPage", "classMainWindow.html#a6ecd2b2a0d761baea5e60ce13c8c40ba", null ],
     [ "setHistoryLimit", "classMainWindow.html#a4208bc0d68f63009f91bb3c31504a512", null ],
+    [ "setSimulatorPage", "classMainWindow.html#aec1723d24fe6b438303a7b34cfc8efa3", null ],
     [ "setupActions", "classMainWindow.html#a2334d55084925506d781b8c2c5fed463", null ],
     [ "setupStatusBar", "classMainWindow.html#a0d883ee938ff46ffba3e2592eda5835e", null ],
+    [ "simulatorSetSimulationConfigFile", "classMainWindow.html#a3cda113ea5401d4d3729374153aa7c9c", null ],
+    [ "simulatorToggleSimulation", "classMainWindow.html#a63378af51cfff707c894a5cddbf3bf2f", null ],
     [ "updateStatusBar", "classMainWindow.html#ad62e8427ddc79384e22bccaa2eb1fa1b", null ],
     [ "connection_status", "classMainWindow.html#a263b9e32122b60848560a6076e7ae493", null ],
     [ "current_mode", "classMainWindow.html#ac732d0cda236e9bb2796445d62d0f3c6", null ],
@@ -24,6 +27,7 @@ var classMainWindow =
     [ "mqtt_manager", "classMainWindow.html#a4055910fd08f0046a65c028dfd71b425", null ],
     [ "msg_store", "classMainWindow.html#a0f109d479259903af0b4bbf534b2779f", null ],
     [ "new_connection_window", "classMainWindow.html#a630fe8898b61acd9edce2e27183d65ef", null ],
+    [ "simulator", "classMainWindow.html#aabba009f875338141b9f0ce910b2653e", null ],
     [ "ui", "classMainWindow.html#a35466a70ed47252a0191168126a352a5", null ],
     [ "worker_thread", "classMainWindow.html#ae59ecf4aa8480b11b09e51be2e9e2fb3", null ]
 ];
