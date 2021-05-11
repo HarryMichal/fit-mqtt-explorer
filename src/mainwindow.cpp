@@ -16,6 +16,7 @@
 #include "mqttmanager.h"
 #include "messagehistorydialog.h"
 #include "messagestore.h"
+#include "dashboardpage.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -53,7 +54,7 @@ MainWindow::MainWindow(QWidget *parent) :
     MainWindow::setupActions();
 
     // Make sure the right page and actions in toolbar are shown
-    this->setDashboardPage();
+    this->setExplorerPage();
 }
 
 MainWindow::~MainWindow()
@@ -74,6 +75,7 @@ void MainWindow::setDashboardPage()
 
     ui->actionHistory->setVisible(true);
     ui->actionActualState->setVisible(true);
+    ui->actionAddWidget->setVisible(true);
     ui->actionCreateSnapshot->setVisible(false);
     ui->actionLoadSimulation->setVisible(false);
     ui->actionToggleSimulation->setVisible(false);
@@ -87,6 +89,7 @@ void MainWindow::setExplorerPage()
     }
     ui->actionHistory->setVisible(false);
     ui->actionActualState->setVisible(false);
+    ui->actionAddWidget->setVisible(false);
     ui->actionCreateSnapshot->setVisible(true);
     ui->actionLoadSimulation->setVisible(false);
     ui->actionToggleSimulation->setVisible(false);
@@ -97,12 +100,13 @@ void MainWindow::setSimulatorPage()
     if (this->current_mode == ModeState::Simulator) {
         return;
     }
-    
+
     this->current_mode = ModeState::Simulator;
     ui->mode_stack->setCurrentIndex(ModeState::Simulator);
 
     ui->actionHistory->setVisible(false);
     ui->actionActualState->setVisible(false);
+    ui->actionAddWidget->setVisible(false);
     ui->actionCreateSnapshot->setVisible(false);
     ui->actionLoadSimulation->setVisible(true);
     ui->actionToggleSimulation->setVisible(true);
@@ -113,9 +117,14 @@ void MainWindow::OpenConnectionWindow()
     this->new_connection_window->show();
 }
 
-void MainWindow::createNewConnection()
+void MainWindow::addNewWidget()
 {
-    qDebug("Setup");
+    if (this->current_mode != ModeState::Dashboard) {
+        this->current_mode = ModeState::Dashboard;
+        ui->mode_stack->setCurrentIndex(ModeState::Dashboard);
+    }
+
+    this->dashboard->AddNewWidget();
 }
 
 void MainWindow::setupStatusBar()
@@ -141,7 +150,7 @@ void MainWindow::setupActions()
     connect(this->ui->actionCreateSnapshot, &QAction::triggered, this, &MainWindow::createSnapshot);
     connect(this->ui->actionLoadSimulation, &QAction::triggered, this, &MainWindow::simulatorSetSimulationConfigFile);
     connect(this->ui->actionToggleSimulation, &QAction::toggled, this, &MainWindow::simulatorToggleSimulation);
-
+    connect(this->ui->actionAddWidget, &QAction::triggered, this, &MainWindow::addNewWidget);
     connect(this->new_connection_window, &NewConnection::createNewConnection, mqtt_manager, &MQTTManager::connect);
 
     connect(this->explorer, &ExplorerPage::onChangeSelectedMessage, this, &MainWindow::explorerChangeSelectedMessage);
@@ -155,6 +164,7 @@ void MainWindow::setupActions()
     connect(this->mqtt_manager, &MQTTManager::onDisconnected, this, &MainWindow::updateStatusBar);
     connect(this->mqtt_manager, &MQTTManager::onMessageReceived, this->msg_store, [=](auto msg){ this->msg_store->addMessage(msg); });
 
+    connect(this->msg_store, &MessageStore::newMessages, this->dashboard, &DashboardPage::receiveNewMessages);
     connect(this->msg_store, &MessageStore::newMessages, this->explorer, &ExplorerPage::receiveNewMessages);
 
     connect(this->simulator, &SimulatorPage::onHeartbeat, this, &MainWindow::sendText);
@@ -218,12 +228,12 @@ void MainWindow::sendFile(mqtt::string topic, QString file_name)
     }
 
     file.open(QFile::ReadOnly);
-    
+
     if (!file.isOpen()) {
         return;
     }
 
-    auto payload = file.readAll().data(); 
+    auto payload = file.readAll().data();
     mqtt::const_message_ptr msg = mqtt::make_message(topic, payload, 0, true);
 
     this->msg_store->addMessage(msg, MessageType::SENT_UNMATCHED);

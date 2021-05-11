@@ -57,11 +57,8 @@ public:
      * @brief Sets the simulator page as the primary one
      */
     void setSimulatorPage();
-    /**
-     * @brief Spawns connection window
-     */
-    void OpenConnectionWindow();
-
+    void getTopicMessages(const QString topic);
+    void addNewWidget();
 private:
     Ui::MainWindow *ui;
     QThread worker_thread; //< Thread for running MQTTManager
@@ -94,6 +91,10 @@ private:
      * connection via MQTTManager
      */
     void createNewConnection();
+    /**
+     * @brief Spawns connection window
+     */
+    void OpenConnectionWindow();
 
 private slots:
     /**

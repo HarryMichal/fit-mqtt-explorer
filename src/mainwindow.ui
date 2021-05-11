@@ -93,6 +93,8 @@
    <addaction name="actionHistory"/>
    <addaction name="actionLoadSimulation"/>
    <addaction name="actionToggleSimulation"/>
+   <addaction name="separator"/>
+   <addaction name="actionAddWidget"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionDashboard">
@@ -100,7 +102,7 @@
     <bool>true</bool>
    </property>
    <property name="checked">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="icon">
     <iconset resource="../resources.qrc">
@@ -115,6 +117,9 @@
   </action>
   <action name="actionExplorer">
    <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
     <bool>true</bool>
    </property>
    <property name="enabled">
@@ -141,30 +146,6 @@
    </property>
    <property name="toolTip">
     <string>Connect</string>
-   </property>
-  </action>
-  <action name="actionHistory">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset resource="../resources.qrc">
-     <normaloff>:/icons/history-graphs.svg</normaloff>:/icons/history-graphs.svg</iconset>
-   </property>
-   <property name="text">
-    <string>History</string>
-   </property>
-   <property name="toolTip">
-    <string>Show data history</string>
-   </property>
-   <property name="font">
-    <font>
-     <family>Arial Nova Light</family>
-     <pointsize>9</pointsize>
-    </font>
-   </property>
-   <property name="iconVisibleInMenu">
-    <bool>false</bool>
    </property>
   </action>
   <action name="actionActualState">
@@ -211,7 +192,7 @@
   </action>
   <action name="actionSimulator">
    <property name="checkable">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="icon">
     <iconset resource="../resources.qrc">
@@ -221,7 +202,22 @@
     <string>Simulator</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+S</string>
+    <string/>
+   </property>
+  </action>
+  <action name="actionAddWidget">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icons/new-connection.svg</normaloff>:/icons/new-connection.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Add new widget</string>
    </property>
   </action>
   <action name="actionLoadSimulation">
@@ -248,6 +244,30 @@
     <string>Toggle Simulation</string>
    </property>
   </action>
+  <action name="actionHistory">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icons/history-graphs.svg</normaloff>:/icons/history-graphs.svg</iconset>
+   </property>
+   <property name="text">
+    <string>History</string>
+   </property>
+   <property name="toolTip">
+    <string>Show data history</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial Nova Light</family>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>false</bool>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -264,7 +284,6 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../resources.qrc"/>
   <include location="../resources.qrc"/>
  </resources>
  <connections>
