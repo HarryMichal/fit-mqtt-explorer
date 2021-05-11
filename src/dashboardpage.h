@@ -7,6 +7,9 @@ namespace Ui {
 class DashboardPage;
 }
 
+/**
+ * @brief Represents page for simple dashboard of sensors/devices
+ */
 class DashboardPage : public QWidget
 {
     Q_OBJECT

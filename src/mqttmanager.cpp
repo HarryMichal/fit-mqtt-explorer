@@ -4,6 +4,10 @@
 #include "mqtt/message.h"
 #include "mqttmanager.h"
 
+/**
+ * @brief Representation of MQTT callback used to handle async events of an
+ * async MQTT client
+ */
 class MQTTCallback :
     public virtual mqtt::callback,
     public virtual mqtt::iaction_listener
@@ -69,9 +73,6 @@ const QString MQTTManager::getServerName()
     return QString::fromStdString(this->client->get_server_uri());
 }
 
-/**
- * @brief MQTTManager::connect
- */
 void MQTTManager::connect(QString fullConnectionAdress)
 {
     if (this->client != nullptr) {

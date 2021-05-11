@@ -1,4 +1,54 @@
-# fit-mqtt-explorer
+# FIT MQTT Client
+
+Authors: Ondřej Míchal <xmicha80>, Žaneta Grossová <xgross11>
+
+## State of the project
+
+### Explorer
+
+**Completed features:**
+
+- Connecting to MQTT broker (subscribing to all topics)
+- Tree view of topics
+- History of messages
+- Max limit of messages
+- Simple preview of messages
+- Sending messages (plain text & files)
+- Sending messages to subtopics
+- Visual difference between sent and received messages
+- Creating snapshots of current state of topics
+
+**Missing features:**
+
+- Image recognition
+- Image previews
+
+### Dashboard
+
+**Completed features:**
+
+- Ability to create simple widgets
+- Subscribing widgets to different topics
+
+**Missing features:**
+
+- Functional widget types (for different types of payloads - e.g., temps, humidity,..)
+- Saving dashboard setup to a configuration file
+- Loading dashboard setup from a configuration file
+- Advanced presentation of data in widgets
+- Sending payloads via widgets
+
+### Simulator
+
+**Completed features:**
+
+- Sending messages at a set interval, sending premade messages
+- Loading simulator setup from a configuration file
+
+**Missing features:**
+
+- Understanding received data (e.g. setpoints)
+- Sending binary data (e.g. messages)
 
 ## Simulation of traffic
 
@@ -30,3 +80,8 @@ The `payloads` array can hold various number of payloads. Only paylods of type
 <`string`> have been tested but other types should also be supported.
 
 Example configuration files can be found in [`data/simulations`](https://github.com/HarryMichal/fit-mqtt-explorer/tree/main/data/simulations).
+
+## Attributions
+
+- The Qt Documentation
+- Doxygen theme: https://jothepro.github.io/doxygen-awesome-css/
