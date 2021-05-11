@@ -168,32 +168,38 @@ $(document).ready(function(){initNavTree('mqttmanager_8cpp_source.html',''); ini
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    this-&gt;client = std::make_shared&lt;mqtt::async_client&gt;(fullConnectionAdress.toStdString(), CLIENT_ID);</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    this-&gt;options = std::make_shared&lt;mqtt::connect_options&gt;();</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    this-&gt;options-&gt;set_clean_session(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keyword">auto</span> cb = std::make_shared&lt;MQTTCallback&gt;(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    this-&gt;cb = cb;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    client-&gt;set_callback(*this-&gt;cb);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    this-&gt;client-&gt;start_consuming();</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">try</span> {</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        this-&gt;client-&gt;connect(*this-&gt;options, <span class="keyword">nullptr</span>, *cb);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }  <span class="keywordflow">catch</span> (<span class="keyword">const</span> mqtt::exception&amp; err) {</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        qFatal(<span class="stringliteral">&quot;failed to connect to broker: %s&quot;</span>, err.get_message().c_str());</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="classMQTTManager.html#a31199a182ecf97e20893ceded5731bc8">  101</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classMQTTManager.html#a31199a182ecf97e20893ceded5731bc8">MQTTManager::send</a>(mqtt::const_message_ptr msg)</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;{</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">if</span> (this-&gt;client == <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    this-&gt;options-&gt;set_clean_session(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    this-&gt;options-&gt;set_automatic_reconnect(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">auto</span> cb = std::make_shared&lt;MQTTCallback&gt;(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    this-&gt;cb = cb;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    client-&gt;set_callback(*this-&gt;cb);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    this-&gt;client-&gt;start_consuming();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keyword">auto</span> tok = this-&gt;client-&gt;connect(*this-&gt;options, <span class="keyword">nullptr</span>, *cb);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        tok-&gt;get_connect_response();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    } <span class="keywordflow">catch</span> (mqtt::exception err) {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">if</span> (this-&gt;client-&gt;is_connected()) {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        this-&gt;client-&gt;subscribe(<span class="stringliteral">&quot;#&quot;</span>, 0);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    this-&gt;client-&gt;publish(msg);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="classMQTTManager.html#a31199a182ecf97e20893ceded5731bc8">  107</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classMQTTManager.html#a31199a182ecf97e20893ceded5731bc8">MQTTManager::send</a>(mqtt::const_message_ptr msg)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;{</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">if</span> (this-&gt;client == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    this-&gt;client-&gt;publish(msg);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div>
 <div class="ttc" id="aclassMQTTCallback_html"><div class="ttname"><a href="classMQTTCallback.html">MQTTCallback</a></div><div class="ttdef"><b>Definition:</b> <a href="mqttmanager_8cpp_source.html#l00007">mqttmanager.cpp:10</a></div></div>
 <div class="ttc" id="aclassMQTTManager_html"><div class="ttname"><a href="classMQTTManager.html">MQTTManager</a></div><div class="ttdoc">The MQTTManager class wraps around mqtt:async_client in a Qt compatible manner.</div><div class="ttdef"><b>Definition:</b> <a href="mqttmanager_8h_source.html#l00015">mqttmanager.h:16</a></div></div>
-<div class="ttc" id="aclassMQTTManager_html_a31199a182ecf97e20893ceded5731bc8"><div class="ttname"><a href="classMQTTManager.html#a31199a182ecf97e20893ceded5731bc8">MQTTManager::send</a></div><div class="ttdeci">void send(mqtt::const_message_ptr msg)</div><div class="ttdoc">send() sends a message to an MQTT server</div><div class="ttdef"><b>Definition:</b> <a href="mqttmanager_8cpp_source.html#l00101">mqttmanager.cpp:101</a></div></div>
+<div class="ttc" id="aclassMQTTManager_html_a31199a182ecf97e20893ceded5731bc8"><div class="ttname"><a href="classMQTTManager.html#a31199a182ecf97e20893ceded5731bc8">MQTTManager::send</a></div><div class="ttdeci">void send(mqtt::const_message_ptr msg)</div><div class="ttdoc">send() sends a message to an MQTT server</div><div class="ttdef"><b>Definition:</b> <a href="mqttmanager_8cpp_source.html#l00107">mqttmanager.cpp:107</a></div></div>
 <div class="ttc" id="aclassMQTTManager_html_a32279065340a892ee77fb4bb513d52df"><div class="ttname"><a href="classMQTTManager.html#a32279065340a892ee77fb4bb513d52df">MQTTManager::onOperationFailed</a></div><div class="ttdeci">void onOperationFailed(const mqtt::token &amp;tok)</div><div class="ttdoc">onOperationFailed is emitted when an action fails</div></div>
 <div class="ttc" id="aclassMQTTManager_html_a414766f7f3d92286f011c7f9daf41567"><div class="ttname"><a href="classMQTTManager.html#a414766f7f3d92286f011c7f9daf41567">MQTTManager::onDisconnected</a></div><div class="ttdeci">void onDisconnected()</div><div class="ttdoc">onDisconnected is emitted when the client disconnects from a server</div></div>
 <div class="ttc" id="aclassMQTTManager_html_a535c759fb38ac923437759864a31f967"><div class="ttname"><a href="classMQTTManager.html#a535c759fb38ac923437759864a31f967">MQTTManager::onOperationSucceeded</a></div><div class="ttdeci">void onOperationSucceeded(const mqtt::token &amp;tok)</div><div class="ttdoc">onOperationSucceeded is emitted when an action has completed successfully</div></div>
@@ -207,7 +213,7 @@ $(document).ready(function(){initNavTree('mqttmanager_8cpp_source.html',''); ini
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>mqttmanager.cpp</b></li>
-    <li class="footer">Generated on Tue May 11 2021 09:47:06 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue May 11 2021 09:48:06 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
