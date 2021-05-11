@@ -112,21 +112,21 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>changeSelectedTopic</
 <tr class="memitem:a7d84ed4d176bb11a9e6ff17263dff406"><td class="memItemLeft" align="right" valign="top"><a id="a7d84ed4d176bb11a9e6ff17263dff406"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>initConnection</b> (const QString server_name)</td></tr>
 <tr class="separator:a7d84ed4d176bb11a9e6ff17263dff406"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab23714c4b9b8ee498cb85034dab8f28"><td class="memItemLeft" align="right" valign="top"><a id="aab23714c4b9b8ee498cb85034dab8f28"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>receiveNewMessages</b> (const QHash&lt; QString, QList&lt; QString &gt;&gt; new_msgs)</td></tr>
-<tr class="separator:aab23714c4b9b8ee498cb85034dab8f28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d69ad7fe72629e4a7b2ab99cfad180b"><td class="memItemLeft" align="right" valign="top"><a id="a0d69ad7fe72629e4a7b2ab99cfad180b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>receiveNewMessages</b> (const QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> * &gt;&gt; new_msgs)</td></tr>
+<tr class="separator:a0d69ad7fe72629e4a7b2ab99cfad180b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8743784f4aa59ea2533e354837972441"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExplorerPage.html#a8743784f4aa59ea2533e354837972441">selectFile</a> ()</td></tr>
 <tr class="memdesc:a8743784f4aa59ea2533e354837972441"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classExplorerPage.html#a8743784f4aa59ea2533e354837972441" title="selectFile() spawns a QFileDialog, gets the selected file name and sets it to relevant QLineEdit">selectFile()</a> spawns a QFileDialog, gets the selected file name and sets it to relevant QLineEdit  <a href="classExplorerPage.html#a8743784f4aa59ea2533e354837972441">More...</a><br /></td></tr>
 <tr class="separator:a8743784f4aa59ea2533e354837972441"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0c3cd66131921e3d85531dd6a590ceb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExplorerPage.html#ad0c3cd66131921e3d85531dd6a590ceb">sendMessage</a> ()</td></tr>
 <tr class="memdesc:ad0c3cd66131921e3d85531dd6a590ceb"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classExplorerPage.html#ad0c3cd66131921e3d85531dd6a590ceb" title="sendMessage() serves as an entry-point for sending messages from ExplorerPage">sendMessage()</a> serves as an entry-point for sending messages from <a class="el" href="classExplorerPage.html">ExplorerPage</a>  <a href="classExplorerPage.html#ad0c3cd66131921e3d85531dd6a590ceb">More...</a><br /></td></tr>
 <tr class="separator:ad0c3cd66131921e3d85531dd6a590ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7aa2099c6de3783f806db4e1239b7452"><td class="memItemLeft" align="right" valign="top"><a id="a7aa2099c6de3783f806db4e1239b7452"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMessage</b> (QString msg)</td></tr>
-<tr class="separator:a7aa2099c6de3783f806db4e1239b7452"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e752e7c4cffb9896c3d926daee568bc"><td class="memItemLeft" align="right" valign="top"><a id="a2e752e7c4cffb9896c3d926daee568bc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setTopic</b> (QList&lt; QString &gt;)</td></tr>
-<tr class="separator:a2e752e7c4cffb9896c3d926daee568bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa14db8c6a6ae46beb75581e6f1365574"><td class="memItemLeft" align="right" valign="top"><a id="aa14db8c6a6ae46beb75581e6f1365574"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setMessage</b> (<a class="el" href="classMessage.html">Message</a> *msg)</td></tr>
+<tr class="separator:aa14db8c6a6ae46beb75581e6f1365574"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30678e507393743c269430e3eb53abc3"><td class="memItemLeft" align="right" valign="top"><a id="a30678e507393743c269430e3eb53abc3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setTopic</b> (QList&lt; <a class="el" href="classMessage.html">Message</a> * &gt;)</td></tr>
+<tr class="separator:a30678e507393743c269430e3eb53abc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
 Signals</h2></td></tr>
@@ -160,9 +160,9 @@ QString&#160;</td><td class="memItemRight" valign="bottom"><b>current_topic</b><
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:abf6529851f58ae9a25480a6c84ab03e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExplorerPage.html#abf6529851f58ae9a25480a6c84ab03e2">addMessages</a> (QList&lt; QString &gt; msgs)</td></tr>
-<tr class="memdesc:abf6529851f58ae9a25480a6c84ab03e2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classExplorerPage.html#abf6529851f58ae9a25480a6c84ab03e2" title="addMessages() adds strings to the message history list">addMessages()</a> adds strings to the message history list  <a href="classExplorerPage.html#abf6529851f58ae9a25480a6c84ab03e2">More...</a><br /></td></tr>
-<tr class="separator:abf6529851f58ae9a25480a6c84ab03e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7f84a73f89940d052e27a72b7fa4fb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExplorerPage.html#ac7f84a73f89940d052e27a72b7fa4fb4">addMessages</a> (QList&lt; <a class="el" href="classMessage.html">Message</a> * &gt; msgs)</td></tr>
+<tr class="memdesc:ac7f84a73f89940d052e27a72b7fa4fb4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classExplorerPage.html#ac7f84a73f89940d052e27a72b7fa4fb4" title="addMessages() adds strings to the message history list">addMessages()</a> adds strings to the message history list  <a href="classExplorerPage.html#ac7f84a73f89940d052e27a72b7fa4fb4">More...</a><br /></td></tr>
+<tr class="separator:ac7f84a73f89940d052e27a72b7fa4fb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a145171d5d1cd8bd6b05e919df7bca412"><td class="memItemLeft" align="right" valign="top"><a id="a145171d5d1cd8bd6b05e919df7bca412"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>addTopic</b> (const QString topic, const bool root)</td></tr>
 <tr class="separator:a145171d5d1cd8bd6b05e919df7bca412"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -181,10 +181,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>message_capacity</b></
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="explorerpage_8h_source.html#l00031">31</a> of file <a class="el" href="explorerpage_8h_source.html">explorerpage.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="explorerpage_8h_source.html#l00032">32</a> of file <a class="el" href="explorerpage_8h_source.html">explorerpage.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="abf6529851f58ae9a25480a6c84ab03e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf6529851f58ae9a25480a6c84ab03e2">&#9670;&nbsp;</a></span>addMessages()</h2>
+<a id="ac7f84a73f89940d052e27a72b7fa4fb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7f84a73f89940d052e27a72b7fa4fb4">&#9670;&nbsp;</a></span>addMessages()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -195,7 +195,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>message_capacity</b></
         <tr>
           <td class="memname">void ExplorerPage::addMessages </td>
           <td>(</td>
-          <td class="paramtype">QList&lt; QString &gt;&#160;</td>
+          <td class="paramtype">QList&lt; <a class="el" href="classMessage.html">Message</a> * &gt;&#160;</td>
           <td class="paramname"><em>msgs</em></td><td>)</td>
           <td></td>
         </tr>
@@ -207,10 +207,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>message_capacity</b></
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classExplorerPage.html#abf6529851f58ae9a25480a6c84ab03e2" title="addMessages() adds strings to the message history list">addMessages()</a> adds strings to the message history list </p>
-<p>If a message is longer than 26 characters, it is truncated and three dots at the end are added to signify the truncation. Every message is parsed into a pixmap to try to see if there is an image (JPG/PNG). This does not function properly, yet. The message capacity is respected by deleting the oldest messages in the list. </p>
+<p><a class="el" href="classExplorerPage.html#ac7f84a73f89940d052e27a72b7fa4fb4" title="addMessages() adds strings to the message history list">addMessages()</a> adds strings to the message history list </p>
+<p>If a message is longer than 26 characters, it is truncated and three dots at the end are added to signify the truncation. Every message is parsed into a pixmap to try to see if there is an image (JPG/PNG). The message capacity is respected by deleting the oldest messages in the list. </p>
 
-<p class="definition">Definition at line <a class="el" href="explorerpage_8cpp_source.html#l00151">151</a> of file <a class="el" href="explorerpage_8cpp_source.html">explorerpage.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="explorerpage_8cpp_source.html#l00153">153</a> of file <a class="el" href="explorerpage_8cpp_source.html">explorerpage.cpp</a>.</p>
 
 </div>
 </div>
@@ -329,7 +329,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>message_capacity</b></
 
 <p><a class="el" href="classExplorerPage.html#a8743784f4aa59ea2533e354837972441" title="selectFile() spawns a QFileDialog, gets the selected file name and sets it to relevant QLineEdit">selectFile()</a> spawns a QFileDialog, gets the selected file name and sets it to relevant QLineEdit </p>
 
-<p class="definition">Definition at line <a class="el" href="explorerpage_8cpp_source.html#l00109">109</a> of file <a class="el" href="explorerpage_8cpp_source.html">explorerpage.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="explorerpage_8cpp_source.html#l00111">111</a> of file <a class="el" href="explorerpage_8cpp_source.html">explorerpage.cpp</a>.</p>
 
 </div>
 </div>
@@ -359,7 +359,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>message_capacity</b></
 <p><a class="el" href="classExplorerPage.html#ad0c3cd66131921e3d85531dd6a590ceb" title="sendMessage() serves as an entry-point for sending messages from ExplorerPage">sendMessage()</a> serves as an entry-point for sending messages from <a class="el" href="classExplorerPage.html">ExplorerPage</a> </p>
 <p>Depending on the selected radio button it emits the right signal, gathers needed info from the GUI and also allows for sending messages to a different subtopic. </p>
 
-<p class="definition">Definition at line <a class="el" href="explorerpage_8cpp_source.html#l00115">115</a> of file <a class="el" href="explorerpage_8cpp_source.html">explorerpage.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="explorerpage_8cpp_source.html#l00117">117</a> of file <a class="el" href="explorerpage_8cpp_source.html">explorerpage.cpp</a>.</p>
 
 </div>
 </div>
@@ -373,7 +373,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>message_capacity</b></
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classExplorerPage.html">ExplorerPage</a></li>
-    <li class="footer">Generated on Tue May 11 2021 09:48:06 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue May 11 2021 09:59:09 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

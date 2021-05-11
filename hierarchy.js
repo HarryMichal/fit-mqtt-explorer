@@ -15,6 +15,7 @@ var hierarchy =
     ] ],
     [ "QObject", null, [
       [ "MQTTManager", "classMQTTManager.html", null ],
+      [ "Message", "classMessage.html", null ],
       [ "MessageStore", "classMessageStore.html", null ]
     ] ],
     [ "QTreeView", null, [

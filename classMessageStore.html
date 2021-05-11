@@ -102,15 +102,15 @@ Inheritance diagram for MessageStore:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
 Public Slots</h2></td></tr>
-<tr class="memitem:a9a8755dc448a22edb35c7fc42250a283"><td class="memItemLeft" align="right" valign="top"><a id="a9a8755dc448a22edb35c7fc42250a283"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addMessage</b> (const mqtt::const_message_ptr msg)</td></tr>
-<tr class="separator:a9a8755dc448a22edb35c7fc42250a283"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2bb020b11f5bebf1ce8ca9b47975b7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessageStore.html#ab2bb020b11f5bebf1ce8ca9b47975b7a">addMessage</a> (const mqtt::const_message_ptr msg, MessageType type=MessageType::RECEIVED)</td></tr>
+<tr class="memdesc:ab2bb020b11f5bebf1ce8ca9b47975b7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new message to the store.  <a href="classMessageStore.html#ab2bb020b11f5bebf1ce8ca9b47975b7a">More...</a><br /></td></tr>
+<tr class="separator:ab2bb020b11f5bebf1ce8ca9b47975b7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
 Signals</h2></td></tr>
-<tr class="memitem:a4d4c5dc4847c7d987de36e3cb238f1cd"><td class="memItemLeft" align="right" valign="top"><a id="a4d4c5dc4847c7d987de36e3cb238f1cd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>newMessages</b> (const QHash&lt; QString, QList&lt; QString &gt;&gt;)</td></tr>
-<tr class="separator:a4d4c5dc4847c7d987de36e3cb238f1cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab20567a0b91dfad98592e5f3a4b6f64"><td class="memItemLeft" align="right" valign="top"><a id="aab20567a0b91dfad98592e5f3a4b6f64"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>newMessages</b> (const QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> * &gt;&gt;)</td></tr>
+<tr class="separator:aab20567a0b91dfad98592e5f3a4b6f64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -123,15 +123,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setMessageCap</b> (in
 <tr class="memitem:a17edd9ba83482df7fdd027fb6a141c3f"><td class="memItemLeft" align="right" valign="top"><a id="a17edd9ba83482df7fdd027fb6a141c3f"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>getMessageCap</b> ()</td></tr>
 <tr class="separator:a17edd9ba83482df7fdd027fb6a141c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee922d48355cd2d4ead648a3596d1c2a"><td class="memItemLeft" align="right" valign="top"><a id="aee922d48355cd2d4ead648a3596d1c2a"></a>
-const QHash&lt; QString, QList&lt; QString &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getAllMessages</b> ()</td></tr>
-<tr class="separator:aee922d48355cd2d4ead648a3596d1c2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a817107b0e6f16adec0ad72ffd64c461a"><td class="memItemLeft" align="right" valign="top"><a id="a817107b0e6f16adec0ad72ffd64c461a"></a>
-const QHash&lt; QString, QList&lt; QString &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getNewMessages</b> ()</td></tr>
-<tr class="separator:a817107b0e6f16adec0ad72ffd64c461a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a602dc18edfa6723d0428aeedacb2cb29"><td class="memItemLeft" align="right" valign="top"><a id="a602dc18edfa6723d0428aeedacb2cb29"></a>
-const QList&lt; QString &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getTopicMessages</b> (const QString topic)</td></tr>
-<tr class="separator:a602dc18edfa6723d0428aeedacb2cb29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbe4202a87c067c3b42dbdee61798522"><td class="memItemLeft" align="right" valign="top"><a id="abbe4202a87c067c3b42dbdee61798522"></a>
+const QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getAllMessages</b> ()</td></tr>
+<tr class="separator:abbe4202a87c067c3b42dbdee61798522"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac637fcdf4f4d719e29862f7e39456b9e"><td class="memItemLeft" align="right" valign="top"><a id="ac637fcdf4f4d719e29862f7e39456b9e"></a>
+const QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getNewMessages</b> ()</td></tr>
+<tr class="separator:ac637fcdf4f4d719e29862f7e39456b9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2460dd82545a4ad0e6ef492c97f13daa"><td class="memItemLeft" align="right" valign="top"><a id="a2460dd82545a4ad0e6ef492c97f13daa"></a>
+const QList&lt; <a class="el" href="classMessage.html">Message</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getTopicMessages</b> (const QString topic)</td></tr>
+<tr class="separator:a2460dd82545a4ad0e6ef492c97f13daa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-slots"></a>
 Private Slots</h2></td></tr>
@@ -147,17 +147,66 @@ QTimer *&#160;</td><td class="memItemRight" valign="bottom"><b>ticker</b></td></
 <tr class="memitem:a248735a095b46a443553b31dab6a8bbb"><td class="memItemLeft" align="right" valign="top"><a id="a248735a095b46a443553b31dab6a8bbb"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>message_capacity</b></td></tr>
 <tr class="separator:a248735a095b46a443553b31dab6a8bbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ea929a6230ae69745625b2c84d0a299"><td class="memItemLeft" align="right" valign="top"><a id="a3ea929a6230ae69745625b2c84d0a299"></a>
-QHash&lt; QString, QList&lt; QString &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>messages</b></td></tr>
-<tr class="separator:a3ea929a6230ae69745625b2c84d0a299"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e9856f8428129af3a9be4557cfa37a3"><td class="memItemLeft" align="right" valign="top"><a id="a1e9856f8428129af3a9be4557cfa37a3"></a>
-QHash&lt; QString, QList&lt; QString &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>new_messages</b></td></tr>
-<tr class="separator:a1e9856f8428129af3a9be4557cfa37a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6130b88a8541534d19eaf0d8949d4868"><td class="memItemLeft" align="right" valign="top"><a id="a6130b88a8541534d19eaf0d8949d4868"></a>
+QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>messages</b></td></tr>
+<tr class="separator:a6130b88a8541534d19eaf0d8949d4868"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4a7c836910198677b75b466ff9be2b1"><td class="memItemLeft" align="right" valign="top"><a id="ab4a7c836910198677b75b466ff9be2b1"></a>
+QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>new_messages</b></td></tr>
+<tr class="separator:ab4a7c836910198677b75b466ff9be2b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="messagestore_8h_source.html#l00011">11</a> of file <a class="el" href="messagestore_8h_source.html">messagestore.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<p class="definition">Definition at line <a class="el" href="messagestore_8h_source.html#l00042">42</a> of file <a class="el" href="messagestore_8h_source.html">messagestore.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab2bb020b11f5bebf1ce8ca9b47975b7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2bb020b11f5bebf1ce8ca9b47975b7a">&#9670;&nbsp;</a></span>addMessage</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MessageStore::addMessage </td>
+          <td>(</td>
+          <td class="paramtype">const mqtt::const_message_ptr&#160;</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MessageType&#160;</td>
+          <td class="paramname"><em>type</em> = <code>MessageType::RECEIVED</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds a new message to the store. </p>
+<p>A message can be either sent or received. Due to the way the MQTT protocol is made, it sends back to the sender their sent message. To overcome the fact this method attempts to filter out such message.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>message </td></tr>
+    <tr><td class="paramname">type</td><td>type of the message </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="messagestore_8cpp_source.html#l00052">52</a> of file <a class="el" href="messagestore_8cpp_source.html">messagestore.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="messagestore_8h_source.html">messagestore.h</a></li>
 <li><a class="el" href="messagestore_8cpp_source.html">messagestore.cpp</a></li>
 </ul>
@@ -167,7 +216,7 @@ QHash&lt; QString, QList&lt; QString &gt; &gt;&#160;</td><td class="memItemRight
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classMessageStore.html">MessageStore</a></li>
-    <li class="footer">Generated on Tue May 11 2021 09:48:06 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue May 11 2021 09:59:09 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

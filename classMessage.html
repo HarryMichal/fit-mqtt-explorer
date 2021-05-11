@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>fit-mqtt-client: DashboardPage Class Reference</title>
+<title>fit-mqtt-client: Message Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,7 +63,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('classDashboardPage.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('classMessage.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -84,44 +84,85 @@ $(document).ready(function(){initNavTree('classDashboardPage.html',''); initResi
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="classDashboardPage-members.html">List of all members</a>  </div>
+<a href="classMessage-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">DashboardPage Class Reference</div>  </div>
+<div class="title">Message Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents a message (either sent of received)  
+ <a href="classMessage.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="messagestore_8h_source.html">messagestore.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for DashboardPage:</div>
+Inheritance diagram for Message:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="classDashboardPage.png" alt=""/>
+  <img src="classMessage.png" alt=""/>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4225ba67e20cf9ff5a51675d86b1a8c9"><td class="memItemLeft" align="right" valign="top"><a id="a4225ba67e20cf9ff5a51675d86b1a8c9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DashboardPage</b> (QWidget *parent=nullptr)</td></tr>
-<tr class="separator:a4225ba67e20cf9ff5a51675d86b1a8c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7357ec31c70b0811a3e600a3fc878108"><td class="memItemLeft" align="right" valign="top"><a id="a7357ec31c70b0811a3e600a3fc878108"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Message</b> (mqtt::const_message_ptr msg, MessageType type, QObject *parent=nullptr)</td></tr>
+<tr class="separator:a7357ec31c70b0811a3e600a3fc878108"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a758a96f17e5f7e571a60778487bcf7a1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessage.html#a758a96f17e5f7e571a60778487bcf7a1">getMessage</a> ()</td></tr>
+<tr class="memdesc:a758a96f17e5f7e571a60778487bcf7a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the message payload.  <a href="classMessage.html#a758a96f17e5f7e571a60778487bcf7a1">More...</a><br /></td></tr>
+<tr class="separator:a758a96f17e5f7e571a60778487bcf7a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:aa19b202809b3eaf042f47e481b112961"><td class="memItemLeft" align="right" valign="top"><a id="aa19b202809b3eaf042f47e481b112961"></a>
+MessageType&#160;</td><td class="memItemRight" valign="bottom"><b>msg_type</b></td></tr>
+<tr class="separator:aa19b202809b3eaf042f47e481b112961"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a746cd3ddbe73fd43a1d35a9907014c6d"><td class="memItemLeft" align="right" valign="top"><a id="a746cd3ddbe73fd43a1d35a9907014c6d"></a>
+std::chrono::time_point&lt; std::chrono::steady_clock &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>arrival_date</b></td></tr>
+<tr class="separator:a746cd3ddbe73fd43a1d35a9907014c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a7b446a7f2ad385b706ba07eedf39a226"><td class="memItemLeft" align="right" valign="top"><a id="a7b446a7f2ad385b706ba07eedf39a226"></a>
-Ui::DashboardPage *&#160;</td><td class="memItemRight" valign="bottom"><b>ui</b></td></tr>
-<tr class="separator:a7b446a7f2ad385b706ba07eedf39a226"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dba0ee8c5239aad9c7fad8c4c126de2"><td class="memItemLeft" align="right" valign="top"><a id="a6dba0ee8c5239aad9c7fad8c4c126de2"></a>
+mqtt::const_message_ptr&#160;</td><td class="memItemRight" valign="bottom"><b>msg</b></td></tr>
+<tr class="separator:a6dba0ee8c5239aad9c7fad8c4c126de2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="dashboardpage_8h_source.html#l00010">10</a> of file <a class="el" href="dashboardpage_8h_source.html">dashboardpage.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="dashboardpage_8h_source.html">dashboardpage.h</a></li>
-<li><a class="el" href="dashboardpage_8cpp_source.html">dashboardpage.cpp</a></li>
+<div class="textblock"><p>Represents a message (either sent of received) </p>
+
+<p class="definition">Definition at line <a class="el" href="messagestore_8h_source.html#l00023">23</a> of file <a class="el" href="messagestore_8h_source.html">messagestore.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a758a96f17e5f7e571a60778487bcf7a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a758a96f17e5f7e571a60778487bcf7a1">&#9670;&nbsp;</a></span>getMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Message::getMessage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the message payload. </p>
+
+<p class="definition">Definition at line <a class="el" href="messagestore_8cpp_source.html#l00012">12</a> of file <a class="el" href="messagestore_8cpp_source.html">messagestore.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="messagestore_8h_source.html">messagestore.h</a></li>
+<li><a class="el" href="messagestore_8cpp_source.html">messagestore.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="classDashboardPage.html">DashboardPage</a></li>
+    <li class="navelem"><a class="el" href="classMessage.html">Message</a></li>
     <li class="footer">Generated on Tue May 11 2021 09:59:09 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

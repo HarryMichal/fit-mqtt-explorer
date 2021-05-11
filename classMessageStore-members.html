@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('classMessageStore.html',''); initResiz
 
 <p>This is the complete list of members for <a class="el" href="classMessageStore.html">MessageStore</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>addMessage</b>(const mqtt::const_message_ptr msg) (defined in <a class="el" href="classMessageStore.html">MessageStore</a>)</td><td class="entry"><a class="el" href="classMessageStore.html">MessageStore</a></td><td class="entry"><span class="mlabel">slot</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classMessageStore.html#ab2bb020b11f5bebf1ce8ca9b47975b7a">addMessage</a>(const mqtt::const_message_ptr msg, MessageType type=MessageType::RECEIVED)</td><td class="entry"><a class="el" href="classMessageStore.html">MessageStore</a></td><td class="entry"><span class="mlabel">slot</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>getAllMessages</b>() (defined in <a class="el" href="classMessageStore.html">MessageStore</a>)</td><td class="entry"><a class="el" href="classMessageStore.html">MessageStore</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getMessageCap</b>() (defined in <a class="el" href="classMessageStore.html">MessageStore</a>)</td><td class="entry"><a class="el" href="classMessageStore.html">MessageStore</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>getNewMessages</b>() (defined in <a class="el" href="classMessageStore.html">MessageStore</a>)</td><td class="entry"><a class="el" href="classMessageStore.html">MessageStore</a></td><td class="entry"></td></tr>
@@ -99,7 +99,7 @@ $(document).ready(function(){initNavTree('classMessageStore.html',''); initResiz
   <tr bgcolor="#f0f0f0"><td class="entry"><b>messages</b> (defined in <a class="el" href="classMessageStore.html">MessageStore</a>)</td><td class="entry"><a class="el" href="classMessageStore.html">MessageStore</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>MessageStore</b>(QObject *parent=nullptr) (defined in <a class="el" href="classMessageStore.html">MessageStore</a>)</td><td class="entry"><a class="el" href="classMessageStore.html">MessageStore</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>new_messages</b> (defined in <a class="el" href="classMessageStore.html">MessageStore</a>)</td><td class="entry"><a class="el" href="classMessageStore.html">MessageStore</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>newMessages</b>(const QHash&lt; QString, QList&lt; QString &gt;&gt;) (defined in <a class="el" href="classMessageStore.html">MessageStore</a>)</td><td class="entry"><a class="el" href="classMessageStore.html">MessageStore</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>newMessages</b>(const QHash&lt; QString, QList&lt; Message * &gt;&gt;) (defined in <a class="el" href="classMessageStore.html">MessageStore</a>)</td><td class="entry"><a class="el" href="classMessageStore.html">MessageStore</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>setMessageCap</b>(int cap) (defined in <a class="el" href="classMessageStore.html">MessageStore</a>)</td><td class="entry"><a class="el" href="classMessageStore.html">MessageStore</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>ticker</b> (defined in <a class="el" href="classMessageStore.html">MessageStore</a>)</td><td class="entry"><a class="el" href="classMessageStore.html">MessageStore</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
 </table></div><!-- contents -->
@@ -107,7 +107,7 @@ $(document).ready(function(){initNavTree('classMessageStore.html',''); initResiz
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue May 11 2021 09:48:06 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue May 11 2021 09:59:09 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

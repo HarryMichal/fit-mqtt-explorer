@@ -3,6 +3,7 @@ var annotated_dup =
     [ "DashboardPage", "classDashboardPage.html", "classDashboardPage" ],
     [ "ExplorerPage", "classExplorerPage.html", "classExplorerPage" ],
     [ "MainWindow", "classMainWindow.html", "classMainWindow" ],
+    [ "Message", "classMessage.html", "classMessage" ],
     [ "MessageHistoryDialog", "classMessageHistoryDialog.html", "classMessageHistoryDialog" ],
     [ "MessageStore", "classMessageStore.html", "classMessageStore" ],
     [ "MessageTreeView", "classMessageTreeView.html", "classMessageTreeView" ],
