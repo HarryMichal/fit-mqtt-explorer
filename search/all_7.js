@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['newconnection_16',['NewConnection',['../classNewConnection.html',1,'']]]
+  ['newconnection_17',['NewConnection',['../classNewConnection.html',1,'']]]
 ];

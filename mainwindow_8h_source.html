@@ -144,24 +144,29 @@ $(document).ready(function(){initNavTree('mainwindow_8h_source.html',''); initRe
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">private</span> slots:</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> clientConnected();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> explorerChangeSelectedMessage(<span class="keyword">const</span> <span class="keywordtype">int</span> currentRow);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> explorerChangeSelectedTopic(QString topic);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMainWindow.html#abba7064159c82d95e353f70cab1e1f64">sendFile</a>(mqtt::string topic, QString file_name);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMainWindow.html#aee0a11f7cfe7b701e90175c2039e0300">sendText</a>(mqtt::string topic, mqtt::string msg);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">     * @brief setHistoryLimit() creates a dialog window for setting a new</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">     * message history limit and sets it to child components.</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> setHistoryLimit();</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// MAINWINDOW_H</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">     * @brief createSnapshot() opens a file dialog asking the user for a folder</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">     * where a snapshot of the state of explorer should be saved</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> createSnapshot();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> explorerChangeSelectedMessage(<span class="keyword">const</span> <span class="keywordtype">int</span> currentRow);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> explorerChangeSelectedTopic(QString topic);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMainWindow.html#abba7064159c82d95e353f70cab1e1f64">sendFile</a>(mqtt::string topic, QString file_name);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMainWindow.html#aee0a11f7cfe7b701e90175c2039e0300">sendText</a>(mqtt::string topic, mqtt::string msg);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">     * @brief setHistoryLimit() creates a dialog window for setting a new</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">     * message history limit and sets it to child components.</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> setHistoryLimit();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;};</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// MAINWINDOW_H</span></div>
 <div class="ttc" id="aclassDashboardPage_html"><div class="ttname"><a href="classDashboardPage.html">DashboardPage</a></div><div class="ttdef"><b>Definition:</b> <a href="dashboardpage_8h_source.html#l00010">dashboardpage.h:11</a></div></div>
 <div class="ttc" id="aclassExplorerPage_html"><div class="ttname"><a href="classExplorerPage.html">ExplorerPage</a></div><div class="ttdef"><b>Definition:</b> <a href="explorerpage_8h_source.html#l00032">explorerpage.h:33</a></div></div>
 <div class="ttc" id="aclassMQTTManager_html"><div class="ttname"><a href="classMQTTManager.html">MQTTManager</a></div><div class="ttdoc">The MQTTManager class wraps around mqtt:async_client in a Qt compatible manner.</div><div class="ttdef"><b>Definition:</b> <a href="mqttmanager_8h_source.html#l00015">mqttmanager.h:16</a></div></div>
 <div class="ttc" id="aclassMainWindow_html"><div class="ttname"><a href="classMainWindow.html">MainWindow</a></div><div class="ttdef"><b>Definition:</b> <a href="mainwindow_8h_source.html#l00029">mainwindow.h:30</a></div></div>
-<div class="ttc" id="aclassMainWindow_html_abba7064159c82d95e353f70cab1e1f64"><div class="ttname"><a href="classMainWindow.html#abba7064159c82d95e353f70cab1e1f64">MainWindow::sendFile</a></div><div class="ttdeci">void sendFile(mqtt::string topic, QString file_name)</div><div class="ttdoc">sendFile() checks the existence of a file, reads it, assembles a mesage and passes it to the MQTT man...</div><div class="ttdef"><b>Definition:</b> <a href="mainwindow_8cpp_source.html#l00159">mainwindow.cpp:159</a></div></div>
-<div class="ttc" id="aclassMainWindow_html_aee0a11f7cfe7b701e90175c2039e0300"><div class="ttname"><a href="classMainWindow.html#aee0a11f7cfe7b701e90175c2039e0300">MainWindow::sendText</a></div><div class="ttdeci">void sendText(mqtt::string topic, mqtt::string msg)</div><div class="ttdoc">sendText() assembles a simple message and passes it to the MQTT manager</div><div class="ttdef"><b>Definition:</b> <a href="mainwindow_8cpp_source.html#l00181">mainwindow.cpp:181</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_abba7064159c82d95e353f70cab1e1f64"><div class="ttname"><a href="classMainWindow.html#abba7064159c82d95e353f70cab1e1f64">MainWindow::sendFile</a></div><div class="ttdeci">void sendFile(mqtt::string topic, QString file_name)</div><div class="ttdoc">sendFile() checks the existence of a file, reads it, assembles a mesage and passes it to the MQTT man...</div><div class="ttdef"><b>Definition:</b> <a href="mainwindow_8cpp_source.html#l00176">mainwindow.cpp:176</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_aee0a11f7cfe7b701e90175c2039e0300"><div class="ttname"><a href="classMainWindow.html#aee0a11f7cfe7b701e90175c2039e0300">MainWindow::sendText</a></div><div class="ttdeci">void sendText(mqtt::string topic, mqtt::string msg)</div><div class="ttdoc">sendText() assembles a simple message and passes it to the MQTT manager</div><div class="ttdef"><b>Definition:</b> <a href="mainwindow_8cpp_source.html#l00198">mainwindow.cpp:198</a></div></div>
 <div class="ttc" id="aclassMessageStore_html"><div class="ttname"><a href="classMessageStore.html">MessageStore</a></div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8h_source.html#l00042">messagestore.h:43</a></div></div>
 <div class="ttc" id="aclassNewConnection_html"><div class="ttname"><a href="classNewConnection.html">NewConnection</a></div><div class="ttdoc">The NewConnection class represents pop-up window with form for server adress.</div><div class="ttdef"><b>Definition:</b> <a href="newconnection_8h_source.html#l00026">newconnection.h:27</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -170,7 +175,7 @@ $(document).ready(function(){initNavTree('mainwindow_8h_source.html',''); initRe
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>mainwindow.h</b></li>
-    <li class="footer">Generated on Tue May 11 2021 09:59:09 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue May 11 2021 10:18:26 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

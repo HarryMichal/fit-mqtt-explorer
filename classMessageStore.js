@@ -2,6 +2,7 @@ var classMessageStore =
 [
     [ "MessageStore", "classMessageStore.html#a1f02cf5dc513056a2c898d8e4430a4c9", null ],
     [ "addMessage", "classMessageStore.html#ab2bb020b11f5bebf1ce8ca9b47975b7a", null ],
+    [ "createSnapshot", "classMessageStore.html#a32be6396553441cc75fcef44f7119144", null ],
     [ "getAllMessages", "classMessageStore.html#abbe4202a87c067c3b42dbdee61798522", null ],
     [ "getMessageCap", "classMessageStore.html#a17edd9ba83482df7fdd027fb6a141c3f", null ],
     [ "getNewMessages", "classMessageStore.html#ac637fcdf4f4d719e29862f7e39456b9e", null ],
