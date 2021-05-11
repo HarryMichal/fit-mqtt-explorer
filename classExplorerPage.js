@@ -16,7 +16,7 @@ var classExplorerPage =
     [ "sendMessage", "classExplorerPage.html#ad0c3cd66131921e3d85531dd6a590ceb", null ],
     [ "setMessage", "classExplorerPage.html#aa14db8c6a6ae46beb75581e6f1365574", null ],
     [ "setMessageCap", "classExplorerPage.html#a4294314b21d7830cdd154807843a6e04", null ],
-    [ "setTopic", "classExplorerPage.html#a30678e507393743c269430e3eb53abc3", null ],
+    [ "setTopic", "classExplorerPage.html#af87374a77fb79255b9d66c8c26f3e1d0", null ],
     [ "current_topic", "classExplorerPage.html#a94b6a6028227e4691ec5ffb5502bffdf", null ],
     [ "message_capacity", "classExplorerPage.html#a803ce5eaa94086985bade3c0f46753bb", null ],
     [ "topics_tree_model", "classExplorerPage.html#a7c38320b829b4154f6d3b21950288853", null ],

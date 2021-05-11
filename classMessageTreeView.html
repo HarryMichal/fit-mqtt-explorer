@@ -91,6 +91,11 @@ $(document).ready(function(){initNavTree('classMessageTreeView.html',''); initRe
 <div class="title">MessageTreeView Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents a tree of topics.  
+ <a href="classMessageTreeView.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="explorerpage_8h_source.html">explorerpage.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for MessageTreeView:</div>
 <div class="dyncontent">
@@ -100,8 +105,8 @@ Inheritance diagram for MessageTreeView:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
 Signals</h2></td></tr>
-<tr class="memitem:ab1945cb6fea7f1dd11c99ee371cc0103"><td class="memItemLeft" align="right" valign="top"><a id="ab1945cb6fea7f1dd11c99ee371cc0103"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>onCurrentChanged</b> (const QModelIndex &amp;current)</td></tr>
+<tr class="memitem:ab1945cb6fea7f1dd11c99ee371cc0103"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessageTreeView.html#ab1945cb6fea7f1dd11c99ee371cc0103">onCurrentChanged</a> (const QModelIndex &amp;current)</td></tr>
+<tr class="memdesc:ab1945cb6fea7f1dd11c99ee371cc0103"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is emitted when a new topic has been selected.  <a href="classMessageTreeView.html#ab1945cb6fea7f1dd11c99ee371cc0103">More...</a><br /></td></tr>
 <tr class="separator:ab1945cb6fea7f1dd11c99ee371cc0103"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -112,14 +117,90 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a430f1d07bc2f8bfdcadaeac40b4d002b"><td class="memItemLeft" align="right" valign="top"><a id="a430f1d07bc2f8bfdcadaeac40b4d002b"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>currentChanged</b> (const QModelIndex &amp;current, const QModelIndex &amp;previous)</td></tr>
+<tr class="memitem:a430f1d07bc2f8bfdcadaeac40b4d002b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessageTreeView.html#a430f1d07bc2f8bfdcadaeac40b4d002b">currentChanged</a> (const QModelIndex &amp;current, const QModelIndex &amp;previous)</td></tr>
+<tr class="memdesc:a430f1d07bc2f8bfdcadaeac40b4d002b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the change of selected topic.  <a href="classMessageTreeView.html#a430f1d07bc2f8bfdcadaeac40b4d002b">More...</a><br /></td></tr>
 <tr class="separator:a430f1d07bc2f8bfdcadaeac40b4d002b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="explorerpage_8h_source.html#l00018">18</a> of file <a class="el" href="explorerpage_8h_source.html">explorerpage.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<div class="textblock"><p>Represents a tree of topics. </p>
+
+<p class="definition">Definition at line <a class="el" href="explorerpage_8h_source.html#l00021">21</a> of file <a class="el" href="explorerpage_8h_source.html">explorerpage.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a430f1d07bc2f8bfdcadaeac40b4d002b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a430f1d07bc2f8bfdcadaeac40b4d002b">&#9670;&nbsp;</a></span>currentChanged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MessageTreeView::currentChanged </td>
+          <td>(</td>
+          <td class="paramtype">const QModelIndex &amp;&#160;</td>
+          <td class="paramname"><em>current</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QModelIndex &amp;&#160;</td>
+          <td class="paramname"><em>previous</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handles the change of selected topic. </p>
+
+<p class="definition">Definition at line <a class="el" href="explorerpage_8cpp_source.html#l00013">13</a> of file <a class="el" href="explorerpage_8cpp_source.html">explorerpage.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab1945cb6fea7f1dd11c99ee371cc0103"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1945cb6fea7f1dd11c99ee371cc0103">&#9670;&nbsp;</a></span>onCurrentChanged</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MessageTreeView::onCurrentChanged </td>
+          <td>(</td>
+          <td class="paramtype">const QModelIndex &amp;&#160;</td>
+          <td class="paramname"><em>current</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Is emitted when a new topic has been selected. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">current</td><td>model index of currently selected topic </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="explorerpage_8h_source.html">explorerpage.h</a></li>
 <li><a class="el" href="explorerpage_8cpp_source.html">explorerpage.cpp</a></li>
 </ul>
@@ -129,7 +210,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>currentChange
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classMessageTreeView.html">MessageTreeView</a></li>
-    <li class="footer">Generated on Tue May 11 2021 10:26:40 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue May 11 2021 19:01:50 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -25,10 +25,16 @@
 var NAVTREE =
 [
   [ "fit-mqtt-client", "index.html", [
-    [ "fit-mqtt-explorer", "index.html", [
-      [ "Simulation of traffic", "index.html#autotoc_md1", [
-        [ "Simulation config file structure", "index.html#autotoc_md2", null ]
-      ] ]
+    [ "FIT MQTT Client", "index.html", [
+      [ "State of the project", "index.html#autotoc_md1", [
+        [ "Explorer", "index.html#autotoc_md2", null ],
+        [ "Dashboard", "index.html#autotoc_md3", null ],
+        [ "Simulator", "index.html#autotoc_md4", null ]
+      ] ],
+      [ "Simulation of traffic", "index.html#autotoc_md5", [
+        [ "Simulation config file structure", "index.html#autotoc_md6", null ]
+      ] ],
+      [ "Attributions", "index.html#autotoc_md7", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],

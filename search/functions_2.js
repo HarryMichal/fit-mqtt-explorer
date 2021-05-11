@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['getmessage_69',['getMessage',['../classMessage.html#a758a96f17e5f7e571a60778487bcf7a1',1,'Message']]],
-  ['getvalue_70',['getValue',['../classMessageHistoryDialog.html#a128840819af4d4a8ab8d9ddd9326db77',1,'MessageHistoryDialog']]]
+  ['explorerchangeselectedmessage_101',['explorerChangeSelectedMessage',['../classMainWindow.html#ac4ac7413867c0ba527b5c7390cedfda1',1,'MainWindow']]],
+  ['explorerchangeselectedtopic_102',['explorerChangeSelectedTopic',['../classMainWindow.html#a02d121dbc8a624732897b8b24462eb91',1,'MainWindow']]]
 ];

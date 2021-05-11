@@ -8,7 +8,7 @@ var classMessageStore =
     [ "getNewMessages", "classMessageStore.html#ac637fcdf4f4d719e29862f7e39456b9e", null ],
     [ "getTopicMessages", "classMessageStore.html#a2460dd82545a4ad0e6ef492c97f13daa", null ],
     [ "handleTick", "classMessageStore.html#a2699f5f79c9f9fd46f4e9c4d48cdc158", null ],
-    [ "newMessages", "classMessageStore.html#aab20567a0b91dfad98592e5f3a4b6f64", null ],
+    [ "newMessages", "classMessageStore.html#a591050e89a6d31717328e4cfba47d602", null ],
     [ "setMessageCap", "classMessageStore.html#a80b8d46f4cba0fde7f6a5ed981480d8d", null ],
     [ "message_capacity", "classMessageStore.html#a248735a095b46a443553b31dab6a8bbb", null ],
     [ "messages", "classMessageStore.html#a6130b88a8541534d19eaf0d8949d4868", null ],

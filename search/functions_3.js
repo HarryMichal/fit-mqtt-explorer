@@ -1,4 +1,10 @@
 var searchData=
 [
-  ['handleheartbeat_71',['handleHeartbeat',['../classMockDevice.html#adbe2d472a5f4ca96642251f88f939c9c',1,'MockDevice']]]
+  ['getallmessages_103',['getAllMessages',['../classMessageStore.html#abbe4202a87c067c3b42dbdee61798522',1,'MessageStore']]],
+  ['getmessage_104',['getMessage',['../classMessage.html#a758a96f17e5f7e571a60778487bcf7a1',1,'Message']]],
+  ['getmessagecap_105',['getMessageCap',['../classMessageStore.html#a17edd9ba83482df7fdd027fb6a141c3f',1,'MessageStore']]],
+  ['getnewmessages_106',['getNewMessages',['../classMessageStore.html#ac637fcdf4f4d719e29862f7e39456b9e',1,'MessageStore']]],
+  ['getservername_107',['getServerName',['../classMQTTManager.html#a18649823b759dcf5683a3b54f9616175',1,'MQTTManager']]],
+  ['gettopicmessages_108',['getTopicMessages',['../classMessageStore.html#a2460dd82545a4ad0e6ef492c97f13daa',1,'MessageStore']]],
+  ['getvalue_109',['getValue',['../classMessageHistoryDialog.html#a128840819af4d4a8ab8d9ddd9326db77',1,'MessageHistoryDialog']]]
 ];

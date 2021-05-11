@@ -112,7 +112,7 @@ $(document).ready(function(){initNavTree('messagestore_8cpp_source.html',''); in
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    messages(QHash&lt;QString, QList&lt;<a class="code" href="classMessage.html">Message</a>*&gt;&gt;()),</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    new_messages(QHash&lt;QString, QList&lt;<a class="code" href="classMessage.html">Message</a>*&gt;&gt;())</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    connect(this-&gt;ticker, &amp;QTimer::timeout, <span class="keyword">this</span>, &amp;MessageStore::handleTick);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    connect(this-&gt;ticker, &amp;QTimer::timeout, <span class="keyword">this</span>, &amp;<a class="code" href="classMessageStore.html#a2699f5f79c9f9fd46f4e9c4d48cdc158">MessageStore::handleTick</a>);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    this-&gt;ticker-&gt;start(400);</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
@@ -155,22 +155,22 @@ $(document).ready(function(){initNavTree('messagestore_8cpp_source.html',''); in
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keywordtype">void</span> MessageStore::setMessageCap(<span class="keywordtype">int</span> cap)</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classMessageStore.html#a80b8d46f4cba0fde7f6a5ed981480d8d">   70</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classMessageStore.html#a80b8d46f4cba0fde7f6a5ed981480d8d">MessageStore::setMessageCap</a>(<span class="keywordtype">int</span> cap)</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    this-&gt;message_capacity = cap;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordtype">int</span> MessageStore::getMessageCap()</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classMessageStore.html#a17edd9ba83482df7fdd027fb6a141c3f">   75</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classMessageStore.html#a17edd9ba83482df7fdd027fb6a141c3f">MessageStore::getMessageCap</a>()</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">return</span> this-&gt;message_capacity;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">const</span> QHash&lt;QString, QList&lt;Message*&gt;&gt; MessageStore::getAllMessages()</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classMessageStore.html#abbe4202a87c067c3b42dbdee61798522">   80</a></span>&#160;<span class="keyword">const</span> QHash&lt;QString, QList&lt;Message*&gt;&gt; <a class="code" href="classMessageStore.html#abbe4202a87c067c3b42dbdee61798522">MessageStore::getAllMessages</a>()</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;{</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">return</span> this-&gt;messages;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">const</span> QList&lt;Message*&gt; MessageStore::getTopicMessages(<span class="keyword">const</span> QString topic)</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classMessageStore.html#a2460dd82545a4ad0e6ef492c97f13daa">   85</a></span>&#160;<span class="keyword">const</span> QList&lt;Message*&gt; <a class="code" href="classMessageStore.html#a2460dd82545a4ad0e6ef492c97f13daa">MessageStore::getTopicMessages</a>(<span class="keyword">const</span> QString topic)</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">if</span> (!this-&gt;messages.contains(topic)) {</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">return</span> QList&lt;Message*&gt;();</div>
@@ -236,7 +236,7 @@ $(document).ready(function(){initNavTree('messagestore_8cpp_source.html',''); in
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    this-&gt;new_messages.insert(qtopic, msg_list);</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;}</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keywordtype">void</span> MessageStore::handleTick()</div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="classMessageStore.html#a2699f5f79c9f9fd46f4e9c4d48cdc158">  151</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classMessageStore.html#a2699f5f79c9f9fd46f4e9c4d48cdc158">MessageStore::handleTick</a>()</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;{</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordflow">if</span> (this-&gt;new_messages.empty()) {</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordflow">return</span>;</div>
@@ -258,10 +258,16 @@ $(document).ready(function(){initNavTree('messagestore_8cpp_source.html',''); in
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            i.value().mid(i.value().count() - this-&gt;message_capacity, -1));</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    }</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    emit this-&gt;newMessages(new_messages);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    emit this-&gt;<a class="code" href="classMessageStore.html#a591050e89a6d31717328e4cfba47d602">newMessages</a>(new_messages);</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;}</div>
+<div class="ttc" id="aclassMessageStore_html_a17edd9ba83482df7fdd027fb6a141c3f"><div class="ttname"><a href="classMessageStore.html#a17edd9ba83482df7fdd027fb6a141c3f">MessageStore::getMessageCap</a></div><div class="ttdeci">int getMessageCap()</div><div class="ttdoc">Returns set maximum message capacity.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00075">messagestore.cpp:75</a></div></div>
+<div class="ttc" id="aclassMessageStore_html_a2460dd82545a4ad0e6ef492c97f13daa"><div class="ttname"><a href="classMessageStore.html#a2460dd82545a4ad0e6ef492c97f13daa">MessageStore::getTopicMessages</a></div><div class="ttdeci">const QList&lt; Message * &gt; getTopicMessages(const QString topic)</div><div class="ttdoc">Returns all messages from a topic.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00085">messagestore.cpp:85</a></div></div>
+<div class="ttc" id="aclassMessageStore_html_a2699f5f79c9f9fd46f4e9c4d48cdc158"><div class="ttname"><a href="classMessageStore.html#a2699f5f79c9f9fd46f4e9c4d48cdc158">MessageStore::handleTick</a></div><div class="ttdeci">void handleTick()</div><div class="ttdoc">Prepares the publishing of new messages.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00151">messagestore.cpp:151</a></div></div>
 <div class="ttc" id="aclassMessageStore_html_a32be6396553441cc75fcef44f7119144"><div class="ttname"><a href="classMessageStore.html#a32be6396553441cc75fcef44f7119144">MessageStore::createSnapshot</a></div><div class="ttdeci">void createSnapshot(QString dirname)</div><div class="ttdoc">createSnapshot() saves the latest message of all topics into a specified location</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00031">messagestore.cpp:31</a></div></div>
+<div class="ttc" id="aclassMessageStore_html_a591050e89a6d31717328e4cfba47d602"><div class="ttname"><a href="classMessageStore.html#a591050e89a6d31717328e4cfba47d602">MessageStore::newMessages</a></div><div class="ttdeci">void newMessages(const QHash&lt; QString, QList&lt; Message * &gt;&gt; msgs)</div><div class="ttdoc">Is emitted when internal timeout has been reached and there are new messages.</div></div>
+<div class="ttc" id="aclassMessageStore_html_a80b8d46f4cba0fde7f6a5ed981480d8d"><div class="ttname"><a href="classMessageStore.html#a80b8d46f4cba0fde7f6a5ed981480d8d">MessageStore::setMessageCap</a></div><div class="ttdeci">void setMessageCap(int cap)</div><div class="ttdoc">Sets maximum message capacity.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00070">messagestore.cpp:70</a></div></div>
 <div class="ttc" id="aclassMessageStore_html_ab2bb020b11f5bebf1ce8ca9b47975b7a"><div class="ttname"><a href="classMessageStore.html#ab2bb020b11f5bebf1ce8ca9b47975b7a">MessageStore::addMessage</a></div><div class="ttdeci">void addMessage(const mqtt::const_message_ptr msg, MessageType type=MessageType::RECEIVED)</div><div class="ttdoc">Adds a new message to the store.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00094">messagestore.cpp:94</a></div></div>
+<div class="ttc" id="aclassMessageStore_html_abbe4202a87c067c3b42dbdee61798522"><div class="ttname"><a href="classMessageStore.html#abbe4202a87c067c3b42dbdee61798522">MessageStore::getAllMessages</a></div><div class="ttdeci">const QHash&lt; QString, QList&lt; Message * &gt; &gt; getAllMessages()</div><div class="ttdoc">Returns all &quot;commited&quot; messages.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00080">messagestore.cpp:80</a></div></div>
 <div class="ttc" id="aclassMessage_html"><div class="ttname"><a href="classMessage.html">Message</a></div><div class="ttdoc">Represents a message (either sent of received)</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8h_source.html#l00024">messagestore.h:25</a></div></div>
 <div class="ttc" id="aclassMessage_html_a758a96f17e5f7e571a60778487bcf7a1"><div class="ttname"><a href="classMessage.html#a758a96f17e5f7e571a60778487bcf7a1">Message::getMessage</a></div><div class="ttdeci">std::string getMessage()</div><div class="ttdoc">Returns the message payload.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00015">messagestore.cpp:15</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -270,7 +276,7 @@ $(document).ready(function(){initNavTree('messagestore_8cpp_source.html',''); in
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>messagestore.cpp</b></li>
-    <li class="footer">Generated on Tue May 11 2021 10:26:40 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue May 11 2021 19:01:50 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

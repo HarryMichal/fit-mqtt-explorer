@@ -1,19 +1,4 @@
 var searchData=
 [
-  ['selectfile_83',['selectFile',['../classExplorerPage.html#a8743784f4aa59ea2533e354837972441',1,'ExplorerPage']]],
-  ['send_84',['send',['../classMQTTManager.html#a31199a182ecf97e20893ceded5731bc8',1,'MQTTManager']]],
-  ['sendfile_85',['sendFile',['../classMainWindow.html#abba7064159c82d95e353f70cab1e1f64',1,'MainWindow']]],
-  ['sendmessage_86',['sendMessage',['../classExplorerPage.html#ad0c3cd66131921e3d85531dd6a590ceb',1,'ExplorerPage']]],
-  ['sendtext_87',['sendText',['../classMainWindow.html#aee0a11f7cfe7b701e90175c2039e0300',1,'MainWindow']]],
-  ['sethistorylimit_88',['setHistoryLimit',['../classMainWindow.html#a4208bc0d68f63009f91bb3c31504a512',1,'MainWindow']]],
-  ['setsimulationconfigfile_89',['setSimulationConfigFile',['../classSimulatorPage.html#ac682df7718a225a11103f9f2f3f284b1',1,'SimulatorPage']]],
-  ['setsimulatorpage_90',['setSimulatorPage',['../classMainWindow.html#aec1723d24fe6b438303a7b34cfc8efa3',1,'MainWindow']]],
-  ['setupactions_91',['setupActions',['../classNewConnection.html#a2f20665a1c1ede899b318b47f846a7c2',1,'NewConnection']]],
-  ['setvalue_92',['setValue',['../classMessageHistoryDialog.html#a4797b865b800a556fa1e50e2bb335817',1,'MessageHistoryDialog']]],
-  ['simulatorsetsimulationconfigfile_93',['simulatorSetSimulationConfigFile',['../classMainWindow.html#a3cda113ea5401d4d3729374153aa7c9c',1,'MainWindow']]],
-  ['simulatortogglesimulation_94',['simulatorToggleSimulation',['../classMainWindow.html#a63378af51cfff707c894a5cddbf3bf2f',1,'MainWindow']]],
-  ['start_95',['start',['../classMockDevice.html#aca25f7fb4e9d5788fa8cc91816cfbde2',1,'MockDevice']]],
-  ['startsimulation_96',['startSimulation',['../classSimulatorPage.html#a6c7c18b1b33c6af5b4990f6d2960774c',1,'SimulatorPage']]],
-  ['stop_97',['stop',['../classMockDevice.html#ac0ddc587c799b4572ef197a79bd68d40',1,'MockDevice']]],
-  ['stopsimulation_98',['stopSimulation',['../classSimulatorPage.html#ad62a972cb883f546ff28ca5534c4e1b2',1,'SimulatorPage']]]
+  ['newmessages_113',['newMessages',['../classMessageStore.html#a591050e89a6d31717328e4cfba47d602',1,'MessageStore']]]
 ];

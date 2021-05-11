@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>fit-mqtt-client: fit-mqtt-explorer</title>
+<title>fit-mqtt-client: FIT MQTT Client</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -83,15 +83,63 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">fit-mqtt-explorer </div>  </div>
+<div class="title">FIT MQTT Client </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a> </p>
+<div class="textblock"><p><a class="anchor" id="md_README"></a> Authors: Ondřej Míchal &lt;xmicha80&gt;, Žaneta Grossová &lt;xgross11&gt;</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
+State of the project</h1>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Explorer</h2>
+<p><b>Completed features:</b></p>
+<ul>
+<li>Connecting to MQTT broker (subscribing to all topics)</li>
+<li>Tree view of topics</li>
+<li>History of messages</li>
+<li>Max limit of messages</li>
+<li>Simple preview of messages</li>
+<li>Sending messages (plain text &amp; files)</li>
+<li>Sending messages to subtopics</li>
+<li>Visual difference between sent and received messages</li>
+<li>Creating snapshots of current state of topics</li>
+</ul>
+<p><b>Missing features:</b></p>
+<ul>
+<li>Image recognition</li>
+<li>Image previews</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Dashboard</h2>
+<p><b>Completed features:</b></p>
+<ul>
+<li>Ability to create simple widgets</li>
+<li>Subscribing widgets to different topics</li>
+</ul>
+<p><b>Missing features:</b></p>
+<ul>
+<li>Functional widget types (for different types of payloads - e.g., temps, humidity,..)</li>
+<li>Saving dashboard setup to a configuration file</li>
+<li>Loading dashboard setup from a configuration file</li>
+<li>Advanced presentation of data in widgets</li>
+<li>Sending payloads via widgets</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Simulator</h2>
+<p><b>Completed features:</b></p>
+<ul>
+<li>Sending messages at a set interval, sending premade messages</li>
+<li>Loading simulator setup from a configuration file</li>
+</ul>
+<p><b>Missing features:</b></p>
+<ul>
+<li>Understanding received data (e.g. setpoints)</li>
+<li>Sending binary data (e.g. messages)</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md5"></a>
 Simulation of traffic</h1>
 <p>The application has a mode for simulating traffic. The mode can be switched to by clicking an appropriate icon (with tooltip "Simulator") in the application's toolbar.</p>
 <p>Before a simulation can be started, it has to be configured first. A configuration file is a JSON file with specific data defined in it. All data has to be correct. If it is not, the simulator will simply not load it.</p>
-<h2><a class="anchor" id="autotoc_md2"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 Simulation config file structure</h2>
 <p>The root element is an object with two keys:</p>
 <ul>
@@ -107,14 +155,20 @@ Simulation config file structure</h2>
 <li><code>payloads</code> &lt;<code>array</code>&gt; - list of messages to be sent</li>
 </ul>
 <p>The <code>payloads</code> array can hold various number of payloads. Only paylods of type &lt;<code>string</code>&gt; have been tested but other types should also be supported.</p>
-<p>Example configuration files can be found in <a href="https://github.com/HarryMichal/fit-mqtt-explorer/tree/main/data/simulations"><code>data/simulations</code></a>. </p>
+<p>Example configuration files can be found in <a href="https://github.com/HarryMichal/fit-mqtt-explorer/tree/main/data/simulations"><code>data/simulations</code></a>.</p>
+<h1><a class="anchor" id="autotoc_md7"></a>
+Attributions</h1>
+<ul>
+<li>The Qt Documentation</li>
+<li>Doxygen theme: <a href="https://jothepro.github.io/doxygen-awesome-css/">https://jothepro.github.io/doxygen-awesome-css/</a> </li>
+</ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue May 11 2021 10:26:40 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue May 11 2021 19:01:50 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

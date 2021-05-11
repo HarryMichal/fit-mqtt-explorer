@@ -93,6 +93,11 @@ $(document).ready(function(){initNavTree('classMessageStore.html',''); initResiz
 <div class="title">MessageStore Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents a storage of MQTT messages (both received &amp; sent)  
+ <a href="classMessageStore.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="messagestore_8h_source.html">messagestore.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for MessageStore:</div>
 <div class="dyncontent">
@@ -108,9 +113,9 @@ Public Slots</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
 Signals</h2></td></tr>
-<tr class="memitem:aab20567a0b91dfad98592e5f3a4b6f64"><td class="memItemLeft" align="right" valign="top"><a id="aab20567a0b91dfad98592e5f3a4b6f64"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>newMessages</b> (const QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> * &gt;&gt;)</td></tr>
-<tr class="separator:aab20567a0b91dfad98592e5f3a4b6f64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a591050e89a6d31717328e4cfba47d602"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessageStore.html#a591050e89a6d31717328e4cfba47d602">newMessages</a> (const QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> * &gt;&gt; msgs)</td></tr>
+<tr class="memdesc:a591050e89a6d31717328e4cfba47d602"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is emitted when internal timeout has been reached and there are new messages.  <a href="classMessageStore.html#a591050e89a6d31717328e4cfba47d602">More...</a><br /></td></tr>
+<tr class="separator:a591050e89a6d31717328e4cfba47d602"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -120,26 +125,26 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a32be6396553441cc75fcef44f7119144"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessageStore.html#a32be6396553441cc75fcef44f7119144">createSnapshot</a> (QString dirname)</td></tr>
 <tr class="memdesc:a32be6396553441cc75fcef44f7119144"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classMessageStore.html#a32be6396553441cc75fcef44f7119144" title="createSnapshot() saves the latest message of all topics into a specified location">createSnapshot()</a> saves the latest message of all topics into a specified location  <a href="classMessageStore.html#a32be6396553441cc75fcef44f7119144">More...</a><br /></td></tr>
 <tr class="separator:a32be6396553441cc75fcef44f7119144"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80b8d46f4cba0fde7f6a5ed981480d8d"><td class="memItemLeft" align="right" valign="top"><a id="a80b8d46f4cba0fde7f6a5ed981480d8d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMessageCap</b> (int cap)</td></tr>
+<tr class="memitem:a80b8d46f4cba0fde7f6a5ed981480d8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessageStore.html#a80b8d46f4cba0fde7f6a5ed981480d8d">setMessageCap</a> (int cap)</td></tr>
+<tr class="memdesc:a80b8d46f4cba0fde7f6a5ed981480d8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets maximum message capacity.  <a href="classMessageStore.html#a80b8d46f4cba0fde7f6a5ed981480d8d">More...</a><br /></td></tr>
 <tr class="separator:a80b8d46f4cba0fde7f6a5ed981480d8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17edd9ba83482df7fdd027fb6a141c3f"><td class="memItemLeft" align="right" valign="top"><a id="a17edd9ba83482df7fdd027fb6a141c3f"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getMessageCap</b> ()</td></tr>
+<tr class="memitem:a17edd9ba83482df7fdd027fb6a141c3f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessageStore.html#a17edd9ba83482df7fdd027fb6a141c3f">getMessageCap</a> ()</td></tr>
+<tr class="memdesc:a17edd9ba83482df7fdd027fb6a141c3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns set maximum message capacity.  <a href="classMessageStore.html#a17edd9ba83482df7fdd027fb6a141c3f">More...</a><br /></td></tr>
 <tr class="separator:a17edd9ba83482df7fdd027fb6a141c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbe4202a87c067c3b42dbdee61798522"><td class="memItemLeft" align="right" valign="top"><a id="abbe4202a87c067c3b42dbdee61798522"></a>
-const QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getAllMessages</b> ()</td></tr>
+<tr class="memitem:abbe4202a87c067c3b42dbdee61798522"><td class="memItemLeft" align="right" valign="top">const QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessageStore.html#abbe4202a87c067c3b42dbdee61798522">getAllMessages</a> ()</td></tr>
+<tr class="memdesc:abbe4202a87c067c3b42dbdee61798522"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all "commited" messages.  <a href="classMessageStore.html#abbe4202a87c067c3b42dbdee61798522">More...</a><br /></td></tr>
 <tr class="separator:abbe4202a87c067c3b42dbdee61798522"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac637fcdf4f4d719e29862f7e39456b9e"><td class="memItemLeft" align="right" valign="top"><a id="ac637fcdf4f4d719e29862f7e39456b9e"></a>
-const QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getNewMessages</b> ()</td></tr>
+<tr class="memitem:ac637fcdf4f4d719e29862f7e39456b9e"><td class="memItemLeft" align="right" valign="top">const QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessageStore.html#ac637fcdf4f4d719e29862f7e39456b9e">getNewMessages</a> ()</td></tr>
+<tr class="memdesc:ac637fcdf4f4d719e29862f7e39456b9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all "new" messages.  <a href="classMessageStore.html#ac637fcdf4f4d719e29862f7e39456b9e">More...</a><br /></td></tr>
 <tr class="separator:ac637fcdf4f4d719e29862f7e39456b9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2460dd82545a4ad0e6ef492c97f13daa"><td class="memItemLeft" align="right" valign="top"><a id="a2460dd82545a4ad0e6ef492c97f13daa"></a>
-const QList&lt; <a class="el" href="classMessage.html">Message</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getTopicMessages</b> (const QString topic)</td></tr>
+<tr class="memitem:a2460dd82545a4ad0e6ef492c97f13daa"><td class="memItemLeft" align="right" valign="top">const QList&lt; <a class="el" href="classMessage.html">Message</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessageStore.html#a2460dd82545a4ad0e6ef492c97f13daa">getTopicMessages</a> (const QString topic)</td></tr>
+<tr class="memdesc:a2460dd82545a4ad0e6ef492c97f13daa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all messages from a topic.  <a href="classMessageStore.html#a2460dd82545a4ad0e6ef492c97f13daa">More...</a><br /></td></tr>
 <tr class="separator:a2460dd82545a4ad0e6ef492c97f13daa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-slots"></a>
 Private Slots</h2></td></tr>
-<tr class="memitem:a2699f5f79c9f9fd46f4e9c4d48cdc158"><td class="memItemLeft" align="right" valign="top"><a id="a2699f5f79c9f9fd46f4e9c4d48cdc158"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>handleTick</b> ()</td></tr>
+<tr class="memitem:a2699f5f79c9f9fd46f4e9c4d48cdc158"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessageStore.html#a2699f5f79c9f9fd46f4e9c4d48cdc158">handleTick</a> ()</td></tr>
+<tr class="memdesc:a2699f5f79c9f9fd46f4e9c4d48cdc158"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the publishing of new messages.  <a href="classMessageStore.html#a2699f5f79c9f9fd46f4e9c4d48cdc158">More...</a><br /></td></tr>
 <tr class="separator:a2699f5f79c9f9fd46f4e9c4d48cdc158"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -158,8 +163,10 @@ QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> 
 <tr class="separator:ab4a7c836910198677b75b466ff9be2b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="messagestore_8h_source.html#l00043">43</a> of file <a class="el" href="messagestore_8h_source.html">messagestore.h</a>.</p>
+<div class="textblock"><p>Represents a storage of MQTT messages (both received &amp; sent) </p>
+<p>Messages are handled using two hash maps: messages &amp; new_messages. messages hash map serves for accumulating all messages and new_messages for accumulating new messages that are than propagated using the newMessages signal. This gives the option to alter cadency of delivery. </p>
+
+<p class="definition">Definition at line <a class="el" href="messagestore_8h_source.html#l00050">50</a> of file <a class="el" href="messagestore_8h_source.html">messagestore.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab2bb020b11f5bebf1ce8ca9b47975b7a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab2bb020b11f5bebf1ce8ca9b47975b7a">&#9670;&nbsp;</a></span>addMessage</h2>
@@ -232,6 +239,180 @@ QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> 
 
 </div>
 </div>
+<a id="abbe4202a87c067c3b42dbdee61798522"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbe4202a87c067c3b42dbdee61798522">&#9670;&nbsp;</a></span>getAllMessages()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> * &gt; &gt; MessageStore::getAllMessages </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns all "commited" messages. </p>
+
+<p class="definition">Definition at line <a class="el" href="messagestore_8cpp_source.html#l00080">80</a> of file <a class="el" href="messagestore_8cpp_source.html">messagestore.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a17edd9ba83482df7fdd027fb6a141c3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17edd9ba83482df7fdd027fb6a141c3f">&#9670;&nbsp;</a></span>getMessageCap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MessageStore::getMessageCap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns set maximum message capacity. </p>
+
+<p class="definition">Definition at line <a class="el" href="messagestore_8cpp_source.html#l00075">75</a> of file <a class="el" href="messagestore_8cpp_source.html">messagestore.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac637fcdf4f4d719e29862f7e39456b9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac637fcdf4f4d719e29862f7e39456b9e">&#9670;&nbsp;</a></span>getNewMessages()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QHash&lt;QString, QList&lt;<a class="el" href="classMessage.html">Message</a>*&gt; &gt; MessageStore::getNewMessages </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns all "new" messages. </p>
+
+</div>
+</div>
+<a id="a2460dd82545a4ad0e6ef492c97f13daa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2460dd82545a4ad0e6ef492c97f13daa">&#9670;&nbsp;</a></span>getTopicMessages()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QList&lt; <a class="el" href="classMessage.html">Message</a> * &gt; MessageStore::getTopicMessages </td>
+          <td>(</td>
+          <td class="paramtype">const QString&#160;</td>
+          <td class="paramname"><em>topic</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns all messages from a topic. </p>
+
+<p class="definition">Definition at line <a class="el" href="messagestore_8cpp_source.html#l00085">85</a> of file <a class="el" href="messagestore_8cpp_source.html">messagestore.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a2699f5f79c9f9fd46f4e9c4d48cdc158"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2699f5f79c9f9fd46f4e9c4d48cdc158">&#9670;&nbsp;</a></span>handleTick</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MessageStore::handleTick </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Prepares the publishing of new messages. </p>
+
+<p class="definition">Definition at line <a class="el" href="messagestore_8cpp_source.html#l00151">151</a> of file <a class="el" href="messagestore_8cpp_source.html">messagestore.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a591050e89a6d31717328e4cfba47d602"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a591050e89a6d31717328e4cfba47d602">&#9670;&nbsp;</a></span>newMessages</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MessageStore::newMessages </td>
+          <td>(</td>
+          <td class="paramtype">const QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> * &gt;&gt;&#160;</td>
+          <td class="paramname"><em>msgs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Is emitted when internal timeout has been reached and there are new messages. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msgs</td><td>new messages </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a80b8d46f4cba0fde7f6a5ed981480d8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80b8d46f4cba0fde7f6a5ed981480d8d">&#9670;&nbsp;</a></span>setMessageCap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MessageStore::setMessageCap </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cap</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets maximum message capacity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cap</td><td>max number of messages </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="messagestore_8cpp_source.html#l00070">70</a> of file <a class="el" href="messagestore_8cpp_source.html">messagestore.cpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="messagestore_8h_source.html">messagestore.h</a></li>
 <li><a class="el" href="messagestore_8cpp_source.html">messagestore.cpp</a></li>
@@ -242,7 +423,7 @@ QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classMessageStore.html">MessageStore</a></li>
-    <li class="footer">Generated on Tue May 11 2021 10:26:40 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue May 11 2021 19:01:50 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
