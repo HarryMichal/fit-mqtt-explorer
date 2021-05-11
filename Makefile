@@ -24,7 +24,7 @@ doc:
 	doxygen ./Doxyfile
 
 zip:
-	zip -r $(ZIPFILE) README.md README.txt Doxyfile Makefile CMakeLists.txt resources.qrc $(SRC_DIR) $(DATA_DIR)
+	zip -r $(ZIPFILE) README.md README.txt Doxyfile Makefile CMakeLists.txt resources.qrc $(SRC_DIR) $(DATA_DIR) examples
 
 clean:
 	@rm -rf $(ZIPFILE) $(BUILD_DIR) $(DOC_DIR)
