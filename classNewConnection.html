@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('classNewConnection.html',''); initResi
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="classNewConnection.html" title="The NewConnection class represents pop-up window with form for server adress.">NewConnection</a> class represents pop-up window with form for server adress.  
+<p>Represents dialog with form for server adress.  
  <a href="classNewConnection.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="newconnection_8h_source.html">newconnection.h</a>&gt;</code></p>
@@ -107,7 +107,7 @@ Inheritance diagram for NewConnection:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
 Signals</h2></td></tr>
 <tr class="memitem:a95232fa6e00fd4d9b528f97cde26a714"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNewConnection.html#a95232fa6e00fd4d9b528f97cde26a714">createNewConnection</a> (QString fullConnectionAdress)</td></tr>
-<tr class="memdesc:a95232fa6e00fd4d9b528f97cde26a714"><td class="mdescLeft">&#160;</td><td class="mdescRight">createNewConnection is emmited when user clicks on 'Connect' button when creating new connection  <a href="classNewConnection.html#a95232fa6e00fd4d9b528f97cde26a714">More...</a><br /></td></tr>
+<tr class="memdesc:a95232fa6e00fd4d9b528f97cde26a714"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is emmited when on 'Connect' button is clicked.  <a href="classNewConnection.html#a95232fa6e00fd4d9b528f97cde26a714">More...</a><br /></td></tr>
 <tr class="separator:a95232fa6e00fd4d9b528f97cde26a714"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -125,7 +125,7 @@ Ui::newconnection *&#160;</td><td class="memItemRight" valign="bottom"><b>ui</b>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a2f20665a1c1ede899b318b47f846a7c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNewConnection.html#a2f20665a1c1ede899b318b47f846a7c2">setupActions</a> ()</td></tr>
-<tr class="memdesc:a2f20665a1c1ede899b318b47f846a7c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">setupActions prepare connections of signals to slots  <a href="classNewConnection.html#a2f20665a1c1ede899b318b47f846a7c2">More...</a><br /></td></tr>
+<tr class="memdesc:a2f20665a1c1ede899b318b47f846a7c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set up signals and connections.  <a href="classNewConnection.html#a2f20665a1c1ede899b318b47f846a7c2">More...</a><br /></td></tr>
 <tr class="separator:a2f20665a1c1ede899b318b47f846a7c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa14a7a0b4eac5fd774fc9f502d5adb3b"><td class="memItemLeft" align="right" valign="top"><a id="aa14a7a0b4eac5fd774fc9f502d5adb3b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>saveConnection</b> ()</td></tr>
@@ -137,13 +137,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>loadConnections</b> (
 void&#160;</td><td class="memItemRight" valign="bottom"><b>deleteConnection</b> ()</td></tr>
 <tr class="separator:a5db630b931da17ba5f6238b2bb418b2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1710f1d14ae9077f698279b536c93ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNewConnection.html#ac1710f1d14ae9077f698279b536c93ee">processForm</a> ()</td></tr>
-<tr class="memdesc:ac1710f1d14ae9077f698279b536c93ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">processForm process filled data in <a class="el" href="classNewConnection.html" title="The NewConnection class represents pop-up window with form for server adress.">NewConnection</a> form, merge it into string end send it as parameter of createNewConnection signal  <a href="classNewConnection.html#ac1710f1d14ae9077f698279b536c93ee">More...</a><br /></td></tr>
+<tr class="memdesc:ac1710f1d14ae9077f698279b536c93ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process filled data in <a class="el" href="classNewConnection.html" title="Represents dialog with form for server adress.">NewConnection</a> form, merge it into string end send it as parameter of createNewConnection signal.  <a href="classNewConnection.html#ac1710f1d14ae9077f698279b536c93ee">More...</a><br /></td></tr>
 <tr class="separator:ac1710f1d14ae9077f698279b536c93ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="classNewConnection.html" title="The NewConnection class represents pop-up window with form for server adress.">NewConnection</a> class represents pop-up window with form for server adress. </p>
+<div class="textblock"><p>Represents dialog with form for server adress. </p>
 
-<p class="definition">Definition at line <a class="el" href="newconnection_8h_source.html#l00031">31</a> of file <a class="el" href="newconnection_8h_source.html">newconnection.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="newconnection_8h_source.html#l00030">30</a> of file <a class="el" href="newconnection_8h_source.html">newconnection.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a95232fa6e00fd4d9b528f97cde26a714"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a95232fa6e00fd4d9b528f97cde26a714">&#9670;&nbsp;</a></span>createNewConnection</h2>
@@ -169,10 +169,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>deleteConnection</b> 
 </table>
 </div><div class="memdoc">
 
-<p>createNewConnection is emmited when user clicks on 'Connect' button when creating new connection </p>
+<p>Is emmited when on 'Connect' button is clicked. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fullConnectionAdress</td><td>merged form data into full server adress, format [host]:[port] </td></tr>
+    <tr><td class="paramname">fullConnectionAdress</td><td>merged form data into full server adress @detail format [host]:[port] </td></tr>
   </table>
   </dd>
 </dl>
@@ -202,7 +202,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>deleteConnection</b> 
 </table>
 </div><div class="memdoc">
 
-<p>processForm process filled data in <a class="el" href="classNewConnection.html" title="The NewConnection class represents pop-up window with form for server adress.">NewConnection</a> form, merge it into string end send it as parameter of createNewConnection signal </p>
+<p>Process filled data in <a class="el" href="classNewConnection.html" title="Represents dialog with form for server adress.">NewConnection</a> form, merge it into string end send it as parameter of createNewConnection signal. </p>
 
 <p class="definition">Definition at line <a class="el" href="newconnection_8cpp_source.html#l00041">41</a> of file <a class="el" href="newconnection_8cpp_source.html">newconnection.cpp</a>.</p>
 
@@ -231,7 +231,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>deleteConnection</b> 
 </table>
 </div><div class="memdoc">
 
-<p>setupActions prepare connections of signals to slots </p>
+<p>Set up signals and connections. </p>
 
 <p class="definition">Definition at line <a class="el" href="newconnection_8cpp_source.html#l00052">52</a> of file <a class="el" href="newconnection_8cpp_source.html">newconnection.cpp</a>.</p>
 
@@ -247,7 +247,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>deleteConnection</b> 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classNewConnection.html">NewConnection</a></li>
-    <li class="footer">Generated on Tue May 11 2021 20:11:54 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue May 11 2021 21:03:38 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

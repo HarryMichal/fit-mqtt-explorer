@@ -83,7 +83,9 @@ $(document).ready(function(){initNavTree('classDashboardPage.html',''); initResi
 
 <div class="header">
   <div class="summary">
+<a href="#pub-slots">Public Slots</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classDashboardPage-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -91,7 +93,7 @@ $(document).ready(function(){initNavTree('classDashboardPage.html',''); initResi
 </div><!--header-->
 <div class="contents">
 
-<p>Represents page for simple dashboard of sensors/devices.  
+<p>Represents page for simple data showing via widgets.  
  <a href="classDashboardPage.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="dashboardpage_8h_source.html">dashboardpage.h</a>&gt;</code></p>
@@ -102,23 +104,134 @@ Inheritance diagram for DashboardPage:</div>
   <img src="classDashboardPage.png" alt=""/>
  </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
+Public Slots</h2></td></tr>
+<tr class="memitem:ad3f7c3737d0bacd8f082c14d949b24d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDashboardPage.html#ad3f7c3737d0bacd8f082c14d949b24d7">receiveNewMessages</a> (const QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> * &gt;&gt; new_msgs)</td></tr>
+<tr class="memdesc:ad3f7c3737d0bacd8f082c14d949b24d7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classDashboardPage.html#ad3f7c3737d0bacd8f082c14d949b24d7" title="receiveNewMessages() when new messages arrive, main window send signal to this slot">receiveNewMessages()</a> when new messages arrive, main window send signal to this slot  <a href="classDashboardPage.html#ad3f7c3737d0bacd8f082c14d949b24d7">More...</a><br /></td></tr>
+<tr class="separator:ad3f7c3737d0bacd8f082c14d949b24d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4225ba67e20cf9ff5a51675d86b1a8c9"><td class="memItemLeft" align="right" valign="top"><a id="a4225ba67e20cf9ff5a51675d86b1a8c9"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>DashboardPage</b> (QWidget *parent=nullptr)</td></tr>
 <tr class="separator:a4225ba67e20cf9ff5a51675d86b1a8c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafe312f6669d8ff1181314bd3435222e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDashboardPage.html#aafe312f6669d8ff1181314bd3435222e">AddNewWidget</a> ()</td></tr>
+<tr class="memdesc:aafe312f6669d8ff1181314bd3435222e"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds new widget in dashboard layout  <a href="classDashboardPage.html#aafe312f6669d8ff1181314bd3435222e">More...</a><br /></td></tr>
+<tr class="separator:aafe312f6669d8ff1181314bd3435222e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a7303483ba97a7f3624f541149979d491"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDashboardPage.html#a7303483ba97a7f3624f541149979d491">setupActions</a> ()</td></tr>
+<tr class="memdesc:a7303483ba97a7f3624f541149979d491"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classDashboardPage.html#a7303483ba97a7f3624f541149979d491" title="setupActions() connect pre-prepared layout to code for inserting widgets">setupActions()</a> connect pre-prepared layout to code for inserting widgets  <a href="classDashboardPage.html#a7303483ba97a7f3624f541149979d491">More...</a><br /></td></tr>
+<tr class="separator:a7303483ba97a7f3624f541149979d491"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a7b446a7f2ad385b706ba07eedf39a226"><td class="memItemLeft" align="right" valign="top"><a id="a7b446a7f2ad385b706ba07eedf39a226"></a>
 Ui::DashboardPage *&#160;</td><td class="memItemRight" valign="bottom"><b>ui</b></td></tr>
 <tr class="separator:a7b446a7f2ad385b706ba07eedf39a226"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7512df2fc30d2ac52a69590f7830e0d"><td class="memItemLeft" align="right" valign="top"><a id="ad7512df2fc30d2ac52a69590f7830e0d"></a>
+QVBoxLayout *&#160;</td><td class="memItemRight" valign="bottom"><b>layout</b></td></tr>
+<tr class="separator:ad7512df2fc30d2ac52a69590f7830e0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f52c2e029b2f20409a5a6963a6922aa"><td class="memItemLeft" align="right" valign="top"><a id="a0f52c2e029b2f20409a5a6963a6922aa"></a>
+<a class="el" href="classDashboardWidget.html">DashboardWidget</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>dashboardWidget</b></td></tr>
+<tr class="separator:a0f52c2e029b2f20409a5a6963a6922aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49ce4ae9cde982f28893a26963e54e06"><td class="memItemLeft" align="right" valign="top"><a id="a49ce4ae9cde982f28893a26963e54e06"></a>
+QList&lt; QWidget * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>widgetList</b></td></tr>
+<tr class="separator:a49ce4ae9cde982f28893a26963e54e06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Represents page for simple dashboard of sensors/devices. </p>
+<div class="textblock"><p>Represents page for simple data showing via widgets. </p>
 
-<p class="definition">Definition at line <a class="el" href="dashboardpage_8h_source.html#l00018">18</a> of file <a class="el" href="dashboardpage_8h_source.html">dashboardpage.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<p class="definition">Definition at line <a class="el" href="dashboardpage_8h_source.html#l00021">21</a> of file <a class="el" href="dashboardpage_8h_source.html">dashboardpage.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="aafe312f6669d8ff1181314bd3435222e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafe312f6669d8ff1181314bd3435222e">&#9670;&nbsp;</a></span>AddNewWidget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DashboardPage::AddNewWidget </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>adds new widget in dashboard layout </p>
+
+<p class="definition">Definition at line <a class="el" href="dashboardpage_8cpp_source.html#l00037">37</a> of file <a class="el" href="dashboardpage_8cpp_source.html">dashboardpage.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad3f7c3737d0bacd8f082c14d949b24d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3f7c3737d0bacd8f082c14d949b24d7">&#9670;&nbsp;</a></span>receiveNewMessages</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DashboardPage::receiveNewMessages </td>
+          <td>(</td>
+          <td class="paramtype">const QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> * &gt;&gt;&#160;</td>
+          <td class="paramname"><em>new_msgs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classDashboardPage.html#ad3f7c3737d0bacd8f082c14d949b24d7" title="receiveNewMessages() when new messages arrive, main window send signal to this slot">receiveNewMessages()</a> when new messages arrive, main window send signal to this slot </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">new_msgs</td><td>hash table with new messages </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="dashboardpage_8cpp_source.html#l00045">45</a> of file <a class="el" href="dashboardpage_8cpp_source.html">dashboardpage.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a7303483ba97a7f3624f541149979d491"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7303483ba97a7f3624f541149979d491">&#9670;&nbsp;</a></span>setupActions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DashboardPage::setupActions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classDashboardPage.html#a7303483ba97a7f3624f541149979d491" title="setupActions() connect pre-prepared layout to code for inserting widgets">setupActions()</a> connect pre-prepared layout to code for inserting widgets </p>
+
+<p class="definition">Definition at line <a class="el" href="dashboardpage_8cpp_source.html#l00032">32</a> of file <a class="el" href="dashboardpage_8cpp_source.html">dashboardpage.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="dashboardpage_8h_source.html">dashboardpage.h</a></li>
 <li><a class="el" href="dashboardpage_8cpp_source.html">dashboardpage.cpp</a></li>
 </ul>
@@ -128,7 +241,7 @@ Ui::DashboardPage *&#160;</td><td class="memItemRight" valign="bottom"><b>ui</b>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classDashboardPage.html">DashboardPage</a></li>
-    <li class="footer">Generated on Tue May 11 2021 20:11:54 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue May 11 2021 21:03:38 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

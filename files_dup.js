@@ -4,6 +4,10 @@ var files_dup =
     [ "dashboardpage.h", "dashboardpage_8h.html", [
       [ "DashboardPage", "classDashboardPage.html", "classDashboardPage" ]
     ] ],
+    [ "dashboardwidget.cpp", "dashboardwidget_8cpp_source.html", null ],
+    [ "dashboardwidget.h", "dashboardwidget_8h_source.html", null ],
+    [ "editwidget.cpp", "editwidget_8cpp_source.html", null ],
+    [ "editwidget.h", "editwidget_8h_source.html", null ],
     [ "explorerpage.cpp", "explorerpage_8cpp.html", null ],
     [ "explorerpage.h", "explorerpage_8h.html", [
       [ "MessageTreeView", "classMessageTreeView.html", "classMessageTreeView" ],

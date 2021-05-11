@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['explorerpage_96',['ExplorerPage',['../classExplorerPage.html',1,'']]]
+  ['editwidget_108',['EditWidget',['../classEditWidget.html',1,'']]],
+  ['explorerpage_109',['ExplorerPage',['../classExplorerPage.html',1,'']]]
 ];

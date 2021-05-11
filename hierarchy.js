@@ -7,6 +7,7 @@ var hierarchy =
       [ "MQTTCallback", "classMQTTCallback.html", null ]
     ] ],
     [ "QDialog", null, [
+      [ "EditWidget", "classEditWidget.html", null ],
       [ "MessageHistoryDialog", "classMessageHistoryDialog.html", null ],
       [ "NewConnection", "classNewConnection.html", null ]
     ] ],
@@ -24,8 +25,10 @@ var hierarchy =
     ] ],
     [ "QWidget", null, [
       [ "DashboardPage", "classDashboardPage.html", null ],
+      [ "DashboardWidget", "classDashboardWidget.html", null ],
       [ "ExplorerPage", "classExplorerPage.html", null ],
       [ "SimulatorPage", "classSimulatorPage.html", null ]
     ] ],
-    [ "ServerName", "structServerName.html", null ]
+    [ "ServerName", "structServerName.html", null ],
+    [ "widgetStructure", "structwidgetStructure.html", null ]
 ];

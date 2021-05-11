@@ -2,11 +2,13 @@ var classMainWindow =
 [
     [ "MainWindow", "classMainWindow.html#a996c5a2b6f77944776856f08ec30858d", null ],
     [ "~MainWindow", "classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7", null ],
+    [ "addNewWidget", "classMainWindow.html#ada9230ef1aee4f0185de7a360befad79", null ],
     [ "clientConnected", "classMainWindow.html#afe0610e6eae8e6295f4a2fe2dfd4f1a7", null ],
     [ "createNewConnection", "classMainWindow.html#a727f21fc7dbbdd0664c467fa8bb90e2c", null ],
     [ "createSnapshot", "classMainWindow.html#a796d819f0b7b05674d6506b10fbe6871", null ],
     [ "explorerChangeSelectedMessage", "classMainWindow.html#ac4ac7413867c0ba527b5c7390cedfda1", null ],
     [ "explorerChangeSelectedTopic", "classMainWindow.html#a02d121dbc8a624732897b8b24462eb91", null ],
+    [ "getTopicMessages", "classMainWindow.html#accec0831814a0ad5356bf118cc032edb", null ],
     [ "OpenConnectionWindow", "classMainWindow.html#a879e1ee5ea4db9b87229ad1a70950887", null ],
     [ "sendFile", "classMainWindow.html#abba7064159c82d95e353f70cab1e1f64", null ],
     [ "sendText", "classMainWindow.html#aee0a11f7cfe7b701e90175c2039e0300", null ],
