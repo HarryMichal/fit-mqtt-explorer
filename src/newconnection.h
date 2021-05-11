@@ -14,7 +14,7 @@ class newconnection;
 }
 
 /**
- * @brief The ModeState structure represents server adress
+ * @brief Represents server adress
  * @details pre-prepared for saving connection form as structure,
  * now directly merged to string and not used
  */
@@ -25,8 +25,7 @@ struct ServerName {
     int port;
 };
 /**
- * @brief The NewConnection class represents pop-up window
- * with form for server adress
+ * @brief Represents dialog with form for server adress
  */
 class NewConnection : public QDialog
 {
@@ -39,22 +38,24 @@ public:
 
 signals:
     /**
-     * @brief createNewConnection is emmited when user clicks on 'Connect' button when creating new connection
-     * @param fullConnectionAdress merged form data into full server adress, format [host]:[port]
+     * @brief Is emmited when on 'Connect' button is clicked
+     *
+     * @param fullConnectionAdress merged form data into full server adress
+     * @detail format [host]:[port]
      */
     void createNewConnection(QString fullConnectionAdress);
 
 private:
 
     /**
-     * @brief setupActions prepare connections of signals to slots
+     * @brief Set up signals and connections
      */
     void setupActions();
     void saveConnection();
     void loadConnections();
     void deleteConnection();
     /**
-     * @brief processForm process filled data in NewConnection form, merge it into string end send it
+     * @brief Process filled data in NewConnection form, merge it into string end send it
      * as parameter of createNewConnection signal
      */
     void processForm();
