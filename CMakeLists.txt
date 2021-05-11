@@ -14,6 +14,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 
 find_package(Qt5 COMPONENTS REQUIRED
+    Core
+    Svg
     Widgets
 )
 
@@ -38,13 +40,14 @@ set(PROJECT_SOURCES
         src/explorerpage.cpp src/explorerpage.h src/explorerpage.ui
         src/newconnection.cpp src/newconnection.h src/newconnection.ui
         src/messagehistorydialog.h src/messagehistorydialog.cpp src/messagehistorydialog.ui
+        src/simulatorpage.h src/simulatorpage.cpp src/simulatorpage.ui
 )
 
 add_executable(fit-mqtt-client
     ${PROJECT_SOURCES}
 )
 
-target_link_libraries(fit-mqtt-client PRIVATE Threads::Threads pahomqtt3a pahottpp Qt5::Widgets)
+target_link_libraries(fit-mqtt-client PRIVATE Threads::Threads pahomqtt3a pahottpp Qt5::Core Qt5::Svg Qt5::Widgets)
 
 set_target_properties(fit-mqtt-client PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com

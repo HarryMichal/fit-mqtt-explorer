@@ -1,0 +1,37 @@
+{
+    "topic": "/FIT/temperature",
+    "devices": [
+        {
+            "topic": "livingroom",
+            "type": "temperature",
+            "period": 5000,
+            "payloads": [
+                "{ \"temp\": 10}",
+                "{ \"temp\": 12}",
+                "{ \"temp\": 14}",
+                "{ \"temp\": 11.5}",
+                "{ \"temp\": 17}",
+                "{ \"temp\": 8}"
+            ]
+        },
+        {
+            "topic": "bedroom",
+            "type": "temperature",
+            "period": 3000,
+            "payloads": [
+                "{ \"temp\": 18}",
+                "{ \"temp\": 18.2}",
+                "{ \"temp\": 18.3}",
+                "{ \"temp\": 18.1}",
+                "{ \"temp\": 17.8}",
+                "{ \"temp\": 17.9}",
+                "{ \"temp\": 17.6}",
+                "{ \"temp\": 17.4}",
+                "{ \"temp\": 17.3}",
+                "{ \"temp\": 17.5}",
+                "{ \"temp\": 17.8}",
+                "{ \"temp\": 18.05}"
+            ]
+        }
+    ]
+}

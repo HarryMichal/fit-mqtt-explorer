@@ -84,12 +84,15 @@
    <addaction name="separator"/>
    <addaction name="actionDashboard"/>
    <addaction name="actionExplorer"/>
+   <addaction name="actionSimulator"/>
    <addaction name="separator"/>
    <addaction name="actionMessageHistoryLimit"/>
    <addaction name="separator"/>
    <addaction name="actionCreateSnapshot"/>
    <addaction name="actionActualState"/>
    <addaction name="actionHistory"/>
+   <addaction name="actionLoadSimulation"/>
+   <addaction name="actionToggleSimulation"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionDashboard">
@@ -204,6 +207,45 @@
    </property>
    <property name="text">
     <string>Create snapshot</string>
+   </property>
+  </action>
+  <action name="actionSimulator">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icons/test-symbolic.svg</normaloff>:/icons/test-symbolic.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Simulator</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionLoadSimulation">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icons/configure-symbolic.svg</normaloff>:/icons/configure-symbolic.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Load Simulation</string>
+   </property>
+  </action>
+  <action name="actionToggleSimulation">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icons/play-symbolic.svg</normaloff>:/icons/play-symbolic.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Toggle Simulation</string>
    </property>
   </action>
  </widget>
