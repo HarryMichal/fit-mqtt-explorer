@@ -2,6 +2,14 @@
 
 Authors: Ondřej Míchal <xmicha80>, Žaneta Grossová <xgross11>
 
+## Build requirements
+
+- CMake (>=3.5)
+- C++ compiler (C++17 compliant)
+- Qt (>=5.9) - Core, Widgets, Svg
+- Eclipse Paho MQTT C Client Library
+- Eclipse Paho MQTT C++ Client Library
+
 ## State of the project
 
 ### Explorer
