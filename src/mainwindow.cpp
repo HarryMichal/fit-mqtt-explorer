@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     mqtt_manager(new MQTTManager),
     dashboard(new DashboardPage(this)),
     explorer(new ExplorerPage(this)),
+    simulator(new SimulatorPage(this)),
     current_mode(ModeState::Dashboard),
     mode_selector(new QActionGroup(this))
 {
@@ -40,6 +41,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     this->ui->mode_stack->insertWidget(ModeState::Dashboard, this->dashboard);
     this->ui->mode_stack->insertWidget(ModeState::Explorer, this->explorer);
+    this->ui->mode_stack->insertWidget(ModeState::Simulator, this->simulator);
 
     MainWindow::setupStatusBar();
     MainWindow::setupActions();
@@ -67,6 +69,8 @@ void MainWindow::setDashboardPage()
     ui->actionHistory->setVisible(true);
     ui->actionActualState->setVisible(true);
     ui->actionCreateSnapshot->setVisible(false);
+    ui->actionLoadSimulation->setVisible(false);
+    ui->actionToggleSimulation->setVisible(false);
 }
 
 void MainWindow::setExplorerPage()
@@ -78,6 +82,24 @@ void MainWindow::setExplorerPage()
     ui->actionHistory->setVisible(false);
     ui->actionActualState->setVisible(false);
     ui->actionCreateSnapshot->setVisible(true);
+    ui->actionLoadSimulation->setVisible(false);
+    ui->actionToggleSimulation->setVisible(false);
+}
+
+void MainWindow::setSimulatorPage()
+{
+    if (this->current_mode == ModeState::Simulator) {
+        return;
+    }
+    
+    this->current_mode = ModeState::Simulator;
+    ui->mode_stack->setCurrentIndex(ModeState::Simulator);
+
+    ui->actionHistory->setVisible(false);
+    ui->actionActualState->setVisible(false);
+    ui->actionCreateSnapshot->setVisible(false);
+    ui->actionLoadSimulation->setVisible(true);
+    ui->actionToggleSimulation->setVisible(true);
 }
 
 void MainWindow::OpenConnectionWindow()
@@ -101,14 +123,18 @@ void MainWindow::setupActions()
     // Couple mode selecting buttons into a group so that they are exclusive -> mode switcher
     this->mode_selector->addAction(ui->actionDashboard);
     this->mode_selector->addAction(ui->actionExplorer);
+    this->mode_selector->addAction(ui->actionSimulator);
     this->mode_selector->setExclusive(true);
 
     // UI related signals
     connect(this->ui->actionDashboard, &QAction::triggered, this, &MainWindow::setDashboardPage);
     connect(this->ui->actionExplorer, &QAction::triggered, this, &MainWindow::setExplorerPage);
+    connect(this->ui->actionSimulator, &QAction::triggered, this, &MainWindow::setSimulatorPage);
     connect(this->ui->actionConnect, &QAction::triggered, this, &MainWindow::OpenConnectionWindow);
     connect(this->ui->actionMessageHistoryLimit, &QAction::triggered, this, &MainWindow::setHistoryLimit);
     connect(this->ui->actionCreateSnapshot, &QAction::triggered, this, &MainWindow::createSnapshot);
+    connect(this->ui->actionLoadSimulation, &QAction::triggered, this, &MainWindow::simulatorSetSimulationConfigFile);
+    connect(this->ui->actionToggleSimulation, &QAction::toggled, this, &MainWindow::simulatorToggleSimulation);
 
     connect(this->new_connection_window, &NewConnection::createNewConnection, mqtt_manager, &MQTTManager::connect);
 
@@ -124,6 +150,9 @@ void MainWindow::setupActions()
     connect(this->mqtt_manager, &MQTTManager::onMessageReceived, this->msg_store, [=](auto msg){ this->msg_store->addMessage(msg); });
 
     connect(this->msg_store, &MessageStore::newMessages, this->explorer, &ExplorerPage::receiveNewMessages);
+
+    connect(this->simulator, &SimulatorPage::onHeartbeat, this, &MainWindow::sendText);
+    connect(this->simulator, &SimulatorPage::onReady, this, [=]() { this->ui->actionToggleSimulation->setEnabled(true); });
 }
 
 void MainWindow::updateStatusBar()
@@ -224,4 +253,22 @@ void MainWindow::setHistoryLimit()
     this->explorer->setMessageCap(new_history_limit);
 
     delete dialog;
+}
+
+void MainWindow::simulatorSetSimulationConfigFile()
+{
+    auto filename = QFileDialog::getOpenFileName(this, "Choose simulation file", QStandardPaths::writableLocation(QStandardPaths::HomeLocation), "Simulation file (*.json)");
+
+    this->ui->actionToggleSimulation->setChecked(false);
+    this->simulator->stopSimulation();
+    this->simulator->setSimulationConfigFile(filename);
+}
+
+void MainWindow::simulatorToggleSimulation(bool toggled)
+{
+    if (toggled) {
+        this->simulator->startSimulation();
+    } else {
+        this->simulator->stopSimulation();
+    }
 }

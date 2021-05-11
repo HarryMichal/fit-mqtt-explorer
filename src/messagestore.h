@@ -1,6 +1,7 @@
 #ifndef MESSAGESTORE_H
 #define MESSAGESTORE_H
 
+#include <QHash>
 #include <QList>
 #include <QObject>
 #include <QString>

@@ -11,6 +11,7 @@
 #include "messagestore.h"
 #include "mqttmanager.h"
 #include "newconnection.h"
+#include "simulatorpage.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -23,7 +24,8 @@ QT_END_NAMESPACE
  */
 enum ModeState {
     Dashboard,
-    Explorer
+    Explorer,
+    Simulator
 };
 
 class MainWindow : public QMainWindow
@@ -36,6 +38,10 @@ public:
 
     void setDashboardPage();
     void setExplorerPage();
+    /**
+     * @brief Sets the simulator page as the primary one
+     */
+    void setSimulatorPage();
     void OpenConnectionWindow();
 
 private:
@@ -45,6 +51,7 @@ private:
     MQTTManager *mqtt_manager; //<Manager of connection to a MQTT broker
     DashboardPage *dashboard;
     ExplorerPage *explorer;
+    SimulatorPage *simulator; //<Traffic simulator
     NewConnection *new_connection_window;
 
     ModeState current_mode;
@@ -82,11 +89,20 @@ private slots:
      * @param msg message to be sent
      */
     void sendText(mqtt::string topic, mqtt::string msg);
-    /*
+    /**
      * @brief setHistoryLimit() creates a dialog window for setting a new
      * message history limit and sets it to child components.
      */
     void setHistoryLimit();
+    /**
+     * @brief Spawns a file dialog window for choosing a configuration file of
+     * a traffic simulation and sets the selected file in the simulator
+     */
+    void simulatorSetSimulationConfigFile();
+    /**
+     * @brief Toggles the simulation
+     */
+    void simulatorToggleSimulation(bool toggled);
 };
 
 #endif // MAINWINDOW_H

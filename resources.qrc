@@ -8,5 +8,8 @@
         <file alias="new-connection.svg">data/icons/new-connection.svg</file>
         <file alias="mail-unread-symbolic.svg">data/icons/mail-unread-symbolic.svg</file>
         <file alias="document-save-symbolic.svg">data/icons/document-save-symbolic.svg</file>
+        <file alias="test-symbolic.svg">data/icons/test-symbolic.svg</file>
+        <file alias="play-symbolic.svg">data/icons/play-symbolic.svg</file>
+        <file alias="configure-symbolic.svg">data/icons/configure-symbolic.svg</file>
     </qresource>
 </RCC>
