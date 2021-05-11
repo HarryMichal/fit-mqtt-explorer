@@ -86,88 +86,90 @@ $(document).ready(function(){initNavTree('messagestore_8h_source.html',''); init
 <div class="title">messagestore.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef MESSAGESTORE_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define MESSAGESTORE_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QHash&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QList&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QString&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;QTimer&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;mqtt/message.h&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">enum</span> MessageType {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    RECEIVED,</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    SENT_UNMATCHED,</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    SENT_MATCHED</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classMessage.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMessage.html">Message</a> : <span class="keyword">public</span> QObject</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classMessage.html">Message</a>(mqtt::const_message_ptr msg, MessageType type, QObject *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    MessageType msg_type; <span class="comment">//&lt; Whether message was received or sent and if it has been filtered</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    std::chrono::time_point&lt;std::chrono::steady_clock&gt; arrival_date; <span class="comment">//&lt; Time of arrival of the message</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    std::string <a class="code" href="classMessage.html#a758a96f17e5f7e571a60778487bcf7a1">getMessage</a>();</div>
+<a href="messagestore_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef MESSAGESTORE_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define MESSAGESTORE_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;QHash&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;QList&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QString&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;QTimer&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;mqtt/message.h&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="messagestore_8h.html#ac6606ebe91c8ac66a2c314c79f5ab013">   20</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="messagestore_8h.html#ac6606ebe91c8ac66a2c314c79f5ab013">MessageType</a> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    RECEIVED,</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    SENT_UNMATCHED,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    SENT_MATCHED</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classMessage.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMessage.html">Message</a> : <span class="keyword">public</span> QObject</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classMessage.html">Message</a>(mqtt::const_message_ptr msg, <a class="code" href="messagestore_8h.html#ac6606ebe91c8ac66a2c314c79f5ab013">MessageType</a> type, QObject *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="messagestore_8h.html#ac6606ebe91c8ac66a2c314c79f5ab013">MessageType</a> msg_type; <span class="comment">//&lt; Whether message was received or sent and if it has been filtered</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    std::chrono::time_point&lt;std::chrono::steady_clock&gt; arrival_date; <span class="comment">//&lt; Time of arrival of the message</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    mqtt::const_message_ptr msg; <span class="comment">//&lt; Underlying message</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classMessageStore.html">   50</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMessageStore.html">MessageStore</a> : <span class="keyword">public</span> QObject</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classMessageStore.html">MessageStore</a>(QObject *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMessageStore.html#a32be6396553441cc75fcef44f7119144">createSnapshot</a>(QString dirname);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMessageStore.html#a80b8d46f4cba0fde7f6a5ed981480d8d">setMessageCap</a>(<span class="keywordtype">int</span> cap);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classMessageStore.html#a17edd9ba83482df7fdd027fb6a141c3f">getMessageCap</a>();</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">const</span> QHash&lt;QString, QList&lt;Message*&gt;&gt; <a class="code" href="classMessageStore.html#abbe4202a87c067c3b42dbdee61798522">getAllMessages</a>();</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classMessageStore.html#ac637fcdf4f4d719e29862f7e39456b9e">   83</a></span>&#160;    <span class="keyword">const</span> QHash&lt;QString, QList&lt;Message*&gt;&gt; <a class="code" href="classMessageStore.html#ac637fcdf4f4d719e29862f7e39456b9e">getNewMessages</a>();</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">const</span> QList&lt;Message*&gt; <a class="code" href="classMessageStore.html#a2460dd82545a4ad0e6ef492c97f13daa">getTopicMessages</a>(<span class="keyword">const</span> QString topic);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;signals:</div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="classMessageStore.html#a591050e89a6d31717328e4cfba47d602">   96</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMessageStore.html#a591050e89a6d31717328e4cfba47d602">newMessages</a>(<span class="keyword">const</span> QHash&lt;QString, QList&lt;Message*&gt;&gt; msgs);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">public</span> slots:</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMessageStore.html#ab2bb020b11f5bebf1ce8ca9b47975b7a">addMessage</a>(<span class="keyword">const</span> mqtt::const_message_ptr msg, MessageType type = MessageType::RECEIVED);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    QTimer *ticker; <span class="comment">//&lt; Heartbeat of new message delivery</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">int</span> message_capacity; <span class="comment">//&lt; Max number of stored messages</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    QHash&lt;QString, QList&lt;Message*&gt;&gt; messages; <span class="comment">//&lt; &quot;commited&quot; messages (stores all messages)</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    QHash&lt;QString, QList&lt;Message*&gt;&gt; new_messages; <span class="comment">//&lt; new messages (not &quot;commited&quot; yet)</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keyword">private</span> slots:</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMessageStore.html#a2699f5f79c9f9fd46f4e9c4d48cdc158">handleTick</a>();</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;};</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// MESSAGESTORE_H</span></div>
-<div class="ttc" id="aclassMessageStore_html"><div class="ttname"><a href="classMessageStore.html">MessageStore</a></div><div class="ttdoc">Represents a storage of MQTT messages (both received &amp; sent)</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8h_source.html#l00050">messagestore.h:51</a></div></div>
-<div class="ttc" id="aclassMessageStore_html_a17edd9ba83482df7fdd027fb6a141c3f"><div class="ttname"><a href="classMessageStore.html#a17edd9ba83482df7fdd027fb6a141c3f">MessageStore::getMessageCap</a></div><div class="ttdeci">int getMessageCap()</div><div class="ttdoc">Returns set maximum message capacity.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00075">messagestore.cpp:75</a></div></div>
-<div class="ttc" id="aclassMessageStore_html_a2460dd82545a4ad0e6ef492c97f13daa"><div class="ttname"><a href="classMessageStore.html#a2460dd82545a4ad0e6ef492c97f13daa">MessageStore::getTopicMessages</a></div><div class="ttdeci">const QList&lt; Message * &gt; getTopicMessages(const QString topic)</div><div class="ttdoc">Returns all messages from a topic.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00085">messagestore.cpp:85</a></div></div>
-<div class="ttc" id="aclassMessageStore_html_a2699f5f79c9f9fd46f4e9c4d48cdc158"><div class="ttname"><a href="classMessageStore.html#a2699f5f79c9f9fd46f4e9c4d48cdc158">MessageStore::handleTick</a></div><div class="ttdeci">void handleTick()</div><div class="ttdoc">Prepares the publishing of new messages.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00151">messagestore.cpp:151</a></div></div>
-<div class="ttc" id="aclassMessageStore_html_a32be6396553441cc75fcef44f7119144"><div class="ttname"><a href="classMessageStore.html#a32be6396553441cc75fcef44f7119144">MessageStore::createSnapshot</a></div><div class="ttdeci">void createSnapshot(QString dirname)</div><div class="ttdoc">createSnapshot() saves the latest message of all topics into a specified location</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00031">messagestore.cpp:31</a></div></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    std::string <a class="code" href="classMessage.html#a758a96f17e5f7e571a60778487bcf7a1">getMessage</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    mqtt::const_message_ptr msg; <span class="comment">//&lt; Underlying message</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classMessageStore.html">   55</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMessageStore.html">MessageStore</a> : <span class="keyword">public</span> QObject</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classMessageStore.html">MessageStore</a>(QObject *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMessageStore.html#a32be6396553441cc75fcef44f7119144">createSnapshot</a>(QString dirname);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMessageStore.html#a80b8d46f4cba0fde7f6a5ed981480d8d">setMessageCap</a>(<span class="keywordtype">int</span> cap);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classMessageStore.html#a17edd9ba83482df7fdd027fb6a141c3f">getMessageCap</a>();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">const</span> QHash&lt;QString, QList&lt;Message*&gt;&gt; <a class="code" href="classMessageStore.html#abbe4202a87c067c3b42dbdee61798522">getAllMessages</a>();</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="classMessageStore.html#ac637fcdf4f4d719e29862f7e39456b9e">   88</a></span>&#160;    <span class="keyword">const</span> QHash&lt;QString, QList&lt;Message*&gt;&gt; <a class="code" href="classMessageStore.html#ac637fcdf4f4d719e29862f7e39456b9e">getNewMessages</a>();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">const</span> QList&lt;Message*&gt; <a class="code" href="classMessageStore.html#a2460dd82545a4ad0e6ef492c97f13daa">getTopicMessages</a>(<span class="keyword">const</span> QString topic);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;signals:</div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="classMessageStore.html#a591050e89a6d31717328e4cfba47d602">  101</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMessageStore.html#a591050e89a6d31717328e4cfba47d602">newMessages</a>(<span class="keyword">const</span> QHash&lt;QString, QList&lt;Message*&gt;&gt; msgs);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMessageStore.html#ab2bb020b11f5bebf1ce8ca9b47975b7a">addMessage</a>(<span class="keyword">const</span> mqtt::const_message_ptr msg, <a class="code" href="messagestore_8h.html#ac6606ebe91c8ac66a2c314c79f5ab013">MessageType</a> type = MessageType::RECEIVED);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    QTimer *ticker; <span class="comment">//&lt; Heartbeat of new message delivery</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">int</span> message_capacity; <span class="comment">//&lt; Max number of stored messages</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    QHash&lt;QString, QList&lt;Message*&gt;&gt; messages; <span class="comment">//&lt; &quot;commited&quot; messages (stores all messages)</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    QHash&lt;QString, QList&lt;Message*&gt;&gt; new_messages; <span class="comment">//&lt; new messages (not &quot;commited&quot; yet)</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMessageStore.html#a2699f5f79c9f9fd46f4e9c4d48cdc158">handleTick</a>();</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;};</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// MESSAGESTORE_H</span></div>
+<div class="ttc" id="aclassMessageStore_html"><div class="ttname"><a href="classMessageStore.html">MessageStore</a></div><div class="ttdoc">Represents a storage of MQTT messages (both received &amp; sent)</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8h_source.html#l00055">messagestore.h:56</a></div></div>
+<div class="ttc" id="aclassMessageStore_html_a17edd9ba83482df7fdd027fb6a141c3f"><div class="ttname"><a href="classMessageStore.html#a17edd9ba83482df7fdd027fb6a141c3f">MessageStore::getMessageCap</a></div><div class="ttdeci">int getMessageCap()</div><div class="ttdoc">Returns set maximum message capacity.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00080">messagestore.cpp:80</a></div></div>
+<div class="ttc" id="aclassMessageStore_html_a2460dd82545a4ad0e6ef492c97f13daa"><div class="ttname"><a href="classMessageStore.html#a2460dd82545a4ad0e6ef492c97f13daa">MessageStore::getTopicMessages</a></div><div class="ttdeci">const QList&lt; Message * &gt; getTopicMessages(const QString topic)</div><div class="ttdoc">Returns all messages from a topic.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00090">messagestore.cpp:90</a></div></div>
+<div class="ttc" id="aclassMessageStore_html_a2699f5f79c9f9fd46f4e9c4d48cdc158"><div class="ttname"><a href="classMessageStore.html#a2699f5f79c9f9fd46f4e9c4d48cdc158">MessageStore::handleTick</a></div><div class="ttdeci">void handleTick()</div><div class="ttdoc">Prepares the publishing of new messages.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00156">messagestore.cpp:156</a></div></div>
+<div class="ttc" id="aclassMessageStore_html_a32be6396553441cc75fcef44f7119144"><div class="ttname"><a href="classMessageStore.html#a32be6396553441cc75fcef44f7119144">MessageStore::createSnapshot</a></div><div class="ttdeci">void createSnapshot(QString dirname)</div><div class="ttdoc">createSnapshot() saves the latest message of all topics into a specified location</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00036">messagestore.cpp:36</a></div></div>
 <div class="ttc" id="aclassMessageStore_html_a591050e89a6d31717328e4cfba47d602"><div class="ttname"><a href="classMessageStore.html#a591050e89a6d31717328e4cfba47d602">MessageStore::newMessages</a></div><div class="ttdeci">void newMessages(const QHash&lt; QString, QList&lt; Message * &gt;&gt; msgs)</div><div class="ttdoc">Is emitted when internal timeout has been reached and there are new messages.</div></div>
-<div class="ttc" id="aclassMessageStore_html_a80b8d46f4cba0fde7f6a5ed981480d8d"><div class="ttname"><a href="classMessageStore.html#a80b8d46f4cba0fde7f6a5ed981480d8d">MessageStore::setMessageCap</a></div><div class="ttdeci">void setMessageCap(int cap)</div><div class="ttdoc">Sets maximum message capacity.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00070">messagestore.cpp:70</a></div></div>
-<div class="ttc" id="aclassMessageStore_html_ab2bb020b11f5bebf1ce8ca9b47975b7a"><div class="ttname"><a href="classMessageStore.html#ab2bb020b11f5bebf1ce8ca9b47975b7a">MessageStore::addMessage</a></div><div class="ttdeci">void addMessage(const mqtt::const_message_ptr msg, MessageType type=MessageType::RECEIVED)</div><div class="ttdoc">Adds a new message to the store.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00094">messagestore.cpp:94</a></div></div>
-<div class="ttc" id="aclassMessageStore_html_abbe4202a87c067c3b42dbdee61798522"><div class="ttname"><a href="classMessageStore.html#abbe4202a87c067c3b42dbdee61798522">MessageStore::getAllMessages</a></div><div class="ttdeci">const QHash&lt; QString, QList&lt; Message * &gt; &gt; getAllMessages()</div><div class="ttdoc">Returns all &quot;commited&quot; messages.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00080">messagestore.cpp:80</a></div></div>
+<div class="ttc" id="aclassMessageStore_html_a80b8d46f4cba0fde7f6a5ed981480d8d"><div class="ttname"><a href="classMessageStore.html#a80b8d46f4cba0fde7f6a5ed981480d8d">MessageStore::setMessageCap</a></div><div class="ttdeci">void setMessageCap(int cap)</div><div class="ttdoc">Sets maximum message capacity.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00075">messagestore.cpp:75</a></div></div>
+<div class="ttc" id="aclassMessageStore_html_ab2bb020b11f5bebf1ce8ca9b47975b7a"><div class="ttname"><a href="classMessageStore.html#ab2bb020b11f5bebf1ce8ca9b47975b7a">MessageStore::addMessage</a></div><div class="ttdeci">void addMessage(const mqtt::const_message_ptr msg, MessageType type=MessageType::RECEIVED)</div><div class="ttdoc">Adds a new message to the store.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00099">messagestore.cpp:99</a></div></div>
+<div class="ttc" id="aclassMessageStore_html_abbe4202a87c067c3b42dbdee61798522"><div class="ttname"><a href="classMessageStore.html#abbe4202a87c067c3b42dbdee61798522">MessageStore::getAllMessages</a></div><div class="ttdeci">const QHash&lt; QString, QList&lt; Message * &gt; &gt; getAllMessages()</div><div class="ttdoc">Returns all &quot;commited&quot; messages.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00085">messagestore.cpp:85</a></div></div>
 <div class="ttc" id="aclassMessageStore_html_ac637fcdf4f4d719e29862f7e39456b9e"><div class="ttname"><a href="classMessageStore.html#ac637fcdf4f4d719e29862f7e39456b9e">MessageStore::getNewMessages</a></div><div class="ttdeci">const QHash&lt; QString, QList&lt; Message * &gt; &gt; getNewMessages()</div><div class="ttdoc">Returns all &quot;new&quot; messages.</div></div>
-<div class="ttc" id="aclassMessage_html"><div class="ttname"><a href="classMessage.html">Message</a></div><div class="ttdoc">Represents a message (either sent of received)</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8h_source.html#l00024">messagestore.h:25</a></div></div>
-<div class="ttc" id="aclassMessage_html_a758a96f17e5f7e571a60778487bcf7a1"><div class="ttname"><a href="classMessage.html#a758a96f17e5f7e571a60778487bcf7a1">Message::getMessage</a></div><div class="ttdeci">std::string getMessage()</div><div class="ttdoc">Returns the message payload.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00015">messagestore.cpp:15</a></div></div>
+<div class="ttc" id="aclassMessage_html"><div class="ttname"><a href="classMessage.html">Message</a></div><div class="ttdoc">Represents a message (either sent of received)</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8h_source.html#l00029">messagestore.h:30</a></div></div>
+<div class="ttc" id="aclassMessage_html_a758a96f17e5f7e571a60778487bcf7a1"><div class="ttname"><a href="classMessage.html#a758a96f17e5f7e571a60778487bcf7a1">Message::getMessage</a></div><div class="ttdeci">std::string getMessage()</div><div class="ttdoc">Returns the message payload.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00020">messagestore.cpp:20</a></div></div>
+<div class="ttc" id="amessagestore_8h_html_ac6606ebe91c8ac66a2c314c79f5ab013"><div class="ttname"><a href="messagestore_8h.html#ac6606ebe91c8ac66a2c314c79f5ab013">MessageType</a></div><div class="ttdeci">MessageType</div><div class="ttdoc">Type of a message.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8h_source.html#l00020">messagestore.h:20</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>messagestore.h</b></li>
-    <li class="footer">Generated on Tue May 11 2021 19:42:50 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="messagestore_8h.html">messagestore.h</a></li>
+    <li class="footer">Generated on Tue May 11 2021 19:44:41 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

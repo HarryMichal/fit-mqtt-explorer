@@ -86,197 +86,200 @@ $(document).ready(function(){initNavTree('messagestore_8cpp_source.html',''); in
 <div class="title">messagestore.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;QDebug&gt;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;QDir&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;messagestore.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;Message::Message(mqtt::const_message_ptr msg, MessageType type, QObject *parent) :</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    QObject(parent),</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    msg(msg),</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    msg_type(type),</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    arrival_date(std::chrono::steady_clock::now())</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classMessage.html#a758a96f17e5f7e571a60778487bcf7a1">   15</a></span>&#160;std::string <a class="code" href="classMessage.html#a758a96f17e5f7e571a60778487bcf7a1">Message::getMessage</a>()</div>
+<a href="messagestore_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QDebug&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QDir&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="messagestore_8h.html">messagestore.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;Message::Message(mqtt::const_message_ptr msg, <a class="code" href="messagestore_8h.html#ac6606ebe91c8ac66a2c314c79f5ab013">MessageType</a> type, QObject *parent) :</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    QObject(parent),</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    msg(msg),</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    msg_type(type),</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    arrival_date(std::chrono::steady_clock::now())</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">return</span> this-&gt;msg-&gt;get_payload_str();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;MessageStore::MessageStore(QObject *parent) :</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    QObject(parent),</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    ticker(new QTimer(this)),</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    message_capacity(50),</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    messages(QHash&lt;QString, QList&lt;<a class="code" href="classMessage.html">Message</a>*&gt;&gt;()),</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    new_messages(QHash&lt;QString, QList&lt;<a class="code" href="classMessage.html">Message</a>*&gt;&gt;())</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    connect(this-&gt;ticker, &amp;QTimer::timeout, <span class="keyword">this</span>, &amp;<a class="code" href="classMessageStore.html#a2699f5f79c9f9fd46f4e9c4d48cdc158">MessageStore::handleTick</a>);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    this-&gt;ticker-&gt;start(400);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classMessageStore.html#a32be6396553441cc75fcef44f7119144">   31</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classMessageStore.html#a32be6396553441cc75fcef44f7119144">MessageStore::createSnapshot</a>(QString dirname)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// No work has to be done when there are no messages</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">if</span> (this-&gt;messages.empty()) {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = this-&gt;messages.begin(); it != this-&gt;messages.end(); it++) {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        QDir dir;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">if</span> (it.key()[0] == <span class="stringliteral">&quot;/&quot;</span>) {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            dir = QDir(dirname + <span class="stringliteral">&quot;/&lt;undefined-topic-name&gt;&quot;</span> + it.key()); </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            dir = QDir(dirname + <span class="stringliteral">&quot;/&quot;</span> + it.key());</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="comment">// Make sure the respective directory exists</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">if</span> (!dir.exists()) {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="comment">// Skip this topic if the necessarry directories could not be made</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">if</span> (!dir.mkpath(dir.path())) {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        QFile payload_file = QFile(dir.path() + <span class="stringliteral">&quot;/payload.txt&quot;</span>);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="comment">// Open the payload file for writing. Skip in case of an error.</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">if</span> (!payload_file.open(QIODevice::WriteOnly)) {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classMessage.html#a758a96f17e5f7e571a60778487bcf7a1">   20</a></span>&#160;std::string <a class="code" href="classMessage.html#a758a96f17e5f7e571a60778487bcf7a1">Message::getMessage</a>()</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">return</span> this-&gt;msg-&gt;get_payload_str();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;MessageStore::MessageStore(QObject *parent) :</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    QObject(parent),</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    ticker(new QTimer(this)),</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    message_capacity(50),</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    messages(QHash&lt;QString, QList&lt;<a class="code" href="classMessage.html">Message</a>*&gt;&gt;()),</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    new_messages(QHash&lt;QString, QList&lt;<a class="code" href="classMessage.html">Message</a>*&gt;&gt;())</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    connect(this-&gt;ticker, &amp;QTimer::timeout, <span class="keyword">this</span>, &amp;<a class="code" href="classMessageStore.html#a2699f5f79c9f9fd46f4e9c4d48cdc158">MessageStore::handleTick</a>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    this-&gt;ticker-&gt;start(400);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classMessageStore.html#a32be6396553441cc75fcef44f7119144">   36</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classMessageStore.html#a32be6396553441cc75fcef44f7119144">MessageStore::createSnapshot</a>(QString dirname)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">// No work has to be done when there are no messages</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">if</span> (this-&gt;messages.empty()) {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = this-&gt;messages.begin(); it != this-&gt;messages.end(); it++) {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        QDir dir;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">if</span> (it.key()[0] == <span class="stringliteral">&quot;/&quot;</span>) {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            dir = QDir(dirname + <span class="stringliteral">&quot;/&lt;undefined-topic-name&gt;&quot;</span> + it.key()); </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            dir = QDir(dirname + <span class="stringliteral">&quot;/&quot;</span> + it.key());</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="comment">// Make sure the respective directory exists</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">if</span> (!dir.exists()) {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="comment">// Skip this topic if the necessarry directories could not be made</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">if</span> (!dir.mkpath(dir.path())) {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        QFile payload_file = QFile(dir.path() + <span class="stringliteral">&quot;/payload.txt&quot;</span>);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="comment">// Get the latest value from a topic</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="classMessage.html">Message</a> *msg = it.value()[it.value().count()-1];</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        std::string payload = msg-&gt;<a class="code" href="classMessage.html#a758a96f17e5f7e571a60778487bcf7a1">getMessage</a>();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        payload_file.write(payload.data(), payload.length());</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classMessageStore.html#a80b8d46f4cba0fde7f6a5ed981480d8d">   70</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classMessageStore.html#a80b8d46f4cba0fde7f6a5ed981480d8d">MessageStore::setMessageCap</a>(<span class="keywordtype">int</span> cap)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    this-&gt;message_capacity = cap;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="comment">// Open the payload file for writing. Skip in case of an error.</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">if</span> (!payload_file.open(QIODevice::WriteOnly)) {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="comment">// Get the latest value from a topic</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <a class="code" href="classMessage.html">Message</a> *msg = it.value()[it.value().count()-1];</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        std::string payload = msg-&gt;<a class="code" href="classMessage.html#a758a96f17e5f7e571a60778487bcf7a1">getMessage</a>();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        payload_file.write(payload.data(), payload.length());</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classMessageStore.html#a17edd9ba83482df7fdd027fb6a141c3f">   75</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classMessageStore.html#a17edd9ba83482df7fdd027fb6a141c3f">MessageStore::getMessageCap</a>()</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classMessageStore.html#a80b8d46f4cba0fde7f6a5ed981480d8d">   75</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classMessageStore.html#a80b8d46f4cba0fde7f6a5ed981480d8d">MessageStore::setMessageCap</a>(<span class="keywordtype">int</span> cap)</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">return</span> this-&gt;message_capacity;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    this-&gt;message_capacity = cap;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classMessageStore.html#abbe4202a87c067c3b42dbdee61798522">   80</a></span>&#160;<span class="keyword">const</span> QHash&lt;QString, QList&lt;Message*&gt;&gt; <a class="code" href="classMessageStore.html#abbe4202a87c067c3b42dbdee61798522">MessageStore::getAllMessages</a>()</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classMessageStore.html#a17edd9ba83482df7fdd027fb6a141c3f">   80</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classMessageStore.html#a17edd9ba83482df7fdd027fb6a141c3f">MessageStore::getMessageCap</a>()</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;{</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">return</span> this-&gt;messages;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">return</span> this-&gt;message_capacity;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classMessageStore.html#a2460dd82545a4ad0e6ef492c97f13daa">   85</a></span>&#160;<span class="keyword">const</span> QList&lt;Message*&gt; <a class="code" href="classMessageStore.html#a2460dd82545a4ad0e6ef492c97f13daa">MessageStore::getTopicMessages</a>(<span class="keyword">const</span> QString topic)</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classMessageStore.html#abbe4202a87c067c3b42dbdee61798522">   85</a></span>&#160;<span class="keyword">const</span> QHash&lt;QString, QList&lt;Message*&gt;&gt; <a class="code" href="classMessageStore.html#abbe4202a87c067c3b42dbdee61798522">MessageStore::getAllMessages</a>()</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">if</span> (!this-&gt;messages.contains(topic)) {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">return</span> QList&lt;Message*&gt;();</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">return</span> this-&gt;messages[topic];</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="classMessageStore.html#ab2bb020b11f5bebf1ce8ca9b47975b7a">   94</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classMessageStore.html#ab2bb020b11f5bebf1ce8ca9b47975b7a">MessageStore::addMessage</a>(<span class="keyword">const</span> mqtt::const_message_ptr msg, MessageType type)</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;{</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="comment">// This works for both scenarios: topic is known and topic is unknown.</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="comment">// Using the []operator to get an item causes the creation of a default</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="comment">// item than can be used to add the new message payload.</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">auto</span> qtopic = QString::fromStdString(msg-&gt;get_topic());</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    QList&lt;Message*&gt; msg_list = this-&gt;new_messages[qtopic];</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="classMessage.html">Message</a>* new_msg = <span class="keyword">new</span> <a class="code" href="classMessage.html">Message</a>(msg, type);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="comment">// Check if a received message matches a sent message by comparing the</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="comment">// payload and arrival date. A matching received message can be discarded.</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">if</span> (new_msg-&gt;msg_type == MessageType::RECEIVED) {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        QMutableListIterator&lt;Message*&gt; it(msg_list);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        it.toBack();</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">while</span> (it.hasPrevious()) {</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <a class="code" href="classMessage.html">Message</a>* msg = it.previous();</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            std::chrono::duration&lt;double&gt; time_diff;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            time_diff = new_msg-&gt;arrival_date - msg-&gt;arrival_date;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <span class="comment">// The time difference between messages is too big. We can skip the</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="comment">// rest of the messages and add the new message.</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <span class="keywordflow">if</span> (time_diff.count() &gt; 1) {</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            }</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            <span class="comment">// An already matched sent message was found. No unmatched messages</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            <span class="comment">// should be any further. We can skip the rest of the messages and</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            <span class="comment">// add the new message.</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            <span class="keywordflow">if</span> (msg-&gt;msg_type == MessageType::SENT_MATCHED) {</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            }</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            <span class="comment">// No need to compare two received messages.</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            <span class="keywordflow">if</span> (msg-&gt;msg_type == MessageType::RECEIVED) {</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">return</span> this-&gt;messages;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classMessageStore.html#a2460dd82545a4ad0e6ef492c97f13daa">   90</a></span>&#160;<span class="keyword">const</span> QList&lt;Message*&gt; <a class="code" href="classMessageStore.html#a2460dd82545a4ad0e6ef492c97f13daa">MessageStore::getTopicMessages</a>(<span class="keyword">const</span> QString topic)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">if</span> (!this-&gt;messages.contains(topic)) {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">return</span> QList&lt;Message*&gt;();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">return</span> this-&gt;messages[topic];</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classMessageStore.html#ab2bb020b11f5bebf1ce8ca9b47975b7a">   99</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classMessageStore.html#ab2bb020b11f5bebf1ce8ca9b47975b7a">MessageStore::addMessage</a>(<span class="keyword">const</span> mqtt::const_message_ptr msg, <a class="code" href="messagestore_8h.html#ac6606ebe91c8ac66a2c314c79f5ab013">MessageType</a> type)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;{</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">// This works for both scenarios: topic is known and topic is unknown.</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="comment">// Using the []operator to get an item causes the creation of a default</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="comment">// item than can be used to add the new message payload.</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">auto</span> qtopic = QString::fromStdString(msg-&gt;get_topic());</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    QList&lt;Message*&gt; msg_list = this-&gt;new_messages[qtopic];</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <a class="code" href="classMessage.html">Message</a>* new_msg = <span class="keyword">new</span> <a class="code" href="classMessage.html">Message</a>(msg, type);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="comment">// Check if a received message matches a sent message by comparing the</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="comment">// payload and arrival date. A matching received message can be discarded.</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">if</span> (new_msg-&gt;msg_type == MessageType::RECEIVED) {</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        QMutableListIterator&lt;Message*&gt; it(msg_list);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        it.toBack();</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">while</span> (it.hasPrevious()) {</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <a class="code" href="classMessage.html">Message</a>* msg = it.previous();</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            std::chrono::duration&lt;double&gt; time_diff;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            time_diff = new_msg-&gt;arrival_date - msg-&gt;arrival_date;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="comment">// The time difference between messages is too big. We can skip the</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            <span class="comment">// rest of the messages and add the new message.</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            <span class="keywordflow">if</span> (time_diff.count() &gt; 1) {</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            }</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            <span class="comment">// An already matched sent message was found. No unmatched messages</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="comment">// should be any further. We can skip the rest of the messages and</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            <span class="comment">// add the new message.</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            <span class="keywordflow">if</span> (msg-&gt;msg_type == MessageType::SENT_MATCHED) {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            }</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            <span class="comment">// Messages don&#39;t match -&gt; definitely a different message</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            <span class="keywordflow">if</span> (msg-&gt;<a class="code" href="classMessage.html#a758a96f17e5f7e571a60778487bcf7a1">getMessage</a>() != new_msg-&gt;<a class="code" href="classMessage.html#a758a96f17e5f7e571a60778487bcf7a1">getMessage</a>()) {</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            <span class="comment">// No need to compare two received messages.</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            <span class="keywordflow">if</span> (msg-&gt;msg_type == MessageType::RECEIVED) {</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                <span class="keywordflow">continue</span>;</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            }</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            <span class="comment">// We found a matching sent message within a specified time frame.</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            <span class="comment">// The received message is most likely an echo from the broker.</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            msg-&gt;msg_type = MessageType::SENT_MATCHED;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            <span class="keyword">delete</span> new_msg;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        }</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    }</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    msg_list.append(new_msg);</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    this-&gt;new_messages.insert(qtopic, msg_list);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;}</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            <span class="comment">// Messages don&#39;t match -&gt; definitely a different message</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            <span class="keywordflow">if</span> (msg-&gt;<a class="code" href="classMessage.html#a758a96f17e5f7e571a60778487bcf7a1">getMessage</a>() != new_msg-&gt;<a class="code" href="classMessage.html#a758a96f17e5f7e571a60778487bcf7a1">getMessage</a>()) {</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            }</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            <span class="comment">// We found a matching sent message within a specified time frame.</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            <span class="comment">// The received message is most likely an echo from the broker.</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            msg-&gt;msg_type = MessageType::SENT_MATCHED;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            <span class="keyword">delete</span> new_msg;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        }</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    }</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
-<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="classMessageStore.html#a2699f5f79c9f9fd46f4e9c4d48cdc158">  151</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classMessageStore.html#a2699f5f79c9f9fd46f4e9c4d48cdc158">MessageStore::handleTick</a>()</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;{</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordflow">if</span> (this-&gt;new_messages.empty()) {</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    }</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keyword">auto</span> new_messages = this-&gt;new_messages;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    this-&gt;new_messages.clear();</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = new_messages.begin(); i != new_messages.end(); i++) {</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keyword">auto</span> section = this-&gt;messages.take(i.key());</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        section.append(i.value());</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        this-&gt;messages.insert(i.key(), section);</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    }</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    msg_list.append(new_msg);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    this-&gt;new_messages.insert(qtopic, msg_list);</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;}</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="classMessageStore.html#a2699f5f79c9f9fd46f4e9c4d48cdc158">  156</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classMessageStore.html#a2699f5f79c9f9fd46f4e9c4d48cdc158">MessageStore::handleTick</a>()</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;{</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordflow">if</span> (this-&gt;new_messages.empty()) {</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    }</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keyword">auto</span> new_messages = this-&gt;new_messages;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    this-&gt;new_messages.clear();</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = new_messages.begin(); i != new_messages.end(); i++) {</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keyword">auto</span> section = this-&gt;messages.take(i.key());</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = this-&gt;messages.begin(); i != this-&gt;messages.end(); i++) {</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        this-&gt;messages.insert(i.key(),</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            i.value().mid(i.value().count() - this-&gt;message_capacity, -1));</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        section.append(i.value());</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        this-&gt;messages.insert(i.key(), section);</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    }</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    emit this-&gt;<a class="code" href="classMessageStore.html#a591050e89a6d31717328e4cfba47d602">newMessages</a>(new_messages);</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;}</div>
-<div class="ttc" id="aclassMessageStore_html_a17edd9ba83482df7fdd027fb6a141c3f"><div class="ttname"><a href="classMessageStore.html#a17edd9ba83482df7fdd027fb6a141c3f">MessageStore::getMessageCap</a></div><div class="ttdeci">int getMessageCap()</div><div class="ttdoc">Returns set maximum message capacity.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00075">messagestore.cpp:75</a></div></div>
-<div class="ttc" id="aclassMessageStore_html_a2460dd82545a4ad0e6ef492c97f13daa"><div class="ttname"><a href="classMessageStore.html#a2460dd82545a4ad0e6ef492c97f13daa">MessageStore::getTopicMessages</a></div><div class="ttdeci">const QList&lt; Message * &gt; getTopicMessages(const QString topic)</div><div class="ttdoc">Returns all messages from a topic.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00085">messagestore.cpp:85</a></div></div>
-<div class="ttc" id="aclassMessageStore_html_a2699f5f79c9f9fd46f4e9c4d48cdc158"><div class="ttname"><a href="classMessageStore.html#a2699f5f79c9f9fd46f4e9c4d48cdc158">MessageStore::handleTick</a></div><div class="ttdeci">void handleTick()</div><div class="ttdoc">Prepares the publishing of new messages.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00151">messagestore.cpp:151</a></div></div>
-<div class="ttc" id="aclassMessageStore_html_a32be6396553441cc75fcef44f7119144"><div class="ttname"><a href="classMessageStore.html#a32be6396553441cc75fcef44f7119144">MessageStore::createSnapshot</a></div><div class="ttdeci">void createSnapshot(QString dirname)</div><div class="ttdoc">createSnapshot() saves the latest message of all topics into a specified location</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00031">messagestore.cpp:31</a></div></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = this-&gt;messages.begin(); i != this-&gt;messages.end(); i++) {</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        this-&gt;messages.insert(i.key(),</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            i.value().mid(i.value().count() - this-&gt;message_capacity, -1));</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    }</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    emit this-&gt;<a class="code" href="classMessageStore.html#a591050e89a6d31717328e4cfba47d602">newMessages</a>(new_messages);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;}</div>
+<div class="ttc" id="aclassMessageStore_html_a17edd9ba83482df7fdd027fb6a141c3f"><div class="ttname"><a href="classMessageStore.html#a17edd9ba83482df7fdd027fb6a141c3f">MessageStore::getMessageCap</a></div><div class="ttdeci">int getMessageCap()</div><div class="ttdoc">Returns set maximum message capacity.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00080">messagestore.cpp:80</a></div></div>
+<div class="ttc" id="aclassMessageStore_html_a2460dd82545a4ad0e6ef492c97f13daa"><div class="ttname"><a href="classMessageStore.html#a2460dd82545a4ad0e6ef492c97f13daa">MessageStore::getTopicMessages</a></div><div class="ttdeci">const QList&lt; Message * &gt; getTopicMessages(const QString topic)</div><div class="ttdoc">Returns all messages from a topic.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00090">messagestore.cpp:90</a></div></div>
+<div class="ttc" id="aclassMessageStore_html_a2699f5f79c9f9fd46f4e9c4d48cdc158"><div class="ttname"><a href="classMessageStore.html#a2699f5f79c9f9fd46f4e9c4d48cdc158">MessageStore::handleTick</a></div><div class="ttdeci">void handleTick()</div><div class="ttdoc">Prepares the publishing of new messages.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00156">messagestore.cpp:156</a></div></div>
+<div class="ttc" id="aclassMessageStore_html_a32be6396553441cc75fcef44f7119144"><div class="ttname"><a href="classMessageStore.html#a32be6396553441cc75fcef44f7119144">MessageStore::createSnapshot</a></div><div class="ttdeci">void createSnapshot(QString dirname)</div><div class="ttdoc">createSnapshot() saves the latest message of all topics into a specified location</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00036">messagestore.cpp:36</a></div></div>
 <div class="ttc" id="aclassMessageStore_html_a591050e89a6d31717328e4cfba47d602"><div class="ttname"><a href="classMessageStore.html#a591050e89a6d31717328e4cfba47d602">MessageStore::newMessages</a></div><div class="ttdeci">void newMessages(const QHash&lt; QString, QList&lt; Message * &gt;&gt; msgs)</div><div class="ttdoc">Is emitted when internal timeout has been reached and there are new messages.</div></div>
-<div class="ttc" id="aclassMessageStore_html_a80b8d46f4cba0fde7f6a5ed981480d8d"><div class="ttname"><a href="classMessageStore.html#a80b8d46f4cba0fde7f6a5ed981480d8d">MessageStore::setMessageCap</a></div><div class="ttdeci">void setMessageCap(int cap)</div><div class="ttdoc">Sets maximum message capacity.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00070">messagestore.cpp:70</a></div></div>
-<div class="ttc" id="aclassMessageStore_html_ab2bb020b11f5bebf1ce8ca9b47975b7a"><div class="ttname"><a href="classMessageStore.html#ab2bb020b11f5bebf1ce8ca9b47975b7a">MessageStore::addMessage</a></div><div class="ttdeci">void addMessage(const mqtt::const_message_ptr msg, MessageType type=MessageType::RECEIVED)</div><div class="ttdoc">Adds a new message to the store.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00094">messagestore.cpp:94</a></div></div>
-<div class="ttc" id="aclassMessageStore_html_abbe4202a87c067c3b42dbdee61798522"><div class="ttname"><a href="classMessageStore.html#abbe4202a87c067c3b42dbdee61798522">MessageStore::getAllMessages</a></div><div class="ttdeci">const QHash&lt; QString, QList&lt; Message * &gt; &gt; getAllMessages()</div><div class="ttdoc">Returns all &quot;commited&quot; messages.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00080">messagestore.cpp:80</a></div></div>
-<div class="ttc" id="aclassMessage_html"><div class="ttname"><a href="classMessage.html">Message</a></div><div class="ttdoc">Represents a message (either sent of received)</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8h_source.html#l00024">messagestore.h:25</a></div></div>
-<div class="ttc" id="aclassMessage_html_a758a96f17e5f7e571a60778487bcf7a1"><div class="ttname"><a href="classMessage.html#a758a96f17e5f7e571a60778487bcf7a1">Message::getMessage</a></div><div class="ttdeci">std::string getMessage()</div><div class="ttdoc">Returns the message payload.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00015">messagestore.cpp:15</a></div></div>
+<div class="ttc" id="aclassMessageStore_html_a80b8d46f4cba0fde7f6a5ed981480d8d"><div class="ttname"><a href="classMessageStore.html#a80b8d46f4cba0fde7f6a5ed981480d8d">MessageStore::setMessageCap</a></div><div class="ttdeci">void setMessageCap(int cap)</div><div class="ttdoc">Sets maximum message capacity.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00075">messagestore.cpp:75</a></div></div>
+<div class="ttc" id="aclassMessageStore_html_ab2bb020b11f5bebf1ce8ca9b47975b7a"><div class="ttname"><a href="classMessageStore.html#ab2bb020b11f5bebf1ce8ca9b47975b7a">MessageStore::addMessage</a></div><div class="ttdeci">void addMessage(const mqtt::const_message_ptr msg, MessageType type=MessageType::RECEIVED)</div><div class="ttdoc">Adds a new message to the store.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00099">messagestore.cpp:99</a></div></div>
+<div class="ttc" id="aclassMessageStore_html_abbe4202a87c067c3b42dbdee61798522"><div class="ttname"><a href="classMessageStore.html#abbe4202a87c067c3b42dbdee61798522">MessageStore::getAllMessages</a></div><div class="ttdeci">const QHash&lt; QString, QList&lt; Message * &gt; &gt; getAllMessages()</div><div class="ttdoc">Returns all &quot;commited&quot; messages.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00085">messagestore.cpp:85</a></div></div>
+<div class="ttc" id="aclassMessage_html"><div class="ttname"><a href="classMessage.html">Message</a></div><div class="ttdoc">Represents a message (either sent of received)</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8h_source.html#l00029">messagestore.h:30</a></div></div>
+<div class="ttc" id="aclassMessage_html_a758a96f17e5f7e571a60778487bcf7a1"><div class="ttname"><a href="classMessage.html#a758a96f17e5f7e571a60778487bcf7a1">Message::getMessage</a></div><div class="ttdeci">std::string getMessage()</div><div class="ttdoc">Returns the message payload.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8cpp_source.html#l00020">messagestore.cpp:20</a></div></div>
+<div class="ttc" id="amessagestore_8h_html"><div class="ttname"><a href="messagestore_8h.html">messagestore.h</a></div></div>
+<div class="ttc" id="amessagestore_8h_html_ac6606ebe91c8ac66a2c314c79f5ab013"><div class="ttname"><a href="messagestore_8h.html#ac6606ebe91c8ac66a2c314c79f5ab013">MessageType</a></div><div class="ttdeci">MessageType</div><div class="ttdoc">Type of a message.</div><div class="ttdef"><b>Definition:</b> <a href="messagestore_8h_source.html#l00020">messagestore.h:20</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>messagestore.cpp</b></li>
-    <li class="footer">Generated on Tue May 11 2021 19:42:50 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="messagestore_8cpp.html">messagestore.cpp</a></li>
+    <li class="footer">Generated on Tue May 11 2021 19:44:41 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -107,7 +107,7 @@ Inheritance diagram for MessageStore:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
 Public Slots</h2></td></tr>
-<tr class="memitem:ab2bb020b11f5bebf1ce8ca9b47975b7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessageStore.html#ab2bb020b11f5bebf1ce8ca9b47975b7a">addMessage</a> (const mqtt::const_message_ptr msg, MessageType type=MessageType::RECEIVED)</td></tr>
+<tr class="memitem:ab2bb020b11f5bebf1ce8ca9b47975b7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMessageStore.html#ab2bb020b11f5bebf1ce8ca9b47975b7a">addMessage</a> (const mqtt::const_message_ptr msg, <a class="el" href="messagestore_8h.html#ac6606ebe91c8ac66a2c314c79f5ab013">MessageType</a> type=MessageType::RECEIVED)</td></tr>
 <tr class="memdesc:ab2bb020b11f5bebf1ce8ca9b47975b7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new message to the store.  <a href="classMessageStore.html#ab2bb020b11f5bebf1ce8ca9b47975b7a">More...</a><br /></td></tr>
 <tr class="separator:ab2bb020b11f5bebf1ce8ca9b47975b7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -166,7 +166,7 @@ QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> 
 <div class="textblock"><p>Represents a storage of MQTT messages (both received &amp; sent) </p>
 <p>Messages are handled using two hash maps: messages &amp; new_messages. messages hash map serves for accumulating all messages and new_messages for accumulating new messages that are than propagated using the newMessages signal. This gives the option to alter cadency of delivery. </p>
 
-<p class="definition">Definition at line <a class="el" href="messagestore_8h_source.html#l00050">50</a> of file <a class="el" href="messagestore_8h_source.html">messagestore.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="messagestore_8h_source.html#l00055">55</a> of file <a class="el" href="messagestore_8h_source.html">messagestore.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab2bb020b11f5bebf1ce8ca9b47975b7a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab2bb020b11f5bebf1ce8ca9b47975b7a">&#9670;&nbsp;</a></span>addMessage</h2>
@@ -186,7 +186,7 @@ QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> 
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">MessageType&#160;</td>
+          <td class="paramtype"><a class="el" href="messagestore_8h.html#ac6606ebe91c8ac66a2c314c79f5ab013">MessageType</a>&#160;</td>
           <td class="paramname"><em>type</em> = <code>MessageType::RECEIVED</code>&#160;</td>
         </tr>
         <tr>
@@ -212,7 +212,7 @@ QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="messagestore_8cpp_source.html#l00094">94</a> of file <a class="el" href="messagestore_8cpp_source.html">messagestore.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="messagestore_8cpp_source.html#l00099">99</a> of file <a class="el" href="messagestore_8cpp_source.html">messagestore.cpp</a>.</p>
 
 </div>
 </div>
@@ -235,7 +235,7 @@ QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> 
 <p><a class="el" href="classMessageStore.html#a32be6396553441cc75fcef44f7119144" title="createSnapshot() saves the latest message of all topics into a specified location">createSnapshot()</a> saves the latest message of all topics into a specified location </p>
 <p>Inside of the user-specified directory will be messages for all topics. They will not be put into a parent directory called after e.g., the server. The file structure will mimic the tree structure of the topics. If a name in the chain of topic names is unknown, it is replaced by "&lt;undefined-topipc-name&gt;". </p>
 
-<p class="definition">Definition at line <a class="el" href="messagestore_8cpp_source.html#l00031">31</a> of file <a class="el" href="messagestore_8cpp_source.html">messagestore.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="messagestore_8cpp_source.html#l00036">36</a> of file <a class="el" href="messagestore_8cpp_source.html">messagestore.cpp</a>.</p>
 
 </div>
 </div>
@@ -256,7 +256,7 @@ QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> 
 
 <p>Returns all "commited" messages. </p>
 
-<p class="definition">Definition at line <a class="el" href="messagestore_8cpp_source.html#l00080">80</a> of file <a class="el" href="messagestore_8cpp_source.html">messagestore.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="messagestore_8cpp_source.html#l00085">85</a> of file <a class="el" href="messagestore_8cpp_source.html">messagestore.cpp</a>.</p>
 
 </div>
 </div>
@@ -277,7 +277,7 @@ QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> 
 
 <p>Returns set maximum message capacity. </p>
 
-<p class="definition">Definition at line <a class="el" href="messagestore_8cpp_source.html#l00075">75</a> of file <a class="el" href="messagestore_8cpp_source.html">messagestore.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="messagestore_8cpp_source.html#l00080">80</a> of file <a class="el" href="messagestore_8cpp_source.html">messagestore.cpp</a>.</p>
 
 </div>
 </div>
@@ -318,7 +318,7 @@ QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> 
 
 <p>Returns all messages from a topic. </p>
 
-<p class="definition">Definition at line <a class="el" href="messagestore_8cpp_source.html#l00085">85</a> of file <a class="el" href="messagestore_8cpp_source.html">messagestore.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="messagestore_8cpp_source.html#l00090">90</a> of file <a class="el" href="messagestore_8cpp_source.html">messagestore.cpp</a>.</p>
 
 </div>
 </div>
@@ -347,7 +347,7 @@ QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> 
 
 <p>Prepares the publishing of new messages. </p>
 
-<p class="definition">Definition at line <a class="el" href="messagestore_8cpp_source.html#l00151">151</a> of file <a class="el" href="messagestore_8cpp_source.html">messagestore.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="messagestore_8cpp_source.html#l00156">156</a> of file <a class="el" href="messagestore_8cpp_source.html">messagestore.cpp</a>.</p>
 
 </div>
 </div>
@@ -409,7 +409,7 @@ QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="messagestore_8cpp_source.html#l00070">70</a> of file <a class="el" href="messagestore_8cpp_source.html">messagestore.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="messagestore_8cpp_source.html#l00075">75</a> of file <a class="el" href="messagestore_8cpp_source.html">messagestore.cpp</a>.</p>
 
 </div>
 </div>
@@ -423,7 +423,7 @@ QHash&lt; QString, QList&lt; <a class="el" href="classMessage.html">Message</a> 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classMessageStore.html">MessageStore</a></li>
-    <li class="footer">Generated on Tue May 11 2021 19:42:50 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue May 11 2021 19:44:41 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

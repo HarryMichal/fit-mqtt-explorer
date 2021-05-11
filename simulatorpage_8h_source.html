@@ -86,92 +86,93 @@ $(document).ready(function(){initNavTree('simulatorpage_8h_source.html',''); ini
 <div class="title">simulatorpage.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SIMULATORPAGE_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SIMULATORPAGE_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QJsonDocument&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QTimer&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QWidget&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;mqtt/message.h&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span>Ui {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">class </span><a class="code" href="classSimulatorPage.html">SimulatorPage</a>;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classMockDevice.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMockDevice.html">MockDevice</a> : <span class="keyword">public</span> QObject</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classMockDevice.html">MockDevice</a>(QString topic, QString type, <span class="keywordtype">int</span> period, QList&lt;QVariant&gt; payloads, QObject *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    ~<a class="code" href="classMockDevice.html">MockDevice</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMockDevice.html#aca25f7fb4e9d5788fa8cc91816cfbde2">start</a>();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMockDevice.html#ac0ddc587c799b4572ef197a79bd68d40">stop</a>();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;signals:</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classMockDevice.html#a6b44d96b8855b8bbedeb2bc7ea79595e">   40</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMockDevice.html#a6b44d96b8855b8bbedeb2bc7ea79595e">onHeartbeat</a>(mqtt::string topic, mqtt::string payload);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">private</span> slots:</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMockDevice.html#adbe2d472a5f4ca96642251f88f939c9c">handleHeartbeat</a>();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    QTimer *heartbeat; <span class="comment">//&lt;Device&#39;s heartbeat</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    QString topic; <span class="comment">//&lt;Topic where all messages are sent</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    QString type; <span class="comment">//&lt;Type of the device</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">int</span> period; <span class="comment">//&lt;Period in which messages are sent</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    QList&lt;QVariant&gt; payloads; <span class="comment">//&lt;List of all possible messages</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    QMutableListIterator&lt;QVariant&gt; payload_iterator; <span class="comment">//&lt;Iterator over the list of all possible messages</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classSimulatorPage.html">   61</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSimulatorPage.html">SimulatorPage</a> : <span class="keyword">public</span> QWidget</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classSimulatorPage.html">SimulatorPage</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    ~<a class="code" href="classSimulatorPage.html">SimulatorPage</a>();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSimulatorPage.html#ac682df7718a225a11103f9f2f3f284b1">setSimulationConfigFile</a>(QString filename);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSimulatorPage.html#a6c7c18b1b33c6af5b4990f6d2960774c">startSimulation</a>();</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSimulatorPage.html#ad62a972cb883f546ff28ca5534c4e1b2">stopSimulation</a>();</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;signals:</div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="classSimulatorPage.html#a414763625b74429859bad80fa362f096">   88</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSimulatorPage.html#a414763625b74429859bad80fa362f096">onHeartbeat</a>(mqtt::string topic, mqtt::string payload);</div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classSimulatorPage.html#a67e043e0413f02d45f732faf24695152">   92</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSimulatorPage.html#a67e043e0413f02d45f732faf24695152">onReady</a>();</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    Ui::SimulatorPage *ui;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    QJsonDocument config; <span class="comment">//&lt;JSON configuration file of a simulation</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    QList&lt;MockDevice*&gt; *device_pool; <span class="comment">//&lt;Pool of mocked devices</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    QString base_topic; <span class="comment">//&lt;Root topic where all messages are sent</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSimulatorPage.html#af971a6dd70416e81cd730bde264ec573">configureSimulation</a>();</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;};</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SIMULATORPAGE_H</span></div>
-<div class="ttc" id="aclassMockDevice_html"><div class="ttname"><a href="classMockDevice.html">MockDevice</a></div><div class="ttdoc">Representation of a simulated device.</div><div class="ttdef"><b>Definition:</b> <a href="simulatorpage_8h_source.html#l00019">simulatorpage.h:20</a></div></div>
+<a href="simulatorpage_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef SIMULATORPAGE_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define SIMULATORPAGE_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;QJsonDocument&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;QTimer&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QWidget&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;mqtt/message.h&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span>Ui {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">class </span><a class="code" href="classSimulatorPage.html">SimulatorPage</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classMockDevice.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMockDevice.html">MockDevice</a> : <span class="keyword">public</span> QObject</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classMockDevice.html">MockDevice</a>(QString topic, QString type, <span class="keywordtype">int</span> period, QList&lt;QVariant&gt; payloads, QObject *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    ~<a class="code" href="classMockDevice.html">MockDevice</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMockDevice.html#aca25f7fb4e9d5788fa8cc91816cfbde2">start</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMockDevice.html#ac0ddc587c799b4572ef197a79bd68d40">stop</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;signals:</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classMockDevice.html#a6b44d96b8855b8bbedeb2bc7ea79595e">   45</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMockDevice.html#a6b44d96b8855b8bbedeb2bc7ea79595e">onHeartbeat</a>(mqtt::string topic, mqtt::string payload);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMockDevice.html#adbe2d472a5f4ca96642251f88f939c9c">handleHeartbeat</a>();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    QTimer *heartbeat; <span class="comment">//&lt;Device&#39;s heartbeat</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    QString topic; <span class="comment">//&lt;Topic where all messages are sent</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    QString type; <span class="comment">//&lt;Type of the device</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">int</span> period; <span class="comment">//&lt;Period in which messages are sent</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    QList&lt;QVariant&gt; payloads; <span class="comment">//&lt;List of all possible messages</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    QMutableListIterator&lt;QVariant&gt; payload_iterator; <span class="comment">//&lt;Iterator over the list of all possible messages</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classSimulatorPage.html">   66</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSimulatorPage.html">SimulatorPage</a> : <span class="keyword">public</span> QWidget</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;{</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classSimulatorPage.html">SimulatorPage</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    ~<a class="code" href="classSimulatorPage.html">SimulatorPage</a>();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSimulatorPage.html#ac682df7718a225a11103f9f2f3f284b1">setSimulationConfigFile</a>(QString filename);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSimulatorPage.html#a6c7c18b1b33c6af5b4990f6d2960774c">startSimulation</a>();</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSimulatorPage.html#ad62a972cb883f546ff28ca5534c4e1b2">stopSimulation</a>();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;signals:</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="classSimulatorPage.html#a414763625b74429859bad80fa362f096">   93</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSimulatorPage.html#a414763625b74429859bad80fa362f096">onHeartbeat</a>(mqtt::string topic, mqtt::string payload);</div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="classSimulatorPage.html#a67e043e0413f02d45f732faf24695152">   97</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSimulatorPage.html#a67e043e0413f02d45f732faf24695152">onReady</a>();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    Ui::SimulatorPage *ui;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    QJsonDocument config; <span class="comment">//&lt;JSON configuration file of a simulation</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    QList&lt;MockDevice*&gt; *device_pool; <span class="comment">//&lt;Pool of mocked devices</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    QString base_topic; <span class="comment">//&lt;Root topic where all messages are sent</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSimulatorPage.html#af971a6dd70416e81cd730bde264ec573">configureSimulation</a>();</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;};</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SIMULATORPAGE_H</span></div>
+<div class="ttc" id="aclassMockDevice_html"><div class="ttname"><a href="classMockDevice.html">MockDevice</a></div><div class="ttdoc">Representation of a simulated device.</div><div class="ttdef"><b>Definition:</b> <a href="simulatorpage_8h_source.html#l00024">simulatorpage.h:25</a></div></div>
 <div class="ttc" id="aclassMockDevice_html_a6b44d96b8855b8bbedeb2bc7ea79595e"><div class="ttname"><a href="classMockDevice.html#a6b44d96b8855b8bbedeb2bc7ea79595e">MockDevice::onHeartbeat</a></div><div class="ttdeci">void onHeartbeat(mqtt::string topic, mqtt::string payload)</div><div class="ttdoc">Is emitted when a new a message is to be sent.</div></div>
-<div class="ttc" id="aclassMockDevice_html_ac0ddc587c799b4572ef197a79bd68d40"><div class="ttname"><a href="classMockDevice.html#ac0ddc587c799b4572ef197a79bd68d40">MockDevice::stop</a></div><div class="ttdeci">void stop()</div><div class="ttdoc">Stops the devices heartbeat.</div><div class="ttdef"><b>Definition:</b> <a href="simulatorpage_8cpp_source.html#l00033">simulatorpage.cpp:33</a></div></div>
-<div class="ttc" id="aclassMockDevice_html_aca25f7fb4e9d5788fa8cc91816cfbde2"><div class="ttname"><a href="classMockDevice.html#aca25f7fb4e9d5788fa8cc91816cfbde2">MockDevice::start</a></div><div class="ttdeci">void start()</div><div class="ttdoc">Starts the devices heartbeat.</div><div class="ttdef"><b>Definition:</b> <a href="simulatorpage_8cpp_source.html#l00028">simulatorpage.cpp:28</a></div></div>
-<div class="ttc" id="aclassMockDevice_html_adbe2d472a5f4ca96642251f88f939c9c"><div class="ttname"><a href="classMockDevice.html#adbe2d472a5f4ca96642251f88f939c9c">MockDevice::handleHeartbeat</a></div><div class="ttdeci">void handleHeartbeat()</div><div class="ttdoc">Reads the next payload and emits the onHeartbeat signal.</div><div class="ttdef"><b>Definition:</b> <a href="simulatorpage_8cpp_source.html#l00038">simulatorpage.cpp:38</a></div></div>
-<div class="ttc" id="aclassSimulatorPage_html"><div class="ttname"><a href="classSimulatorPage.html">SimulatorPage</a></div><div class="ttdoc">Represents page for handling of traffic simulation.</div><div class="ttdef"><b>Definition:</b> <a href="simulatorpage_8h_source.html#l00061">simulatorpage.h:62</a></div></div>
+<div class="ttc" id="aclassMockDevice_html_ac0ddc587c799b4572ef197a79bd68d40"><div class="ttname"><a href="classMockDevice.html#ac0ddc587c799b4572ef197a79bd68d40">MockDevice::stop</a></div><div class="ttdeci">void stop()</div><div class="ttdoc">Stops the devices heartbeat.</div><div class="ttdef"><b>Definition:</b> <a href="simulatorpage_8cpp_source.html#l00038">simulatorpage.cpp:38</a></div></div>
+<div class="ttc" id="aclassMockDevice_html_aca25f7fb4e9d5788fa8cc91816cfbde2"><div class="ttname"><a href="classMockDevice.html#aca25f7fb4e9d5788fa8cc91816cfbde2">MockDevice::start</a></div><div class="ttdeci">void start()</div><div class="ttdoc">Starts the devices heartbeat.</div><div class="ttdef"><b>Definition:</b> <a href="simulatorpage_8cpp_source.html#l00033">simulatorpage.cpp:33</a></div></div>
+<div class="ttc" id="aclassMockDevice_html_adbe2d472a5f4ca96642251f88f939c9c"><div class="ttname"><a href="classMockDevice.html#adbe2d472a5f4ca96642251f88f939c9c">MockDevice::handleHeartbeat</a></div><div class="ttdeci">void handleHeartbeat()</div><div class="ttdoc">Reads the next payload and emits the onHeartbeat signal.</div><div class="ttdef"><b>Definition:</b> <a href="simulatorpage_8cpp_source.html#l00043">simulatorpage.cpp:43</a></div></div>
+<div class="ttc" id="aclassSimulatorPage_html"><div class="ttname"><a href="classSimulatorPage.html">SimulatorPage</a></div><div class="ttdoc">Represents page for handling of traffic simulation.</div><div class="ttdef"><b>Definition:</b> <a href="simulatorpage_8h_source.html#l00066">simulatorpage.h:67</a></div></div>
 <div class="ttc" id="aclassSimulatorPage_html_a414763625b74429859bad80fa362f096"><div class="ttname"><a href="classSimulatorPage.html#a414763625b74429859bad80fa362f096">SimulatorPage::onHeartbeat</a></div><div class="ttdeci">void onHeartbeat(mqtt::string topic, mqtt::string payload)</div><div class="ttdoc">Is emitted when a new a message is to be sent.</div></div>
 <div class="ttc" id="aclassSimulatorPage_html_a67e043e0413f02d45f732faf24695152"><div class="ttname"><a href="classSimulatorPage.html#a67e043e0413f02d45f732faf24695152">SimulatorPage::onReady</a></div><div class="ttdeci">void onReady()</div><div class="ttdoc">Is emitted when a configuration has been successfully set.</div></div>
-<div class="ttc" id="aclassSimulatorPage_html_a6c7c18b1b33c6af5b4990f6d2960774c"><div class="ttname"><a href="classSimulatorPage.html#a6c7c18b1b33c6af5b4990f6d2960774c">SimulatorPage::startSimulation</a></div><div class="ttdeci">void startSimulation()</div><div class="ttdoc">Starts the simulation.</div><div class="ttdef"><b>Definition:</b> <a href="simulatorpage_8cpp_source.html#l00087">simulatorpage.cpp:87</a></div></div>
-<div class="ttc" id="aclassSimulatorPage_html_ac682df7718a225a11103f9f2f3f284b1"><div class="ttname"><a href="classSimulatorPage.html#ac682df7718a225a11103f9f2f3f284b1">SimulatorPage::setSimulationConfigFile</a></div><div class="ttdeci">void setSimulationConfigFile(QString filename)</div><div class="ttdoc">Reads the provided file, checks if it is a valid JSON and initiates additional configuration.</div><div class="ttdef"><b>Definition:</b> <a href="simulatorpage_8cpp_source.html#l00065">simulatorpage.cpp:65</a></div></div>
-<div class="ttc" id="aclassSimulatorPage_html_ad62a972cb883f546ff28ca5534c4e1b2"><div class="ttname"><a href="classSimulatorPage.html#ad62a972cb883f546ff28ca5534c4e1b2">SimulatorPage::stopSimulation</a></div><div class="ttdeci">void stopSimulation()</div><div class="ttdoc">Stops the simulation.</div><div class="ttdef"><b>Definition:</b> <a href="simulatorpage_8cpp_source.html#l00094">simulatorpage.cpp:94</a></div></div>
-<div class="ttc" id="aclassSimulatorPage_html_af971a6dd70416e81cd730bde264ec573"><div class="ttname"><a href="classSimulatorPage.html#af971a6dd70416e81cd730bde264ec573">SimulatorPage::configureSimulation</a></div><div class="ttdeci">void configureSimulation()</div><div class="ttdoc">Parses the read configuration file and tries to create mock devices.</div><div class="ttdef"><b>Definition:</b> <a href="simulatorpage_8cpp_source.html#l00101">simulatorpage.cpp:101</a></div></div>
+<div class="ttc" id="aclassSimulatorPage_html_a6c7c18b1b33c6af5b4990f6d2960774c"><div class="ttname"><a href="classSimulatorPage.html#a6c7c18b1b33c6af5b4990f6d2960774c">SimulatorPage::startSimulation</a></div><div class="ttdeci">void startSimulation()</div><div class="ttdoc">Starts the simulation.</div><div class="ttdef"><b>Definition:</b> <a href="simulatorpage_8cpp_source.html#l00092">simulatorpage.cpp:92</a></div></div>
+<div class="ttc" id="aclassSimulatorPage_html_ac682df7718a225a11103f9f2f3f284b1"><div class="ttname"><a href="classSimulatorPage.html#ac682df7718a225a11103f9f2f3f284b1">SimulatorPage::setSimulationConfigFile</a></div><div class="ttdeci">void setSimulationConfigFile(QString filename)</div><div class="ttdoc">Reads the provided file, checks if it is a valid JSON and initiates additional configuration.</div><div class="ttdef"><b>Definition:</b> <a href="simulatorpage_8cpp_source.html#l00070">simulatorpage.cpp:70</a></div></div>
+<div class="ttc" id="aclassSimulatorPage_html_ad62a972cb883f546ff28ca5534c4e1b2"><div class="ttname"><a href="classSimulatorPage.html#ad62a972cb883f546ff28ca5534c4e1b2">SimulatorPage::stopSimulation</a></div><div class="ttdeci">void stopSimulation()</div><div class="ttdoc">Stops the simulation.</div><div class="ttdef"><b>Definition:</b> <a href="simulatorpage_8cpp_source.html#l00099">simulatorpage.cpp:99</a></div></div>
+<div class="ttc" id="aclassSimulatorPage_html_af971a6dd70416e81cd730bde264ec573"><div class="ttname"><a href="classSimulatorPage.html#af971a6dd70416e81cd730bde264ec573">SimulatorPage::configureSimulation</a></div><div class="ttdeci">void configureSimulation()</div><div class="ttdoc">Parses the read configuration file and tries to create mock devices.</div><div class="ttdef"><b>Definition:</b> <a href="simulatorpage_8cpp_source.html#l00106">simulatorpage.cpp:106</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>simulatorpage.h</b></li>
-    <li class="footer">Generated on Tue May 11 2021 19:42:50 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="simulatorpage_8h.html">simulatorpage.h</a></li>
+    <li class="footer">Generated on Tue May 11 2021 19:44:41 for fit-mqtt-client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
