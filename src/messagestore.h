@@ -28,8 +28,8 @@ class Message : public QObject
 public:
     explicit Message(mqtt::const_message_ptr msg, MessageType type, QObject *parent = nullptr);
 
-    MessageType msg_type; //<Whether message was received or sent and if it has been filtered
-    std::chrono::time_point<std::chrono::steady_clock> arrival_date; //<Time of arrival of the message
+    MessageType msg_type; //< Whether message was received or sent and if it has been filtered
+    std::chrono::time_point<std::chrono::steady_clock> arrival_date; //< Time of arrival of the message
 
     /**
      * @brief Returns the message payload
@@ -37,9 +37,16 @@ public:
     std::string getMessage();
 
 private:
-    mqtt::const_message_ptr msg;
+    mqtt::const_message_ptr msg; //< Underlying message
 };
 
+/**
+ * @brief Represents a storage of MQTT messages (both received & sent)
+ * @details Messages are handled using two hash maps: messages & new_messages.
+ * messages hash map serves for accumulating all messages and new_messages for
+ * accumulating new messages that are than propagated using the newMessages
+ * signal. This gives the option to alter cadency of delivery.
+ */
 class MessageStore : public QObject
 {
     Q_OBJECT
@@ -56,15 +63,37 @@ public:
      * by "<undefined-topipc-name>".
      */
     void createSnapshot(QString dirname);
+    /**
+     * @brief Sets maximum message capacity
+     *
+     * @param cap max number of messages
+     */
     void setMessageCap(int cap);
+    /**
+     * @brief Returns set maximum message capacity
+     */
     int getMessageCap();
-
+    /**
+     * @brief Returns all "commited" messages
+     */
     const QHash<QString, QList<Message*>> getAllMessages();
+    /**
+     * @brief Returns all "new" messages
+     */
     const QHash<QString, QList<Message*>> getNewMessages();
+    /**
+     * @brief Returns all messages from a topic
+     */
     const QList<Message*> getTopicMessages(const QString topic);
 
 signals:
-    void newMessages(const QHash<QString, QList<Message*>>);
+    /**
+     * @brief Is emitted when internal timeout has been reached and there are
+     * new messages
+     *
+     * @param msgs new messages
+     */
+    void newMessages(const QHash<QString, QList<Message*>> msgs);
 
 public slots:
     /**
@@ -79,12 +108,15 @@ public slots:
     void addMessage(const mqtt::const_message_ptr msg, MessageType type = MessageType::RECEIVED);
 
 private:
-    QTimer *ticker;
-    int message_capacity;
-    QHash<QString, QList<Message*>> messages;
-    QHash<QString, QList<Message*>> new_messages;
+    QTimer *ticker; //< Heartbeat of new message delivery
+    int message_capacity; //< Max number of stored messages
+    QHash<QString, QList<Message*>> messages; //< "commited" messages (stores all messages)
+    QHash<QString, QList<Message*>> new_messages; //< new messages (not "commited" yet)
 
 private slots:
+    /**
+     * @brief Prepares the publishing of new messages
+     */
     void handleTick();
 };
 

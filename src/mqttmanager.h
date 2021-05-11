@@ -16,11 +16,15 @@ class MQTTManager : public QObject
 {
     Q_OBJECT
 public:
-    bool connected; //<whether the client is currently connected
+    bool connected; //< whether the client is currently connected
 
     explicit MQTTManager(QObject *parent = nullptr);
 
-const QString getServerName();
+    /**
+     * @brief Returns the name of the server the client is currently connected
+     * to
+     */
+    const QString getServerName();
 
 public slots:
     /**
