@@ -21,10 +21,10 @@ find_package(Qt5 COMPONENTS REQUIRED
 
 find_package(Threads REQUIRED)
 
-find_library(paho-mqttpp3 NAMES libpaho-mqttpp3.a REQUIRED)
+find_library(paho-mqttpp3 NAMES libpaho-mqttpp3.so REQUIRED)
 find_library(paho-mqtt3a NAMES libpaho-mqtt3a.so REQUIRED)
 
-add_library(pahottpp STATIC IMPORTED)
+add_library(pahottpp SHARED IMPORTED)
 set_target_properties(pahottpp PROPERTIES IMPORTED_LOCATION ${paho-mqttpp3})
 
 add_library(pahomqtt3a SHARED IMPORTED)
