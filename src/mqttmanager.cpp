@@ -1,3 +1,8 @@
+/**
+ * @file mqttmanager.cpp
+ * @author Ondřej Míchal <xmicha80>
+ */
+
 #include <iostream>
 #include <QDebug>
 

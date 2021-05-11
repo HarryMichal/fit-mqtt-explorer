@@ -1,3 +1,8 @@
+/**
+ * @file newconnection.h
+ * @author Žaneta Grossová <xgross11>
+ */
+
 #ifndef NEWCONNECTION_H
 #define NEWCONNECTION_H
 

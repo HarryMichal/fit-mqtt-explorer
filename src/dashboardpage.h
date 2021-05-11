@@ -1,3 +1,8 @@
+/**
+ * @file dashboardpage.h
+ * #author Žaneta Grossová <xgross11>
+ */
+
 #ifndef DASHBOARDPAGE_H
 #define DASHBOARDPAGE_H
 

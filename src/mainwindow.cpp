@@ -1,3 +1,9 @@
+/**
+ * @file mainwindow.cpp
+ * @author Ondřej Míchal <xmicha80>
+ * @author Žaneta Grossová <xgross11>
+ */
+
 #include <QDialog>
 #include <QFile>
 #include <QFileDialog>

@@ -1,3 +1,8 @@
+/**
+ * @file explorerpage.h
+ * @author Ondřej Míchal <xmicha80>
+ */
+
 #ifndef EXPLORERPAGE_H
 #define EXPLORERPAGE_H
 

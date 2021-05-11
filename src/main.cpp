@@ -1,3 +1,8 @@
+/**
+ * @file main.cpp
+ * @author Ondřej Míchal <xmicha80>
+ */
+
 #include <QApplication>
 
 #include "mainwindow.h"

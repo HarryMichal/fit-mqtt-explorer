@@ -1,3 +1,8 @@
+/**
+ * @file explorerpage.cpp
+ * @author Ondřej Míchal <xmicha80>
+ */
+
 #include <QBrush>
 #include <QColor>
 #include <QFileDialog>
