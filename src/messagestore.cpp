@@ -8,7 +8,7 @@ MessageStore::MessageStore(QObject *parent) :
     new_messages(QHash<QString, QList<QString>>())
 {
     connect(this->ticker, &QTimer::timeout, this, &MessageStore::handleTick);
-    this->ticker->start(200);
+    this->ticker->start(400);
 }
 
 void MessageStore::setMessageCap(int cap)
