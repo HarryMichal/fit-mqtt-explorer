@@ -41,6 +41,8 @@ set(PROJECT_SOURCES
         src/newconnection.cpp src/newconnection.h src/newconnection.ui
         src/messagehistorydialog.h src/messagehistorydialog.cpp src/messagehistorydialog.ui
         src/simulatorpage.h src/simulatorpage.cpp src/simulatorpage.ui
+        src/editwidget.cpp src/editwidget.h src/editwidget.ui
+        src/dashboardwidget.cpp src/dashboardwidget.h src/dashboardwidget.ui
 )
 
 add_executable(fit-mqtt-client

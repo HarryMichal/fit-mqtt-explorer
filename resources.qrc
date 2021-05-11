@@ -6,6 +6,8 @@
         <file alias="actual-state.svg">data/icons/actual-state.svg</file>
         <file alias="history-graphs.svg">data/icons/history-graphs.svg</file>
         <file alias="new-connection.svg">data/icons/new-connection.svg</file>
+        <file alias="edit.svg">data/icons/edit.svg</file>
+        <file alias="trash.svg">data/icons/trash.svg</file>
         <file alias="mail-unread-symbolic.svg">data/icons/mail-unread-symbolic.svg</file>
         <file alias="document-save-symbolic.svg">data/icons/document-save-symbolic.svg</file>
         <file alias="test-symbolic.svg">data/icons/test-symbolic.svg</file>
