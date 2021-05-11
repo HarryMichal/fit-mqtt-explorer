@@ -26,15 +26,16 @@ var NAVTREE =
 [
   [ "fit-mqtt-client", "index.html", [
     [ "FIT MQTT Client", "index.html", [
-      [ "State of the project", "index.html#autotoc_md1", [
-        [ "Explorer", "index.html#autotoc_md2", null ],
-        [ "Dashboard", "index.html#autotoc_md3", null ],
-        [ "Simulator", "index.html#autotoc_md4", null ]
+      [ "Build requirements", "index.html#autotoc_md1", null ],
+      [ "State of the project", "index.html#autotoc_md2", [
+        [ "Explorer", "index.html#autotoc_md3", null ],
+        [ "Dashboard", "index.html#autotoc_md4", null ],
+        [ "Simulator", "index.html#autotoc_md5", null ]
       ] ],
-      [ "Simulation of traffic", "index.html#autotoc_md5", [
-        [ "Simulation config file structure", "index.html#autotoc_md6", null ]
+      [ "Simulation of traffic", "index.html#autotoc_md6", [
+        [ "Simulation config file structure", "index.html#autotoc_md7", null ]
       ] ],
-      [ "Attributions", "index.html#autotoc_md7", null ]
+      [ "Attributions", "index.html#autotoc_md8", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -58,7 +59,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"structwidgetStructure.html#a8732e017972073d187d416fe9eb8c429"
+"structwidgetStructure.html#a787241d8d3379043456c7f4406e7eee1"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

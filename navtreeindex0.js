@@ -199,12 +199,13 @@ var NAVTREEINDEX0 =
 "index.html":[],
 "index.html":[0],
 "index.html#autotoc_md1":[0,0],
-"index.html#autotoc_md2":[0,0,0],
-"index.html#autotoc_md3":[0,0,1],
-"index.html#autotoc_md4":[0,0,2],
-"index.html#autotoc_md5":[0,1],
-"index.html#autotoc_md6":[0,1,0],
-"index.html#autotoc_md7":[0,2],
+"index.html#autotoc_md2":[0,1],
+"index.html#autotoc_md3":[0,1,0],
+"index.html#autotoc_md4":[0,1,1],
+"index.html#autotoc_md5":[0,1,2],
+"index.html#autotoc_md6":[0,2],
+"index.html#autotoc_md7":[0,2,0],
+"index.html#autotoc_md8":[0,3],
 "main_8cpp.html":[2,0,8],
 "main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97":[2,0,8,0],
 "main_8cpp_source.html":[2,0,8],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "structServerName.html#add8a1db2b1deb9d9e5b87e8b5ab230f7":[1,0,13,1],
 "structwidgetStructure.html":[1,0,15],
 "structwidgetStructure.html#a13e3091b756e87ede66a829f6097c1e2":[1,0,15,2],
-"structwidgetStructure.html#a552b1ee2ac9004c503a9a07efea0ba99":[1,0,15,3],
-"structwidgetStructure.html#a787241d8d3379043456c7f4406e7eee1":[1,0,15,4]
+"structwidgetStructure.html#a552b1ee2ac9004c503a9a07efea0ba99":[1,0,15,3]
 };
