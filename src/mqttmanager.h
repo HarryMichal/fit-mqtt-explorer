@@ -38,7 +38,7 @@ public slots:
      * from newConnection window
      * @param fullConnectionAdress string with full server adress with port
      */
-    void connect(QString fullConnectionAdress);
+    void connect(QString fullConnectionAdress, QString client_id);
     /**
      * @brief send() sends a message to an MQTT server
      * @details The assembly of a message is to be done by other components.

@@ -43,7 +43,7 @@ signals:
      * @param fullConnectionAdress merged form data into full server adress
      * @detail format [host]:[port]
      */
-    void createNewConnection(QString fullConnectionAdress);
+    void createNewConnection(QString fullConnectionAdress, QString client_id);
 
 private:
 

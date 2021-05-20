@@ -46,7 +46,12 @@ void NewConnection::processForm()
 
     QString fullConnectionAdress = serverName.host + ":" + QString::number(serverName.port);
 
-    emit createNewConnection(fullConnectionAdress);
+    QString client_id = this->ui->NameLineEdit->text();
+    if (client_id == "") {
+        client_id = "fit-mqtt-client";
+    }
+
+    emit createNewConnection(fullConnectionAdress, client_id);
 }
 
 void NewConnection::setupActions()

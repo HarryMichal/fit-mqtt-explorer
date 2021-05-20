@@ -80,7 +80,7 @@ const QString MQTTManager::getServerName()
     return QString::fromStdString(this->client->get_server_uri());
 }
 
-void MQTTManager::connect(QString fullConnectionAdress)
+void MQTTManager::connect(QString fullConnectionAdress, QString client_id)
 {
     if (this->client != nullptr) {
         if (this->client->is_connected()) {
@@ -88,7 +88,7 @@ void MQTTManager::connect(QString fullConnectionAdress)
         }
     }
 
-    this->client = std::make_shared<mqtt::async_client>(fullConnectionAdress.toStdString(), CLIENT_ID);
+    this->client = std::make_shared<mqtt::async_client>(fullConnectionAdress.toStdString(), client_id.toStdString());
 
     this->options = std::make_shared<mqtt::connect_options>();
     this->options->set_clean_session(true);
