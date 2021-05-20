@@ -67,6 +67,8 @@ MQTTManager::MQTTManager(QObject *parent) :
     cb(nullptr)
 {
     this->connected = false;
+
+    QObject::connect(this, &MQTTManager::onConnected, this, &MQTTManager::setupDefaultSubscriptions);
 }
 
 const QString MQTTManager::getServerName()
@@ -100,13 +102,8 @@ void MQTTManager::connect(QString fullConnectionAdress)
 
     try {
         auto tok = this->client->connect(*this->options, nullptr, *cb);
-        tok->get_connect_response();
     } catch (mqtt::exception err) {
         return;
-    }
-
-    if (this->client->is_connected()) {
-        this->client->subscribe("#", 0);
     }
 }
 
@@ -116,5 +113,16 @@ void MQTTManager::send(mqtt::const_message_ptr msg)
         return;
     }
 
+    if (!this->client->is_connected()) {
+        return;
+    }
+
     this->client->publish(msg);
+}
+
+void MQTTManager::setupDefaultSubscriptions()
+{
+    if (this->client->is_connected()) {
+        this->client->subscribe("#", 0);
+    }
 }

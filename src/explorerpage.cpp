@@ -93,7 +93,7 @@ void ExplorerPage::changeSelectedTopic(const QModelIndex &current)
 
 void ExplorerPage::initConnection(const QString server_name)
 {
-    this->topics_tree_model.clear();
+    // this->topics_tree_model.clear();
     this->addTopic(server_name, true);
 }
 
@@ -104,6 +104,8 @@ void ExplorerPage::receiveNewMessages(const QHash<QString, QList<Message*>> new_
         auto topic = i.key();
         this->addTopic(topic, false);
     }
+
+    this->topics_tree_model.sort(0);
 
     // Don't touch the message history list if no relevant new messages arrived
     if (!new_msgs.contains(this->current_topic)) {
@@ -231,6 +233,5 @@ void ExplorerPage::addTopic(const QString topic, const bool root)
         new_topic_node->setText(*i);
         parent->appendRow(new_topic_node);
         parent = new_topic_node;
-        this->topics_tree_model.sort(0);
     }
 }

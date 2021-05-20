@@ -85,6 +85,8 @@ private:
     mqtt::async_client_ptr client;
     mqtt::connect_options_ptr options;
     mqtt::callback_ptr cb;
+
+    void setupDefaultSubscriptions();
 };
 
 #endif // MQTTMANAGER_H

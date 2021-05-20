@@ -10,9 +10,9 @@
 
 Message::Message(mqtt::const_message_ptr msg, MessageType type, QObject *parent) :
     QObject(parent),
-    msg(msg),
     msg_type(type),
-    arrival_date(std::chrono::steady_clock::now())
+    arrival_date(std::chrono::steady_clock::now()),
+    msg(msg)
 {
 
 }
